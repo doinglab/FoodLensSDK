@@ -67,7 +67,7 @@ compileOptions {
 
  - 프로젝트에서 app > Gradle Scripts(그래들 스크립트) > build.gradle (Module: app)을 연 후 dependencies{} 섹션에 아래와 같은 문구를 추가해 주세요.
 ```java
- implementation 'com.doinglab.foodlens:FoodLens:[1, 2)'
+ implementation 'com.doinglab.foodlens:FoodLens:1.0.0'
  configurations.all {
  	exclude group: 'com.android.support', module: 'support-v13'
  }
