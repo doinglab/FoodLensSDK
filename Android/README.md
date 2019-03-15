@@ -256,4 +256,4 @@ protected void onActivityResult(int requestCode, int resultCode, @Nullable Inten
 [상세 API 명세](javadoc/index.html)  
 
 ## 5. SDK 사용 예제  
-[Sample 예제](Sample/)
+[Sample 예제](SampleCode/)
