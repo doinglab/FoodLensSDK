@@ -15,7 +15,7 @@ FoodLens SDK는 Network SDK와 UI SDK로 이루어 지며, 자체 UI를 작성�
    **https://jitpack.io 가 이미 추가되어 있으면 추가하지 않으셔도 됩니다.  
      (FoodLens에서 사용하는 OpenSource를 위해 추가가 필요합니다)
 ```java
- maven {
+maven {
      credentials {
          username "[UserName]"
          password "[Password]"
