@@ -222,7 +222,7 @@ private UIService uis;
 uis = FoodLens.createUIService(context);
 uis.startFoodLensCamera(MainActivity.this, new CameraResultHandler() {
                     @Override
-                    public void onSuccess(RecognitionResult result) {     
+                    public void onSuccess(UserSelectedResult result) {     
 		    	//implement code
                     }
 
