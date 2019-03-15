@@ -253,7 +253,7 @@ protected void onActivityResult(int requestCode, int resultCode, @Nullable Inten
 ```
 
 ## 4. SDK 상세 스펙  
-[상세 API 명세](javadoc/index.html)  
+[상세 API 명세](https://doinglab.github.io/android/index.html)  
 
 ## 5. SDK 사용 예제  
 [Sample 예제](SampleCode/)
