@@ -135,12 +135,12 @@ dependencies {
  - Meta data추가 
    아래와 같이 메타데이터를 Manifest.xml에 추가해 주세요
 ```xml
-<meta-data android:name="com.doinglab.foodlens.sdk.accesstoken" android:value="@string/foodlens_access_token"/>
-<activity android:name="com.doinglab.foodlens.sdk.ui.Camera.FoodLensCameraActivity"/>
-<activity android:name="com.doinglab.foodlens.sdk.ui.details.FoodInfoActivity"/>
-<activity android:name="com.doinglab.foodlens.sdk.ui.details.FoodInfoEditActivity"/>
-<activity android:name="com.doinglab.foodlens.sdk.ui.details.NutritionInfoActivity"/>
-<activity android:name="com.doinglab.foodlens.sdk.ui.details.SearchActivity"/>
+<meta-data android:name="com.doinglab.foodlens.sdk.accesstoken" android:value="@string/foodlens_access_token"/> 
+<activity android:name="com.doinglab.foodlens.sdk.ui.Camera.FoodLensCameraActivity" android:theme="@style/AppTheme.NoActionBar" android:screenOrientation="portrait"/> 
+<activity android:name="com.doinglab.foodlens.sdk.ui.details.FoodInfoActivity" android:theme="@style/AppTheme.NoActionBar" android:screenOrientation="portrait"/> 
+<activity android:name="com.doinglab.foodlens.sdk.ui.details.FoodInfoEditActivity" android:theme="@style/AppTheme.NoActionBar" android:screenOrientation="portrait"/> 
+<activity android:name="com.doinglab.foodlens.sdk.ui.details.NutritionInfoActivity" android:theme="@style/AppTheme.NoActionBar" android:screenOrientation="portrait"/> 
+<activity android:name="com.doinglab.foodlens.sdk.ui.details.SearchActivity" android:theme="@style/AppTheme.NoActionBar" android:screenOrientation="portrait" />
 ```  
 
  - ProGuard 설정
