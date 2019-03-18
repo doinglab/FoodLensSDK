@@ -52,7 +52,7 @@ allprojects {
 ```java
    defaultConfig {
         ....
-        minSdkVersion 1
+        minSdkVersion 19
 	....       
     }
 ```
