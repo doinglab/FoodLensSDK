@@ -107,7 +107,7 @@ dependencies {
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
-    implementation 'com.doinglab.foodlens:FoodLens:[1, 2)'
+    implementation 'com.doinglab.foodlens:FoodLens:1.0.0'
     configurations.all {
         exclude group: 'com.android.support', module: 'support-v13'
     }
