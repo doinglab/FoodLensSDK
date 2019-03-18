@@ -126,7 +126,6 @@ dependencies {
    **※ 기존에 설정되어 있는 권한과 중복이 있는 경우 중복되지 않는 항목만 추가해 주세요.**
 ```xml
     <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.WRITE_INTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.CAMERA" />
