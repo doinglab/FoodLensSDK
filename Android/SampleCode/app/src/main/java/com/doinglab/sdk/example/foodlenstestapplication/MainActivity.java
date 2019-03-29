@@ -22,30 +22,27 @@ import android.widget.Toast;
 import com.doinglab.foodlens.sdk.FoodLens;
 import com.doinglab.foodlens.sdk.NetworkService;
 
-import com.doinglab.foodlens.sdk.RecognitionResult;
+import com.doinglab.foodlens.sdk.network.model.RecognitionResult;
 import com.doinglab.foodlens.sdk.UIService;
-import com.doinglab.foodlens.sdk.UserSelectedResult;
+import com.doinglab.foodlens.sdk.network.model.UserSelectedResult;
 import com.doinglab.foodlens.sdk.errors.BaseError;
-import com.doinglab.foodlens.sdk.network.Box;
-import com.doinglab.foodlens.sdk.network.Food;
-import com.doinglab.foodlens.sdk.network.FoodPosition;
-import com.doinglab.foodlens.sdk.network.Nutrition;
-import com.doinglab.foodlens.sdk.network.NutritionResult;
-import com.doinglab.foodlens.sdk.network.NutritionResultHandler;
-import com.doinglab.foodlens.sdk.network.RecognizeResultHandler;
+import com.doinglab.foodlens.sdk.network.model.Box;
+import com.doinglab.foodlens.sdk.network.model.Food;
+import com.doinglab.foodlens.sdk.network.model.FoodPosition;
+import com.doinglab.foodlens.sdk.network.model.Nutrition;
+import com.doinglab.foodlens.sdk.network.model.NutritionResult;
+import com.doinglab.foodlens.sdk.NutritionResultHandler;
+import com.doinglab.foodlens.sdk.RecognizeResultHandler;
 
-import com.doinglab.foodlens.sdk.ui.CameraResultHandler;
-import com.doinglab.foodlens.sdk.ui.UIServiceImpl;
-import com.doinglab.foodlens.sdk.ui.UIServiceMode;
+import com.doinglab.foodlens.sdk.UIServiceResultHandler;
+import com.doinglab.foodlens.sdk.UIServiceMode;
 import com.doinglab.sdk.example.foodlenstestapplication.listview.ListViewAdapter;
-
-import org.w3c.dom.Text;
 
 import java.io.File;
 import java.io.FileInputStream;
 import java.util.List;
 
-import static com.doinglab.foodlens.sdk.network.NutritionRetrieveMode.TOP1_NUTRITION_ONLY;
+import static com.doinglab.foodlens.sdk.NutritionRetrieveMode.TOP1_NUTRITION_ONLY;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -64,7 +61,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         uiService = FoodLens.createUIService(getApplicationContext());
-        UIServiceImpl.setUiServiceMode(UIServiceMode.USER_SELECTED_WITH_CANDIDATES);
+        uiService.setUiServiceMode(UIServiceMode.USER_SELECTED_WITH_CANDIDATES);
 
         tv_title = (TextView)findViewById(R.id.tv_title);
         adapter = new ListViewAdapter() ;
@@ -84,7 +81,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                uiService.startFoodLensCamera(MainActivity.this, new CameraResultHandler() {
+                uiService.startFoodLensCamera(MainActivity.this, new UIServiceResultHandler() {
                     @Override
                     public void onSuccess(UserSelectedResult result) {
 
