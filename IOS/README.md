@@ -1,6 +1,101 @@
-# IOS용 FoodLens SDK 메뉴얼
+# FoodLens
 
-IOS용 FoodLens SDK를 사용하여 FoodLens 기능을 이용할 수 있습니다.  
-FoodLens SDK는 Network SDK와 UI SDK로 이루어 지며, 자체 UI를 작성할 경우는 Network SDK를, Doinglab에서 제공하는 UI화면까지 사용할 경우는 UI SDK를 사용하셔서 FoodLens의 기능을 이용하실 수 있습니다. 
+<!-- [![CI Status](https://img.shields.io/travis/hyunsuk.lee@doinglab.com/FoodLens.svg?style=flat)](https://travis-ci.org/hyunsuk.lee@doinglab.com/FoodLens)
+[![Version](https://img.shields.io/cocoapods/v/FoodLens.svg?style=flat)](https://cocoapods.org/pods/FoodLens)
+[![License](https://img.shields.io/cocoapods/l/FoodLens.svg?style=flat)](https://cocoapods.org/pods/FoodLens)
+[![Platform](https://img.shields.io/cocoapods/p/FoodLens.svg?style=flat)](https://cocoapods.org/pods/FoodLens) -->
 
-IOS용 FoodLens SDK는 제공 예정입니다.
+## Requirements
+
+* iOS Ver 10.0 or higher
+* Swift Version 4.2 or higher
+
+## Installation
+
+First, add repository using  `pod repo add`
+
+```ruby
+pod repo add bitbucket-doing-lab-foodlenssdk-specs https://bitbucket.org/doing-lab/foodlenssdk-specs.git
+```
+When credentials are needed, we have given you some information to certify, please use it.
+
+Next, add source clause of FoodLens into your Podfile.  
+
+```ruby
+source 'https://bitbucket.org/doing-lab/foodlenssdk-specs.git'
+```
+
+When you use other library (Alamofire, Kingfisher etc...), you must add cocoapod source into your Podfile. 
+
+```ruby
+source 'https://bitbucket.org/doing-lab/foodlenssdk-specs.git'
+source 'https://github.com/CocoaPods/Specs.git'
+```
+
+And add below into your Podfile
+
+```ruby
+pod 'FoodLens'
+```
+
+## Using FoodLens UI
+
+You can use UI served by default
+
+```swift
+FoodLens.uiServiceMode = .userSelectedWithCandidates
+
+let uiService = FoodLens.createUIService(accessToken: "31ae11f871ed4b2f89b18528f989af76") //AccessToken is given to you
+uiService?.startUIService(parent: self, completionHandler: self)
+```
+A completionHandler is protocol called when recognition process is completed
+
+```swift
+public protocol UserServiceResultHandler {
+    func onSuccess(_ result : RecognitionResult)    //called when process is succeeded
+    func onCancel()                                 //called when user cancels recognition
+    func onError(_ error : BaseError)               //called when error is occurred
+}
+```
+When you want to modify recognition result, you can use editing service 
+
+```swift
+let mealData = PredictionResult()    // PredictionResult implements RecognitionResult protocol
+let foodPosition = FoodPosition()
+let food = Food()
+food.foodName = "FoodName"
+let nutrition = Nutrition()
+nutrition.calories = 5000
+food.nutrition = nutrition
+foodPosition.foodCandidates.append(food)
+foodPosition.userSelectedFood = foodPosition.foodCandidates[0]
+mealData.putFoodPosition(foodPosition)
+
+FoodLens.uiServiceMode = .userSelectedWithCandidates
+
+let uiService = FoodLens.createUIService(accessToken: "31ae11f871ed4b2f89b18528f989af76") //AccessToken is given to you
+uiService.startEditUIService(mealData, parent: self, completionHandler: CallbackObject())    
+```
+A completionHandler is protocol called when recognition process is completed
+
+
+
+## Using Only Network API
+
+Of cource you can use only network API like this.
+
+```swift
+let networkService = FoodLens.createNetworkService(nutritionRetrieveMode: .allNutirition, accessToken: "31ae11f871ed4b2f89b18528f989af76") //AccessToken is given to you
+networkService!.predictMultipleFood(image: pickedImage) { (result : PredictionResult?, status : ProcessStatus) in
+    
+}
+```
+PredictionResult is the object that implements RecognitionResult protocol
+
+## Author
+
+hyunsuk.lee@doinglab.com, leeint@gmail.com
+
+## License
+
+FoodLens is available under the MIT license. See the LICENSE file for more info.
