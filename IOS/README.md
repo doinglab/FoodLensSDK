@@ -11,7 +11,7 @@
 * Swift Version 4.2 or higher
 
 ## Example  
-[Sample 예제](SampleCode/)
+[Sample](SampleCode/)
 
 ## Installation
 
