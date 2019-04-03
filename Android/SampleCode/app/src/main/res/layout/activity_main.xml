@@ -20,18 +20,22 @@
             >
 
             <Button
+                android:id="@+id/btn_run_camera"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Run FoodLens Network Service"
-                android:id="@+id/btn_run_camera"
-                />
+                android:text="Run FoodLens Network Service"/>
 
             <Button
+                android:id="@+id/btn_run_foodlens"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Run FoodLens UI Service"
-                android:id="@+id/btn_run_foodlens"
-                />
+                android:text="Run FoodLens UI Service"/>
+
+            <Button
+                android:id="@+id/btn_run_editmode"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Run FoodLens EditMode"/>
 
             <TextView
                 android:layout_marginTop="12dp"

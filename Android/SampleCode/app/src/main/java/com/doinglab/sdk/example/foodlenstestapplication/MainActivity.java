@@ -55,6 +55,8 @@ public class MainActivity extends AppCompatActivity {
     ListViewAdapter adapter;
     final int REQ_PICTURE = 0x02;
 
+    RecognitionResult recognitionResult = null;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -84,10 +86,9 @@ public class MainActivity extends AppCompatActivity {
                 uiService.startFoodLensCamera(MainActivity.this, new UIServiceResultHandler() {
                     @Override
                     public void onSuccess(UserSelectedResult result) {
-
+                        recognitionResult = result;
                         tv_title.setText("Result from UI Service");
-                        UserSelectedResult userRecognitionResult = result;
-                        setRecognitionResultData(userRecognitionResult);
+                        setRecognitionResultData(recognitionResult);
                     }
 
                     @Override
@@ -102,6 +103,31 @@ public class MainActivity extends AppCompatActivity {
                         Log.e("FOODLENS_LOG", error.getMessage());
                         Toast.makeText(getApplicationContext(), error.getMessage(), Toast.LENGTH_SHORT).show();
 
+                    }
+                });
+            }
+        });
+
+        findViewById(R.id.btn_run_editmode).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                uiService.startFoodLensDataEdit(MainActivity.this, recognitionResult, new UIServiceResultHandler() {
+                    @Override
+                    public void onSuccess(UserSelectedResult result) {
+                        recognitionResult = result;
+                        setRecognitionResultData(recognitionResult);
+                    }
+
+                    @Override
+                    public void onCancel() {
+                        Log.d("FOODLENS_LOG", "Recognition Cancel");
+                        Toast.makeText(getApplicationContext(), "Recognition Cancel", Toast.LENGTH_SHORT).show();
+                    }
+
+                    @Override
+                    public void onError(BaseError error) {
+                        Log.e("FOODLENS_LOG", error.getMessage());
+                        Toast.makeText(getApplicationContext(), error.getMessage(), Toast.LENGTH_SHORT).show();
                     }
                 });
             }
