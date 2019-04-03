@@ -10,6 +10,9 @@
 * iOS Ver 10.0 or higher
 * Swift Version 4.2 or higher
 
+## Example  
+[Sample 예제](SampleCode/)
+
 ## Installation
 
 First, add repository using  `pod repo add`
@@ -90,6 +93,10 @@ networkService!.predictMultipleFood(image: pickedImage) { (result : PredictionRe
     
 }
 ```
+## Documents  
+[API Documents](https://doinglab.github.io/ios/index.html)
+
+
 PredictionResult is the object that implements RecognitionResult protocol
 
 ## Author
