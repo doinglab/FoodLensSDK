@@ -100,7 +100,7 @@ PredictionResult is the object that implements RecognitionResult protocol
 
 ## Author
 
-hyunsuk.lee@doinglab.com, leeint@gmail.com
+hyunsuk.lee@doinglab.com
 
 ## License
 
