@@ -1,0 +1,43 @@
+PODS:
+  - Alamofire (4.8.1)
+  - EVReflection (5.10.0):
+    - EVReflection/Core (= 5.10.0)
+  - EVReflection/Core (5.10.0)
+  - FoodLens (0.1.7):
+    - Alamofire (= 4.8.1)
+    - EVReflection (= 5.10.0)
+    - Kingfisher (= 4.10.0)
+    - SwiftKeychainWrapper (= 3.2.0)
+    - SwiftyJSON (= 4.2.0)
+    - XLPagerTabStrip (= 8.1.1)
+  - Kingfisher (4.10.0)
+  - SwiftKeychainWrapper (3.2.0)
+  - SwiftyJSON (4.2.0)
+  - XLPagerTabStrip (8.1.1)
+
+DEPENDENCIES:
+  - FoodLens (= 0.1.7)
+
+SPEC REPOS:
+  https://bitbucket.org/doing-lab/foodlenssdk-specs.git:
+    - FoodLens
+  https://github.com/cocoapods/specs.git:
+    - Alamofire
+    - EVReflection
+    - Kingfisher
+    - SwiftKeychainWrapper
+    - SwiftyJSON
+    - XLPagerTabStrip
+
+SPEC CHECKSUMS:
+  Alamofire: 16ce2c353fb72865124ddae8a57c5942388f4f11
+  EVReflection: 1abc1a81927ab0d30170238cf9b79bff489e9728
+  FoodLens: a19fc9a29063e74df44bdb7e998ea36d1200176f
+  Kingfisher: 43c4b802d8b5256cf1f4379e9cd10b329be6d3e2
+  SwiftKeychainWrapper: 82c4c02cdc36f9a24f7edfcaab3e336401caa1a1
+  SwiftyJSON: c4bcba26dd9ec7a027fc8eade48e2c911f229e96
+  XLPagerTabStrip: 63166e21c9844fa30f2d95d30f335e73be5caf22
+
+PODFILE CHECKSUM: 78ace67c7a2dea7ecf556064136b7fa60c34bd75
+
+COCOAPODS: 1.6.1
