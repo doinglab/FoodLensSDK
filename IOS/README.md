@@ -93,11 +93,10 @@ networkService!.predictMultipleFood(image: pickedImage) { (result : PredictionRe
     
 }
 ```
+PredictionResult is the object that implements RecognitionResult protocol
+
 ## Documents  
 [API Documents](https://doinglab.github.io/ios/index.html)
-
-
-PredictionResult is the object that implements RecognitionResult protocol
 
 ## Author
 
