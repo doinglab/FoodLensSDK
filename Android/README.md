@@ -230,6 +230,53 @@ protected void onActivityResult(int requestCode, int resultCode, @Nullable Inten
 }
 ```
 
+#### 3.2.2 UI Service의 Data 수정 기능
+1. UIService를 생성합니다.
+2. startFoodLensDataEdit 메소드를 호출 합니다. 
+- 코드 예제
+```java
+//Define UI Service
+private UIService uis;
+RecognitionResult recognitionResult = null;
+
+...
+
+//Create UI Service
+uis = FoodLens.createUIService(context);
+uis.startFoodLensDataEdit(MainActivity.this, recognitionResult, new UIServiceResultHandler() {
+                    @Override
+                    public void onSuccess(UserSelectedResult result) {     
+		    	//implement code
+                    }
+
+                    @Override
+                    public void onCancel() {
+                        Log.d("MSG_LOG", "Recognition Cancel");
+                    }
+
+                    @Override
+                    public void onError(BaseError error) {
+                        Log.d("MSG_LOG", error.getMessage());
+                    }
+                });
+		
+```
+
+3. UIService의 startFoodLensDataEdit 호출한 Activity의 onActivityResult(Override)에 
+   UIService의 onActivityResult 메소드를 호출합니다. 
+- 코드예제
+```java
+
+@Override
+protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+	....
+	uis.onActivityResult(requestCode, resultCode, data);
+	....
+}
+```
+
+...
+
 ## 4. SDK 상세 스펙  
 [상세 API 명세](https://doinglab.github.io/android/index.html)  
 
