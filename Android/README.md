@@ -232,7 +232,8 @@ protected void onActivityResult(int requestCode, int resultCode, @Nullable Inten
 
 #### 3.2.2 UI Service의 Data 수정 기능
 1. UIService를 생성합니다.
-2. startFoodLensDataEdit 메소드를 호출 합니다. 
+2. 3.1.2과 3.2.1에서 획득한 영양정보를 recognitionResult에 저장합니다.
+3. startFoodLensDataEdit 메소드를 호출 합니다. 
 - 코드 예제
 ```java
 //Define UI Service
@@ -262,7 +263,7 @@ uis.startFoodLensDataEdit(MainActivity.this, recognitionResult, new UIServiceRes
 		
 ```
 
-3. UIService의 startFoodLensDataEdit 호출한 Activity의 onActivityResult(Override)에 
+4. UIService의 startFoodLensDataEdit 호출한 Activity의 onActivityResult(Override)에 
    UIService의 onActivityResult 메소드를 호출합니다. 
 - 코드예제
 ```java
