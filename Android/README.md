@@ -67,10 +67,7 @@ compileOptions {
 
  - 프로젝트에서 app > Gradle Scripts(그래들 스크립트) > build.gradle (Module: app)을 연 후 dependencies{} 섹션에 아래와 같은 문구를 추가해 주세요.
 ```java
- implementation 'com.doinglab.foodlens:FoodLens:1.0.1'
- configurations.all {
- 	exclude group: 'com.android.support', module: 'support-v13'
- }
+ implementation 'com.doinglab.foodlens:FoodLens:1.0.4'
 ```
  - 예제
  ```java
@@ -107,10 +104,7 @@ dependencies {
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
-    implementation 'com.doinglab.foodlens:FoodLens:1.0.1'
-    configurations.all {
-        exclude group: 'com.android.support', module: 'support-v13'
-    }
+    implementation 'com.doinglab.foodlens:FoodLens:1.0.4'
 }
 ```
 
@@ -121,25 +115,10 @@ dependencies {
 <string name="foodlens_access_token">[AccessToken]</string>
 ```
 
- - Permission 추가
-   네트워크 및 카메라 기능을 사용하기 /app/manifest/AndroidManifest.xml 파일에 아래와 같이 Permission을 추가해 주세요.  
-   **※ 기존에 설정되어 있는 권한과 중복이 있는 경우 중복되지 않는 항목만 추가해 주세요.**
-```xml
-    <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
-    <uses-permission android:name="android.permission.CAMERA" />
-    <uses-permission android:name="android.permission.VIBRATE" />
-```
  - Meta data추가 
    아래와 같이 메타데이터를 Manifest.xml에 추가해 주세요
 ```xml
 <meta-data android:name="com.doinglab.foodlens.sdk.accesstoken" android:value="@string/foodlens_access_token"/> 
-<activity android:name="com.doinglab.foodlens.sdk.ui.Camera.FoodLensCameraActivity" android:theme="@style/AppTheme.NoActionBar" android:screenOrientation="portrait"/> 
-<activity android:name="com.doinglab.foodlens.sdk.ui.details.FoodInfoActivity" android:theme="@style/AppTheme.NoActionBar" android:screenOrientation="portrait"/> 
-<activity android:name="com.doinglab.foodlens.sdk.ui.details.FoodInfoEditActivity" android:theme="@style/AppTheme.NoActionBar" android:screenOrientation="portrait"/> 
-<activity android:name="com.doinglab.foodlens.sdk.ui.details.NutritionInfoActivity" android:theme="@style/AppTheme.NoActionBar" android:screenOrientation="portrait"/> 
-<activity android:name="com.doinglab.foodlens.sdk.ui.details.SearchActivity" android:theme="@style/AppTheme.NoActionBar" android:screenOrientation="portrait" />
 ```  
 
  - ProGuard 설정
@@ -219,7 +198,7 @@ private UIService uis;
 
 //Create UI Service
 uis = FoodLens.createUIService(context);
-uis.startFoodLensCamera(MainActivity.this, new CameraResultHandler() {
+uis.startFoodLensCamera(MainActivity.this, new UIServiceResultHandler() {
                     @Override
                     public void onSuccess(UserSelectedResult result) {     
 		    	//implement code
