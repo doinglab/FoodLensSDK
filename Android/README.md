@@ -67,7 +67,7 @@ compileOptions {
 
  - 프로젝트에서 app > Gradle Scripts(그래들 스크립트) > build.gradle (Module: app)을 연 후 dependencies{} 섹션에 아래와 같은 문구를 추가해 주세요.
 ```java
- implementation 'com.doinglab.foodlens:FoodLens:1.0.6'
+ implementation 'com.doinglab.foodlens:FoodLens:1.0.7'
 ```
  - 예제
  ```java
@@ -104,7 +104,7 @@ dependencies {
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
-    implementation 'com.doinglab.foodlens:FoodLens:1.0.6'
+    implementation 'com.doinglab.foodlens:FoodLens:1.0.7'
 }
 ```
 
