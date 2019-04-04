@@ -98,10 +98,6 @@ PredictionResult is the object that implements RecognitionResult protocol
 ## Documents  
 [API Documents](https://doinglab.github.io/ios/index.html)
 
-## Author
-
-hyunsuk.lee@doinglab.com
-
 ## License
 
 FoodLens is available under the MIT license. See the LICENSE file for more info.
