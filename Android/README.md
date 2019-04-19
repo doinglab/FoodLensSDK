@@ -104,7 +104,18 @@ dependencies {
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
-    implementation 'com.doinglab.foodlens:FoodLens:1.0.7'
+    implementation 'com.doinglab.foodlens:FoodLens:1.0.+'
+}
+```
+
+ - 사용하는 라이브러리의 버전 충돌시 아래와 같이 버전이 충돌되는 라이브러리를 제외하고 SDK가 참조되도록 수정합니다.
+  ```java
+ implementation ('com.doinglab.foodlens:FoodLens:1.0.+') {
+    exclude group: 'com.android.support', module: 'appcompat'
+    exclude group: 'com.android.support', module: 'design'
+    exclude group: 'com.android.support', module: 'support-v4'
+    exclude group: 'com.android.support.constraint', module: 'constraint-layout'
+    exclude group: 'com.google.android.gms', module: 'play-services-analytics'
 }
 ```
 
@@ -277,6 +288,7 @@ protected void onActivityResult(int requestCode, int resultCode, @Nullable Inten
 ```
 
 ...
+
 
 ## 4. SDK 상세 스펙  
 [상세 API 명세](https://doinglab.github.io/android/index.html)  
