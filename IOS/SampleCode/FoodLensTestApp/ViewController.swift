@@ -25,7 +25,7 @@ class ViewController: UIViewController, UserServiceResultHandler, UIImagePickerC
     }
     
     func onError(_ error: BaseError) {
-        
+        NSLog("onError")
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -85,14 +85,20 @@ class ViewController: UIViewController, UserServiceResultHandler, UIImagePickerC
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        let navTheme = NavigationBarTheme(foregroundColor : UIColor.white, backgroundColor : UIColor.black)
+        let toolbarTheme = ToolBarButtonTheme(backgroundColor: UIColor.white, buttonTheme: ButtonTheme(backgroundColor: UIColor.black, textColor: UIColor.white, borderColor: UIColor.clear))
+        let buttonTheme = ButtonTheme(backgroundColor: UIColor.white, textColor: UIColor.red, borderColor: UIColor.black)
+        let widgetButtonTheme = ButtonTheme(backgroundColor: UIColor.black, textColor: UIColor.blue, borderColor: UIColor.clear)
+        
         FoodLens.uiServiceMode = .userSelectedWithCandidates
-        uiService = FoodLens.createUIService(accessToken: "")
-        networkService = FoodLens.createNetworkService(nutritionRetrieveMode: .allNutirition, accessToken: "")
+        uiService = FoodLens.createUIService(accessToken: "insert access token here", navigationBarTheme: navTheme, toolbarTheme: toolbarTheme, buttonTheme: buttonTheme,  widgetButtonTheme : widgetButtonTheme)
+        networkService = FoodLens.createNetworkService(nutritionRetrieveMode: .allNutirition, accessToken: "insert access token here")
     }
     
     @IBAction func startUIService(_ sender: Any) {
         statusLabel.text = ""
         Util.deleteDirectory(path : "foodlensStore")
+        
         uiService?.startUIService(parent: self, completionHandler: self)
     }
     

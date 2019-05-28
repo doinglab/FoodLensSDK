@@ -67,7 +67,11 @@ compileOptions {
 
  - 프로젝트에서 app > Gradle Scripts(그래들 스크립트) > build.gradle (Module: app)을 연 후 dependencies{} 섹션에 아래와 같은 문구를 추가해 주세요.
 ```java
- implementation 'com.doinglab.foodlens:FoodLens:1.0.7'
+FOODLENS_SDK_VERSION = 1.0.9
+```
+
+```java
+ implementation "com.doinglab.foodlens:FoodLens:$FOODLENS_SDK_VERSION"
 ```
  - 예제
  ```java
@@ -104,18 +108,17 @@ dependencies {
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
-    implementation 'com.doinglab.foodlens:FoodLens:1.0.+'
+    implementation "com.doinglab.foodlens:FoodLens:$FOODLENS_SDK_VERSION"
 }
 ```
 
  - 사용하는 라이브러리의 버전 충돌시 아래와 같이 버전이 충돌되는 라이브러리를 제외하고 SDK가 참조되도록 수정합니다.
   ```java
- implementation ('com.doinglab.foodlens:FoodLens:1.0.+') {
+ implementation ("com.doinglab.foodlens:FoodLens:$FOODLENS_SDK_VERSION") {
     exclude group: 'com.android.support', module: 'appcompat'
     exclude group: 'com.android.support', module: 'design'
     exclude group: 'com.android.support', module: 'support-v4'
     exclude group: 'com.android.support.constraint', module: 'constraint-layout'
-    exclude group: 'com.google.android.gms', module: 'play-services-analytics'
 }
 ```
 
