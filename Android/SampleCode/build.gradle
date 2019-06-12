@@ -25,7 +25,7 @@ allprojects {
                 username "[USERNAME]"
                 password "[PASSWORD]"
             }
-            url "https://api.bitbucket.org/1.0/repositories/doing-lab/foodlenssdk-repo/raw/releases"
+            url "https://bitbucket.org/doing-lab/foodlenssdk-repo/raw/releases"
         }
         maven {
             url "https://jitpack.io"
