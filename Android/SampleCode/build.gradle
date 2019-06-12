@@ -25,6 +25,9 @@ allprojects {
                 username "[USERNAME]"
                 password "[PASSWORD]"
             }
+            authentication{
+                basic(BasicAuthentication)
+            }
             url "https://bitbucket.org/doing-lab/foodlenssdk-repo/raw/releases"
         }
         maven {
