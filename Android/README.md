@@ -3,6 +3,12 @@
 Android용 FoodLens SDK를 사용하여 FoodLens 기능을 이용할 수 있습니다.  
 FoodLens SDK는 Network SDK와 UI SDK로 이루어 지며, 자체 UI를 작성할 경우는 Network SDK를, Doinglab에서 제공하는 UI화면까지 사용할 경우는 UI SDK를 사용하셔서 FoodLens의 기능을 이용하실 수 있습니다. 
 
+## FoodLens SDK V2
+<img src="./image/image_v2_1.png" width="150" height="300">      <img src="./image/image_v2_2.png" width="150" height="300">
+
+## FoodLens SDK V1
+<img src="./image/image_v1_1.png" width="150" height="300">      <img src="./image/image_v1_2.png" width="150" height="300">
+
 ## 문서 Annotation - 필독
 ### - "[XXX]" 대괄호 내용은 실제 내용으로 변경되어야 합니다.
 ### - 대괄호까지 삭제한 후 실제 내용이 들어가야 합니다.
@@ -71,11 +77,21 @@ compileOptions {
     }
 ```
 
+### FoodLens SDK V2 버전
  - 프로젝트에서 app > Gradle Scripts(그래들 스크립트) > build.gradle (Module: app)을 연 후 dependencies{} 섹션에 아래와 같은 문구를 추가해 주세요.
+```java
+FOODLENS_SDK_VERSION = 2.0.0
+```
+```java
+ implementation "com.doinglab.foodlens:FoodLens:$FOODLENS_SDK_VERSION"
+```
+
+### FoodLens SDK V1 버전
+ - 프로젝트에서 app > Gradle Scripts(그래들 스크립트) > build.gradle (Module: app)을 연 후 dependencies{} 섹션에 아래와 같은 문구를 추가해 주세요.
+ 
 ```java
 FOODLENS_SDK_VERSION = 1.0.11
 ```
-
 ```java
  implementation "com.doinglab.foodlens:FoodLens:$FOODLENS_SDK_VERSION"
 ```
