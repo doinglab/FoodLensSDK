@@ -11,14 +11,10 @@
 * Swift Version 4.2 or higher
 
 ## FoodLens SDK V2 (Ver. 2.0.1)
-![](V201?raw=true)
-![](V202?raw=true)
+<img src="./Images/V201.PNG" width="180" height="320">      <img src="./Images/V202.PNG" width="180" height="320">
 
 ## FoodLens SDK V1 (Ver. 0.1.15)
-![](V101?raw=true)
-![](V102?raw=true)
-
-## Example  
+<img src="./Images/V101.PNG" width="180" height="320">      <img src="./Images/V102.PNG" width="180" height="320">
 
 ## Example  
 [Sample](SampleCode/)
