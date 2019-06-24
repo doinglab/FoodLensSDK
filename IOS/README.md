@@ -10,6 +10,16 @@
 * iOS Ver 10.0 or higher
 * Swift Version 4.2 or higher
 
+## FoodLens SDK V2 (Ver. 2.0.1)
+![](V201?raw=true)
+![](V202?raw=true)
+
+## FoodLens SDK V1 (Ver. 0.1.15)
+![](V101?raw=true)
+![](V102?raw=true)
+
+## Example  
+
 ## Example  
 [Sample](SampleCode/)
 
@@ -48,7 +58,7 @@ You can use UI served by default
 ```swift
 FoodLens.uiServiceMode = .userSelectedWithCandidates
 
-let uiService = FoodLens.createUIService(accessToken: <access_token>) //AccessToken is given to you
+let uiService = FoodLens.createUIService(accessToken: "31ae11f871ed4b2f89b18528f989af76") //AccessToken is given to you
 uiService?.startUIService(parent: self, completionHandler: self)
 ```
 A completionHandler is protocol called when recognition process is completed
@@ -76,19 +86,30 @@ mealData.putFoodPosition(foodPosition)
 
 FoodLens.uiServiceMode = .userSelectedWithCandidates
 
-let uiService = FoodLens.createUIService(accessToken: <access_token>) //AccessToken is given to you
+let uiService = FoodLens.createUIService(accessToken: "31ae11f871ed4b2f89b18528f989af76") //AccessToken is given to you
 uiService.startEditUIService(mealData, parent: self, completionHandler: CallbackObject())    
 ```
 A completionHandler is protocol called when recognition process is completed
 
+You can also apply custom theme using like below
 
+```swift
+let navTheme = NavigationBarTheme(foregroundColor : UIColor.white, backgroundColor : UIColor.black)
+let toolbarTheme = ToolBarButtonTheme(backgroundColor: UIColor.white, buttonTheme: ButtonTheme(backgroundColor: UIColor.black, textColor: UIColor.white, borderColor: UIColor.clear))
+let buttonTheme = ButtonTheme(backgroundColor: UIColor.blue, textColor: UIColor.green, borderColor: UIColor.black)
+let widgetButtonTheme = ButtonTheme(backgroundColor: UIColor.black, textColor: UIColor.blue, borderColor: UIColor.red)
+       
+let uiService = FoodLens.createUIService(accessToken:  "d936638046c611e9b4750800200c9a66", navigationBarTheme: navTheme, toolbarTheme: toolbarTheme, buttonTheme: buttonTheme,  widgetButtonTheme : widgetButtonTheme)
+FoodLens.uiServiceMode = .userSelectedWithCandidates
+uiService.startUIService(parent: self, completionHandler: CallbackObject())   
+```
 
 ## Using Only Network API
 
 Of cource you can use only network API like this.
 
 ```swift
-let networkService = FoodLens.createNetworkService(nutritionRetrieveMode: .allNutirition, accessToken: <access_token>) //AccessToken is given to you
+let networkService = FoodLens.createNetworkService(nutritionRetrieveMode: .allNutirition, accessToken: "31ae11f871ed4b2f89b18528f989af76") //AccessToken is given to you
 networkService!.predictMultipleFood(image: pickedImage) { (result : PredictionResult?, status : ProcessStatus) in
     
 }
@@ -97,6 +118,10 @@ PredictionResult is the object that implements RecognitionResult protocol
 
 ## Documents  
 [API Documents](https://doinglab.github.io/ios/index.html)
+
+## Author
+
+hyunsuk.lee@doinglab.com
 
 ## License
 
