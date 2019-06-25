@@ -44,7 +44,8 @@ source 'https://github.com/CocoaPods/Specs.git'
 And add below into your Podfile
 
 ```ruby
-pod 'FoodLens'
+pod 'FoodLens', '2.0.3' #FoodLens SDK V2
+pod 'FoodLens', '0.1.15' #FoodLens SDK V1
 ```
 
 ## Using FoodLens UI
