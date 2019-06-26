@@ -19,6 +19,7 @@
 		38D09F02225351F6000B7E7D /* Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38D09F01225351F6000B7E7D /* Util.swift */; };
 		38D09F0522535878000B7E7D /* full_Image.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 38D09F0322535877000B7E7D /* full_Image.jpeg */; };
 		38D09F0622535878000B7E7D /* parted_image.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 38D09F0422535877000B7E7D /* parted_image.jpg */; };
+		38E9296522C36737008BF116 /* aa2c2043c2984529b77851d25c7bbf6c.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 38E9296422C36737008BF116 /* aa2c2043c2984529b77851d25c7bbf6c.jpg */; };
 		7BF81A95021FF0CB76949792 /* Pods_FoodLensTestAppUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F21C139C77BFA3C2FD306F5F /* Pods_FoodLensTestAppUITests.framework */; };
 		E71B1AD6A385839A997841E5 /* Pods_FoodLensTestAppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E43B3254C05E309BC64AD01E /* Pods_FoodLensTestAppTests.framework */; };
 /* End PBXBuildFile section */
@@ -61,6 +62,9 @@
 		38D09F01225351F6000B7E7D /* Util.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Util.swift; sourceTree = "<group>"; };
 		38D09F0322535877000B7E7D /* full_Image.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = full_Image.jpeg; sourceTree = "<group>"; };
 		38D09F0422535877000B7E7D /* parted_image.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = parted_image.jpg; sourceTree = "<group>"; };
+		38E9296022C09D31008BF116 /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/Main.strings; sourceTree = "<group>"; };
+		38E9296122C09D31008BF116 /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		38E9296422C36737008BF116 /* aa2c2043c2984529b77851d25c7bbf6c.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = aa2c2043c2984529b77851d25c7bbf6c.jpg; sourceTree = "<group>"; };
 		691CE999100067D203AA0FAF /* Pods-FoodLensTestAppTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FoodLensTestAppTests.release.xcconfig"; path = "Target Support Files/Pods-FoodLensTestAppTests/Pods-FoodLensTestAppTests.release.xcconfig"; sourceTree = "<group>"; };
 		AE4E0236AB1D8620C6072BE1 /* Pods-FoodLensTestApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FoodLensTestApp.debug.xcconfig"; path = "Target Support Files/Pods-FoodLensTestApp/Pods-FoodLensTestApp.debug.xcconfig"; sourceTree = "<group>"; };
 		C61391427A1746A35B3DC91C /* Pods-FoodLensTestAppTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FoodLensTestAppTests.debug.xcconfig"; path = "Target Support Files/Pods-FoodLensTestAppTests/Pods-FoodLensTestAppTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -122,6 +126,7 @@
 		387B6A3C224DAC290034C330 /* FoodLensTestApp */ = {
 			isa = PBXGroup;
 			children = (
+				38E9296422C36737008BF116 /* aa2c2043c2984529b77851d25c7bbf6c.jpg */,
 				38D09F0322535877000B7E7D /* full_Image.jpeg */,
 				38D09F0422535877000B7E7D /* parted_image.jpg */,
 				387B6A3D224DAC290034C330 /* AppDelegate.swift */,
@@ -267,6 +272,7 @@
 			knownRegions = (
 				en,
 				Base,
+				ko,
 			);
 			mainGroup = 387B6A31224DAC290034C330;
 			productRefGroup = 387B6A3B224DAC290034C330 /* Products */;
@@ -286,6 +292,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				38D09F0522535878000B7E7D /* full_Image.jpeg in Resources */,
+				38E9296522C36737008BF116 /* aa2c2043c2984529b77851d25c7bbf6c.jpg in Resources */,
 				387B6A48224DAC2B0034C330 /* LaunchScreen.storyboard in Resources */,
 				387B6A45224DAC2B0034C330 /* Assets.xcassets in Resources */,
 				38D09F0622535878000B7E7D /* parted_image.jpg in Resources */,
@@ -462,6 +469,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				387B6A42224DAC290034C330 /* Base */,
+				38E9296022C09D31008BF116 /* ko */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -470,6 +478,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				387B6A47224DAC2B0034C330 /* Base */,
+				38E9296122C09D31008BF116 /* ko */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -481,6 +490,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -542,6 +552,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
