@@ -10,11 +10,15 @@
 * iOS Ver 10.0 or higher
 * Swift Version 4.2 or higher
 
-## FoodLens SDK V2 (Ver. 2.0.4)
-<img src="./Images/V201.PNG" width="180" height="320">      <img src="./Images/V202.PNG" width="180" height="320">
+## FoodLens SDK V2 (Ver. 2.0.1)
+![](V201?raw=true)
+![](V202?raw=true)
 
 ## FoodLens SDK V1 (Ver. 0.1.15)
-<img src="./Images/V101.PNG" width="180" height="320">      <img src="./Images/V102.PNG" width="180" height="320">
+![](V101?raw=true)
+![](V102?raw=true)
+
+## Example  
 
 ## Example  
 [Sample](SampleCode/)
@@ -44,8 +48,7 @@ source 'https://github.com/CocoaPods/Specs.git'
 And add below into your Podfile
 
 ```ruby
-pod 'FoodLens', '2.0.3' #FoodLens SDK V2
-pod 'FoodLens', '0.1.15' #FoodLens SDK V1
+pod 'FoodLens'
 ```
 
 ## Using FoodLens UI
@@ -99,6 +102,24 @@ let widgetButtonTheme = ButtonTheme(backgroundColor: UIColor.black, textColor: U
 let uiService = FoodLens.createUIService(accessToken:  "d936638046c611e9b4750800200c9a66", navigationBarTheme: navTheme, toolbarTheme: toolbarTheme, buttonTheme: buttonTheme,  widgetButtonTheme : widgetButtonTheme)
 FoodLens.uiServiceMode = .userSelectedWithCandidates
 uiService.startUIService(parent: self, completionHandler: CallbackObject())   
+```
+
+## Working with JSON 
+
+You can convert result Object to JSON String like below in UserServiceResultHandler.onSuccess
+
+```swift
+
+func onSuccess(_ result : RecognitionResult) {
+    let resultString = result.toJSONString()! //will return JSON string
+    print(resultString)
+}
+```
+
+When you convert JSON String to Result Object, use create method like below 
+
+```swift
+    let predictResult = PredictionResult.create(json: jsonString)
 ```
 
 ## Using Only Network API
