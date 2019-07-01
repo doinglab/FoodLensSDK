@@ -10,7 +10,7 @@
 * iOS Ver 10.0 or higher
 * Swift Version 4.2 or higher
 
-## FoodLens SDK V2 (Ver. 2.0.3)
+## FoodLens SDK V2 (Ver. 2.0.4)
 <img src="./Images/V201.PNG" width="180" height="320">      <img src="./Images/V202.PNG" width="180" height="320">
 
 ## FoodLens SDK V1 (Ver. 0.1.15)
