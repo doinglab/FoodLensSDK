@@ -314,6 +314,15 @@ protected void onActivityResult(int requestCode, int resultCode, @Nullable Inten
 
 ...
 
+#### 3.3 RecognitionResult의 저장과 생성
+- 코드예제
+```java
+String json = recognitionResult.toJSONString();
+RecognitionResult result = RecognitionResult.create(json);
+```
+
+...
+
 
 ## 4. SDK 상세 스펙  
 [상세 API 명세](https://doinglab.github.io/android/index.html)  
