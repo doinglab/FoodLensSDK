@@ -74,6 +74,8 @@ When you want to modify recognition result, you can use editing service
 
 ```swift
 let mealData = PredictionResult()    // PredictionResult implements RecognitionResult protocol
+ mealData.setRecognizedImagePath(<path of food image>) //Image has to be located in (App Document Path)/foodlensStore/(filename)
+
 let foodPosition = FoodPosition()
 let food = Food()
 food.foodName = "FoodName"
@@ -89,6 +91,7 @@ FoodLens.uiServiceMode = .userSelectedWithCandidates
 let uiService = FoodLens.createUIService(accessToken: "31ae11f871ed4b2f89b18528f989af76") //AccessToken is given to you
 uiService.startEditUIService(mealData, parent: self, completionHandler: CallbackObject())    
 ```
+
 A completionHandler is protocol called when recognition process is completed
 
 You can also apply custom theme using like below
