@@ -80,7 +80,7 @@ compileOptions {
 ### FoodLens SDK V2 버전
  - 프로젝트에서 app > Gradle Scripts(그래들 스크립트) > build.gradle (Module: app)을 연 후 dependencies{} 섹션에 아래와 같은 문구를 추가해 주세요.
 ```java
-FOODLENS_SDK_VERSION = 2.0.2
+FOODLENS_SDK_VERSION = 2.0.3
 ```
 ```java
  implementation "com.doinglab.foodlens:FoodLens:$FOODLENS_SDK_VERSION"
@@ -310,6 +310,15 @@ protected void onActivityResult(int requestCode, int resultCode, @Nullable Inten
 	uis.onActivityResult(requestCode, resultCode, data);
 	....
 }
+```
+
+...
+
+#### 3.3 RecognitionResult의 저장과 생성
+- 코드예제
+```java
+String json = recognitionResult.toJSONString();
+RecognitionResult result = RecognitionResult.create(json);
 ```
 
 ...
