@@ -74,7 +74,7 @@ When you want to modify recognition result, you can use editing service
 
 ```swift
 let mealData = PredictionResult()    // PredictionResult implements RecognitionResult protocol
- mealData.setRecognizedImagePath(<path o image>) //Image has to be located in (App Document Path)/foodlensStore/(filename)
+ mealData.setRecognizedImagePath(<image path>) //Image must be located in (App Document Path)/foodlensStore/(filename)
 
 let foodPosition = FoodPosition()
 let food = Food()
