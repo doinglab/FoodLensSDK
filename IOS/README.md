@@ -140,6 +140,9 @@ PredictionResult is the object that implements RecognitionResult protocol
 ## Documents  
 [API Documents](https://doinglab.github.io/ios/index.html)
 
+## JSON 
+[JSON](JSON)
+
 ## Author
 
 hyunsuk.lee@doinglab.com
