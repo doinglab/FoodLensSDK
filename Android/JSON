@@ -1,0 +1,49 @@
+{
+  "eatDate": Date(yyyy-MM-dd HH:mm:ss),
+  "eatType": Int,
+  "foodPositionList": [
+    {
+      "eatAmount": Int,
+      "foodCandidates": [
+        {
+          "foodId": Int,
+          "foodName": String,
+          "keyName": String,
+          "nutrition": {
+            "calcium": Float,
+            "calories": Float,
+            "carbonhydrate": Float,
+            "cholesterol": Float,
+            "dietrayfiber": Float,
+            "fat": Float,
+            "protein": Float,
+            "saturatedfat": Float,
+            "sodium": Float,
+            "sugar": Float,
+            "totalgram": Float,
+            "transfat":Float,
+            "unit": String,
+            "vitamina": Float,
+            "vitaminb": Float,
+            "vitaminc": Float,
+            "vitamind": Float,
+            "vitamine": Float
+          }
+        }],
+      "foodImagepath": String,
+      "imagePosition": {
+        "xmax": Int,
+        "xmin": Int,
+        "ymax": Int,
+        "ymin": Int
+      },
+      "userSelectedFood": {
+        "foodId": Int,
+        "foodName": String,
+        "nutrition": Nutrition
+      }
+    }
+  ],
+  "mealType": String,
+  "predictedImagePath": String
+}
