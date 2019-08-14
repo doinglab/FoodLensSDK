@@ -1,0 +1,103 @@
+﻿{
+  "eatDate": "2019-08-14 16:11:27",
+  "eatType": 3,
+  "foodPositionList": [
+    {
+      "eatAmount": 1,
+      "foodCandidates": [
+        {
+          "foodId": 38,
+          "foodName": "쌀밥",
+          "keyName": "rice_streamed",
+          "nutrition": {
+            "calcium": 6.3,
+            "calories": 326.7,
+            "carbonhydrate": 71.55,
+            "cholesterol": 0,
+            "dietrayfiber": 0.9,
+            "fat": 0.36,
+            "protein": 5.76,
+            "rawCalories": 326.7,
+            "rawTotalGram": 210,
+            "saturatedfat": 0.126,
+            "sodium": 7.2,
+            "sugar": 0,
+            "totalgram": 210,
+            "transfat": 0,
+            "unit": "1공기",
+            "vitamina": 1,
+            "vitaminb": 0,
+            "vitaminc": 0,
+            "vitamind": 0,
+            "vitamine": 0
+          }
+        },
+        {
+          "foodId": 45,
+          "foodName": "찰밥",
+          "keyName": "rice_streamed"
+        },
+        {
+          "foodId": 22,
+          "foodName": "흰죽",
+          "keyName": "rice_porridge"
+        },
+        {
+          "foodId": 32,
+          "foodName": "현미밥(현미50%)",
+          "keyName": "rice_steamed_brown"
+        },
+        {
+          "foodId": 49,
+          "foodName": "현미밥(현미30%)",
+          "keyName": "rice_steamed_brown"
+        },
+        {
+          "foodId": 44,
+          "foodName": "차조밥",
+          "keyName": "chajo_bab"
+        },
+        {
+          "foodId": 12155,
+          "foodName": "음식아님",
+          "keyName": "nonefood"
+        }
+      ],
+      "foodImagepath": "/data/user/0/com.doinglab.foodlens.sample/files/temp/0.jpg",
+      "imagePosition": {
+        "xmax": 1529,
+        "xmin": 12,
+        "ymax": 1223,
+        "ymin": 240
+      },
+      "userSelectedFood": {
+        "foodId": 38,
+        "foodName": "쌀밥",
+        "nutrition": {
+          "calcium": 6.3,
+          "calories": 326.7,
+          "carbonhydrate": 71.55,
+          "cholesterol": 0,
+          "dietrayfiber": 0.9,
+          "fat": 0.36,
+          "protein": 5.76,
+          "rawCalories": 326.7,
+          "rawTotalGram": 210,
+          "saturatedfat": 0.126,
+          "sodium": 7.2,
+          "sugar": 0,
+          "totalgram": 210,
+          "transfat": 0,
+          "unit": "1공기",
+          "vitamina": 1,
+          "vitaminb": 0,
+          "vitaminc": 0,
+          "vitamind": 0,
+          "vitamine": 0
+        }
+      }
+    }
+  ],
+  "mealType": "snack",
+  "predictedImagePath": "/data/user/0/com.doinglab.foodlens.sample/files/temp/orgimg.jpg"
+}
