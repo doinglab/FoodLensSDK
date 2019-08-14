@@ -330,5 +330,5 @@ RecognitionResult result = RecognitionResult.create(json);
 ## 5. SDK 사용 예제  
 [Sample 예제](SampleCode/)
 
-## 6. JSON
-[JSON](JSON)
+## 6. JSON Format
+[JSON Format](JSON%20Format)
