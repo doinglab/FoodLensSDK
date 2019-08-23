@@ -18,7 +18,6 @@
 ![](V101?raw=true)
 ![](V102?raw=true)
 
-## Example  
 
 ## Example  
 [Sample](SampleCode/)
@@ -48,7 +47,7 @@ source 'https://github.com/CocoaPods/Specs.git'
 And add below into your Podfile
 
 ```ruby
-pod 'FoodLens', '2.0.15'
+pod 'FoodLens'
 ```
 
 ## Using FoodLens UI
@@ -58,7 +57,7 @@ You can use UI served by default
 ```swift
 FoodLens.uiServiceMode = .userSelectedWithCandidates
 
-let uiService = FoodLens.createUIService(accessToken: "31ae11f871ed4b2f89b18528f989af76") //AccessToken is given to you
+let uiService = FoodLens.createUIService(accessToken: "<Access Token Here>") //AccessToken is given to you
 uiService?.startUIService(parent: self, completionHandler: self)
 ```
 A completionHandler is protocol called when recognition process is completed
@@ -74,8 +73,6 @@ When you want to modify recognition result, you can use editing service
 
 ```swift
 let mealData = PredictionResult()    // PredictionResult implements RecognitionResult protocol
- mealData.setRecognizedImagePath(<image path>) //Image must be located in (App Document Path)/foodlensStore/(filename)
-
 let foodPosition = FoodPosition()
 let food = Food()
 food.foodName = "FoodName"
@@ -88,10 +85,9 @@ mealData.putFoodPosition(foodPosition)
 
 FoodLens.uiServiceMode = .userSelectedWithCandidates
 
-let uiService = FoodLens.createUIService(accessToken: "31ae11f871ed4b2f89b18528f989af76") //AccessToken is given to you
+let uiService = FoodLens.createUIService(accessToken: "<Access Token Here>") //AccessToken is given to you
 uiService.startEditUIService(mealData, parent: self, completionHandler: CallbackObject())    
 ```
-
 A completionHandler is protocol called when recognition process is completed
 
 You can also apply custom theme using like below
@@ -102,7 +98,7 @@ let toolbarTheme = ToolBarButtonTheme(backgroundColor: UIColor.white, buttonThem
 let buttonTheme = ButtonTheme(backgroundColor: UIColor.blue, textColor: UIColor.green, borderColor: UIColor.black)
 let widgetButtonTheme = ButtonTheme(backgroundColor: UIColor.black, textColor: UIColor.blue, borderColor: UIColor.red)
        
-let uiService = FoodLens.createUIService(accessToken:  "d936638046c611e9b4750800200c9a66", navigationBarTheme: navTheme, toolbarTheme: toolbarTheme, buttonTheme: buttonTheme,  widgetButtonTheme : widgetButtonTheme)
+let uiService = FoodLens.createUIService(accessToken:  "<Access Token Here>", navigationBarTheme: navTheme, toolbarTheme: toolbarTheme, buttonTheme: buttonTheme,  widgetButtonTheme : widgetButtonTheme)
 FoodLens.uiServiceMode = .userSelectedWithCandidates
 uiService.startUIService(parent: self, completionHandler: CallbackObject())   
 ```
@@ -130,7 +126,7 @@ When you convert JSON String to Result Object, use create method like below
 Of cource you can use only network API like this.
 
 ```swift
-let networkService = FoodLens.createNetworkService(nutritionRetrieveMode: .allNutirition, accessToken: "31ae11f871ed4b2f89b18528f989af76") //AccessToken is given to you
+let networkService = FoodLens.createNetworkService(nutritionRetrieveMode: .allNutirition, accessToken: "<Access Token Here>") //AccessToken is given to you
 networkService!.predictMultipleFood(image: pickedImage) { (result : PredictionResult?, status : ProcessStatus) in
     
 }
@@ -139,9 +135,6 @@ PredictionResult is the object that implements RecognitionResult protocol
 
 ## Documents  
 [API Documents](https://doinglab.github.io/ios/index.html)
-
-## JSON Format
-[JSON Format](JSON%20Format)
 
 ## Author
 

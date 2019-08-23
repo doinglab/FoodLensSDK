@@ -10,7 +10,7 @@
 * iOS Ver 10.0 이상
 * Swift Version 4.2 이상
 
-## FoodLens SDK V2 (Ver. 2.0.1)
+## FoodLens SDK V2 (Ver. 2.0.15)
 ![](V201?raw=true)
 ![](V202?raw=true)
 
@@ -18,7 +18,6 @@
 ![](V101?raw=true)
 ![](V102?raw=true)
 
-## Example  
 
 ## Example  
 [Sample](SampleCode/)
