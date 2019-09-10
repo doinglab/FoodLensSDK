@@ -5,7 +5,7 @@
   "foodImagepath": String, //Local path
   "foodPositionList": [
     {
-      "eatAmount": Int, // 1회 제공량 대비 섭취한 음식의 양
+      "eatAmount": Float, // 1회 제공량 대비 섭취한 음식의 양
       "foodCandidates": [ // 입력된 사진으로 추천된 음식정보
         {
           "foodId": Int,
