@@ -12,24 +12,24 @@
           "foodName": String, //음식 이름
           "keyName": String, // DoingLab DB 기반 음식 코드
           "nutrition": {
-            "calcium": Float, //칼슘(단위 : g)
+            "calcium": Float, //칼슘(단위 : mg)
             "calories": Float, // 1회 제공량에 따른 칼로리(단위 : kcal)
             "carbonhydrate": Float, //탄수화물(단위 : g)
-            "cholesterol": Float, //콜레스테롤(단위 : g)
+            "cholesterol": Float, //콜레스테롤(단위 : mg)
             "dietrayfiber": Float, //식이섬유(단위 : g)
             "fat": Float, //지방(단위 : g)
             "protein": Float, //단백질(단위 : g)
             "saturatedfat": Float, //포화지방(단위 : g)
-            "sodium": Float, //나트륨(단위 : g)
+            "sodium": Float, //나트륨(단위 : mg)
             "sugar": Float, //설탕(단위 : g)
             "totalgram": Float, // 1회 제공량에 따른 섭취량 (단위 : g)
             "transfat":Float, //트랜스지방(단위 : g)
             "unit": String, // 제공단위(ex : 봉지, 그릇 등..)
-            "vitamina": Float, //비타민 A(단위 : g)
-            "vitaminb": Float, //비타민 B(단위 : g)
-            "vitaminc": Float, //비타민 C(단위 : g)
-            "vitamind": Float, //비타민 D(단위 : g)
-            "vitamine": Float //비타민 E(단위 : g)
+            "vitamina": Float, //비타민 A(단위 : RE)
+            "vitaminb": Float, //비타민 B(단위 : mg)
+            "vitaminc": Float, //비타민 C(단위 : mg)
+            "vitamind": Float, //비타민 D(단위 : ug)
+            "vitamine": Float //비타민 E(단위 : mg)
           }
         }],
       "userSelectedFood": { // 사용자가 최종적으로 선택한 음식정보
