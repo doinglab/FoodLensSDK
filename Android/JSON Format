@@ -5,8 +5,8 @@
   "foodImagepath": String, //Local path
   "foodPositionList": [
     {
-      "eatAmount": Int, //quantity
-      "foodCandidates": [
+      "eatAmount": Int, // 1회 제공량 대비 섭취한 음식의 양
+      "foodCandidates": [ // 입력된 사진으로 추천된 음식정보
         {
           "foodId": Int,
           "foodName": String,
@@ -32,17 +32,17 @@
             "vitamine": Float
           }
         }],
+      "userSelectedFood": { // 사용자가 최종적으로 선택한 음식정보
+        "foodId": Int,
+        "foodName": String,
+        "nutrition": Nutrition
+      }
       "imagePosition": {
         "xmax": Int,
         "xmin": Int,
         "ymax": Int,
         "ymin": Int
       },
-      "userSelectedFood": {
-        "foodId": Int,
-        "foodName": String,
-        "nutrition": Nutrition
-      }
     }
   ],
   "predictedImagePath": String
