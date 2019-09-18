@@ -7,10 +7,10 @@
 
 ## Requirements
 
-* iOS Ver 10.0 이상
-* Swift Version 4.2 이상
+* iOS Ver 10.0 or higher
+* Swift Version 4.2 or higher
 
-## FoodLens SDK V2 (Ver. 2.0.17)
+## FoodLens SDK V2 (Ver. 2.0.15)
 ![](V201?raw=true)
 ![](V202?raw=true)
 
@@ -24,35 +24,35 @@
 
 ## Installation
 
-`pod repo add` 명령어를 사용하여 리포지토리를 추가합니다. 
+First, add repository using  `pod repo add`
 
 ```ruby
 pod repo add bitbucket-doing-lab-foodlenssdk-specs https://bitbucket.org/doing-lab/foodlenssdk-specs.git
 ```
-Credential 정보를 입력하라는 화면이 나오면, 전달받은 인증 정보를 입력합니다.
+When credentials are needed, we have given you some information to certify, please use it.
 
-Podfile 에 아래와 같은 행을 추가합니다.
+Next, add source clause of FoodLens into your Podfile.  
 
 ```ruby
 source 'https://bitbucket.org/doing-lab/foodlenssdk-specs.git'
 ```
 
-Alamofire나 Kingfisher 같은 CocoaPod 라이브러리를 사용할 경우, 아래와 같이 CocoaPod 의 Source 도 같이 추가해야 합니다. 
+When you use other library (Alamofire, Kingfisher etc...), you must add cocoapod source into your Podfile. 
 
 ```ruby
 source 'https://bitbucket.org/doing-lab/foodlenssdk-specs.git'
 source 'https://github.com/CocoaPods/Specs.git'
 ```
 
-Podfile 에 아래와 같은 구문을 추가하여 FoodLens 를 import 합니다.
+And add below into your Podfile
 
 ```ruby
-pod 'FoodLens', '2.0.17'
+pod 'FoodLens'
 ```
 
 ## Using FoodLens UI
 
-FoodLens 에서 제공하는 UI 를 아래와 같이 사용할 수 있습니다.
+You can use UI served by default
 
 ```swift
 FoodLens.uiServiceMode = .userSelectedWithCandidates
@@ -60,7 +60,7 @@ FoodLens.uiServiceMode = .userSelectedWithCandidates
 let uiService = FoodLens.createUIService(accessToken: "<Access Token Here>") //AccessToken is given to you
 uiService?.startUIService(parent: self, completionHandler: self)
 ```
-completionHandler 는 callback 을 받을 swift protocol 이며, 아래와 같이 정의되어 있습니다.
+A completionHandler is protocol called when recognition process is completed
 
 ```swift
 public protocol UserServiceResultHandler {
@@ -69,8 +69,7 @@ public protocol UserServiceResultHandler {
     func onError(_ error : BaseError)               //called when error is occurred
 }
 ```
-
-음식 인식 결과를 수정해야 할 경우, 아래와 같이 사용하실 수 있습니다.  
+When you want to modify recognition result, you can use editing service 
 
 ```swift
 let mealData = PredictionResult()    // PredictionResult implements RecognitionResult protocol
@@ -89,9 +88,9 @@ FoodLens.uiServiceMode = .userSelectedWithCandidates
 let uiService = FoodLens.createUIService(accessToken: "<Access Token Here>") //AccessToken is given to you
 uiService.startEditUIService(mealData, parent: self, completionHandler: CallbackObject())    
 ```
-completionHandler 는 callback 을 받을 swift protocol 입니다.
+A completionHandler is protocol called when recognition process is completed
 
-FoodLens UI 의 여러 요소에 개별 색을 적용할 수 있습니다. 
+You can also apply custom theme using like below
 
 ```swift
 let navTheme = NavigationBarTheme(foregroundColor : UIColor.white, backgroundColor : UIColor.black)
@@ -106,7 +105,7 @@ uiService.startUIService(parent: self, completionHandler: CallbackObject())
 
 ## Working with JSON 
 
-UserServiceResultHandler.onSuccess 함수의 파라미터로 전달되는 RecognitionResult 객체를 JSON 문자열로 변환할 수 있습니다. 
+You can convert result Object to JSON String like below in UserServiceResultHandler.onSuccess
 
 ```swift
 
@@ -115,8 +114,8 @@ func onSuccess(_ result : RecognitionResult) {
     print(resultString)
 }
 ```
- 
-JSON 문자열을 PredictionResult 객체로 변환할 경우, 아래처럼 사용하실 수 있습니다.
+
+When you convert JSON String to Result Object, use create method like below 
 
 ```swift
     let predictResult = PredictionResult.create(json: jsonString)
@@ -124,7 +123,7 @@ JSON 문자열을 PredictionResult 객체로 변환할 경우, 아래처럼 사�
 
 ## Using Only Network API
 
-FoodLens UI 가 필요없는 경우, 아래 함수만 호출하여 음식 인식 결과를 받을 수 있습니다.
+Of cource you can use only network API like this.
 
 ```swift
 let networkService = FoodLens.createNetworkService(nutritionRetrieveMode: .allNutirition, accessToken: "<Access Token Here>") //AccessToken is given to you
@@ -132,7 +131,7 @@ networkService!.predictMultipleFood(image: pickedImage) { (result : PredictionRe
     
 }
 ```
-PredictionResult 은 RecognitionResult protocol 의 구현체 입니다.
+PredictionResult is the object that implements RecognitionResult protocol
 
 ## Documents  
 [API Documents](https://doinglab.github.io/ios/index.html)
