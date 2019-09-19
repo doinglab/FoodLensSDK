@@ -49,6 +49,7 @@ Podfile 에 아래와 같은 구문을 추가하여 FoodLens 를 import 합니�
 ```ruby
 pod 'FoodLens', '2.0.17'
 ```
+** [ReleaseNote](ReleaseNote.md)
 
 ## Using FoodLens UI
 
