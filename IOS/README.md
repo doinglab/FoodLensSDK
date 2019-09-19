@@ -11,16 +11,11 @@
 * Swift Version 4.2 이상
 
 ## FoodLens SDK V2 (Ver. 2.0.17)
-![](V201?raw=true)
-![](V202?raw=true)
+<img src="./Images/V201.PNG" width="150" height="300">      <img src="./Images/V202.PNG" width="150" height="300">
 
 ## FoodLens SDK V1 (Ver. 0.1.15)
-![](V101?raw=true)
-![](V102?raw=true)
+<img src="./Images/V101.PNG" width="150" height="300">      <img src="./Images/V102.PNG" width="150" height="300">
 
-
-## Example  
-[Sample](SampleCode/)
 
 ## Installation
 
@@ -138,10 +133,14 @@ PredictionResult 은 RecognitionResult protocol 의 구현체 입니다.
 ## Documents  
 [API Documents](https://doinglab.github.io/ios/index.html)
 
-## Author
+## Example  
+[Sample](SampleCode/)
 
+## JSON Format
+[JSON Format](JSON%20Format)
+
+## Author
 hyunsuk.lee@doinglab.com
 
 ## License
-
 FoodLens is available under the MIT license. See the LICENSE file for more info.
