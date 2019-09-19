@@ -333,3 +333,9 @@ RecognitionResult result = RecognitionResult.create(json);
 
 ## 6. JSON Format
 [JSON Format](JSON%20Format)
+
+## 7. Author
+hyunsuk.lee@doinglab.com
+
+## 8. License
+FoodLens is available under the MIT license. See the LICENSE file for more info.
