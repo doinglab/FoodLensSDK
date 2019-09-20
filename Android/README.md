@@ -80,11 +80,12 @@ compileOptions {
 ### FoodLens SDK V2 버전
  - 프로젝트에서 app > Gradle Scripts(그래들 스크립트) > build.gradle (Module: app)을 연 후 dependencies{} 섹션에 아래와 같은 문구를 추가해 주세요.
 ```java
-FOODLENS_SDK_VERSION = 2.0.10
+FOODLENS_SDK_VERSION = 2.0.11
 ```
 ```java
  implementation "com.doinglab.foodlens:FoodLens:$FOODLENS_SDK_VERSION"
 ```
+** [ReleaseNote](ReleaseNote.md)
 
 ### FoodLens SDK V1 버전
  - 프로젝트에서 app > Gradle Scripts(그래들 스크립트) > build.gradle (Module: app)을 연 후 dependencies{} 섹션에 아래와 같은 문구를 추가해 주세요.
@@ -332,3 +333,9 @@ RecognitionResult result = RecognitionResult.create(json);
 
 ## 6. JSON Format
 [JSON Format](JSON%20Format)
+
+## 7. Author
+hyunsuk.lee@doinglab.com
+
+## 8. License
+FoodLens is available under the MIT license. See the LICENSE file for more info.
