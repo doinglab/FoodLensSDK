@@ -42,7 +42,7 @@ source 'https://github.com/CocoaPods/Specs.git'
 Podfile 에 아래와 같은 구문을 추가하여 FoodLens 를 import 합니다.
 
 ```ruby
-pod 'FoodLens', '2.0.20'
+pod 'FoodLens', '2.0.21'
 ```
 ** [ReleaseNote](ReleaseNote.md)
 
