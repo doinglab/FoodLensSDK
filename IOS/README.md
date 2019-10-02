@@ -7,7 +7,7 @@
 
 ## Requirements
 
-* iOS Ver 10.0 이상
+* iOS Ver 11.0 이상
 * Swift Version 4.2 이상
 
 ## FoodLens SDK V2 (Ver. 2.0.21)
