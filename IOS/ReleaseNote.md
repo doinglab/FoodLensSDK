@@ -1,5 +1,9 @@
 # Ios FoodLensSDK Release Note
 
+
+## v2.0.21
+1. iOS 13 에서 발생하는 크래시 문제 해결 
+
 ## v2.0.19
 1. 카메라 창에서 iPhone Orientation 에 따라 버튼들 회전하도록 수정 
 2. 사진 촬영 시 Orientation 에 맞춰 이미지 회전시킨 후 저장.
