@@ -7,10 +7,10 @@
 
 ## Requirements
 
-* iOS Ver 10.0 이상
+* iOS Ver 11.0 이상
 * Swift Version 4.2 이상
 
-## FoodLens SDK V2 (Ver. 2.0.18)
+## FoodLens SDK V2 (Ver. 2.0.23)
 <img src="./Images/V201.PNG" width="150" height="300">      <img src="./Images/V202.PNG" width="150" height="300">
 
 ## FoodLens SDK V1 (Ver. 0.1.15)
@@ -42,7 +42,7 @@ source 'https://github.com/CocoaPods/Specs.git'
 Podfile 에 아래와 같은 구문을 추가하여 FoodLens 를 import 합니다.
 
 ```ruby
-pod 'FoodLens', '2.0.18'
+pod 'FoodLens', '2.0.23'
 ```
 ** [ReleaseNote](ReleaseNote.md)
 

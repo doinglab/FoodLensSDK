@@ -18,8 +18,7 @@ FoodLens SDK는 Network SDK와 UI SDK로 이루어 지며, 자체 UI를 작성�
 ## 1. 안드로이드 프로젝트 설정
 - 프로젝트에서 app > Gradle Scripts(그래들 스크립트) > build.gradle (Project)를 연 후 allprojects { repositories {}}에 다음 아래 내용을 추가해 주세요.  
    **※ 두잉랩에서 제공해드린 Repository용 UserName과 Password로 변경해주세요.**  
-   **https://jitpack.io 가 이미 추가되어 있으면 추가하지 않으셔도 됩니다.  
-     (FoodLens에서 사용하는 OpenSource를 위해 추가가 필요합니다)
+   
 ```java
 maven {
      credentials {
@@ -30,9 +29,6 @@ maven {
 	 basic(BasicAuthentication)
      }
      url "https://bitbucket.org/doing-lab/foodlenssdk-repo/raw/releases"
-}
-maven {
-    url "https://jitpack.io"
 }
 
 ```
@@ -52,10 +48,6 @@ allprojects {
             }
             url "https://bitbucket.org/doing-lab/foodlenssdk-repo/raw/releases"
         }
-        maven {
-            url "https://jitpack.io"
-        }
-
     }
 ```
 
@@ -80,7 +72,7 @@ compileOptions {
 ### FoodLens SDK V2 버전
  - 프로젝트에서 app > Gradle Scripts(그래들 스크립트) > build.gradle (Module: app)을 연 후 dependencies{} 섹션에 아래와 같은 문구를 추가해 주세요.
 ```java
-FOODLENS_SDK_VERSION = 2.0.11
+FOODLENS_SDK_VERSION = 2.0.15
 ```
 ```java
  implementation "com.doinglab.foodlens:FoodLens:$FOODLENS_SDK_VERSION"
