@@ -1,7 +1,7 @@
 # Android FoodLensSDK Release Note
 
 ## v2.0.16
-1. 1. 검색시 통신 알고리즘 안정성 개선
+1. 검색시 통신 알고리즘 안정성 개선
 
 ## v2.0.15
 1. retrofit v2.5.0버전 사용시 일부 단말에서 검색시 crash 문제 수정
