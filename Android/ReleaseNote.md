@@ -1,5 +1,7 @@
 # Android FoodLensSDK Release Note
 
+## v2.0.15
+1. retrofit v2.5.0버전 사용시 일부 단말에서 검색시 crash 문제 수정
 
 ## v2.0.14
 1. FoodLensBundle.setEnableCameraOrientation() 기본값 true로 변경
