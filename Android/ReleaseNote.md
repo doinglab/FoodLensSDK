@@ -1,6 +1,9 @@
 # Android FoodLensSDK Release Note
 
 
+## v2.0.18
+1. 네크워크 연결 관련 안정성 개선
+
 ## v2.0.17
 1. 검색시 통신 알고리즘 안정성 개선
 
