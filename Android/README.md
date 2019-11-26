@@ -324,7 +324,7 @@ RecognitionResult result = RecognitionResult.create(json);
 [Sample 예제](SampleCode/)
 
 ## 6. JSON Format
-[JSON Format](JSON%20Format)
+[JSON Format](../JSON%20Format)
 
 ## 7. Author
 hyunsuk.lee@doinglab.com
