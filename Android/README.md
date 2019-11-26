@@ -339,6 +339,7 @@ for(int i = 0; i < recognitionResult.getFoodPositions().size(); i++) {
 
 ## 6. JSON Format
 [JSON Format](../JSON%20Format)
+
 [JSON Sample](../JSON%20Sample)
 
 ## 7. Author
