@@ -5,13 +5,14 @@
   "foodImagepath": String, //Local path
   "foodPositionList": [
     {
+      //SDK내의 섭취량 변경시 변경되는 항목(ex: eatAmount * nutrition.carbonhydrate)이 실제 1회 섭취한 량입니다.
       "eatAmount": Float, // 1회 제공량 대비 섭취한 음식의 양
       "foodCandidates": [ // 입력된 사진으로 추천된 음식정보
         {
           "foodId": Int, //DoingLab DB 기반 음식ID
           "foodName": String, //음식 이름
           "keyName": String, // DoingLab DB 기반 음식 코드
-          "nutrition": {
+          "nutrition": { //영양소에 대한 Raw 데이터, 섭취량을 변경하여도 영양정보값은 변경되지 않습니다. 
             "calcium": Float, //칼슘(단위 : mg)
             "calories": Float, // 1회 제공량에 따른 칼로리(단위 : kcal)
             "carbonhydrate": Float, //탄수화물(단위 : g)
