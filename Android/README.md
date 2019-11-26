@@ -322,9 +322,9 @@ for(int i = 0; i < recognitionResult.getFoodPositions().size(); i++) {
 	FoodPosition foodPosition = foodPositions.get(i);
 	float eatAmount = foodPosition.getEatAmount(); // 사용자가 설정한 1회 섭취량
 	Nutrition nutrition = foodPosition.getUserSelectedFood().getNutrition(); // 선택한 음식에 대한 Raw 영양정보 데이터
-	nutrition.getCarbonHydrate() * eatAmount; // 1회 섭취한 음식에 대한 탄수화물 섭취량
-	nutrition.getProtein() * eatAmount; // 1회 섭취한 음식에 대한 단백질 섭취량
-	nutrition.getFat() * eatAmount; // 1회 섭취한 음식에 대한 지방 섭취량
+	eatAmount * nutrition.getCarbonHydrate(); // 1회 섭취한 음식에 대한 탄수화물 섭취량
+	eatAmount * nutrition.getProtein(); // 1회 섭취한 음식에 대한 단백질 섭취량
+	eatAmount * nutrition.getFat(); // 1회 섭취한 음식에 대한 지방 섭취량
 	...
 }
 ```
