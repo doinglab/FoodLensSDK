@@ -137,7 +137,8 @@ PredictionResult 은 RecognitionResult protocol 의 구현체 입니다.
 [Sample](SampleCode/)
 
 ## JSON Format
-[JSON Format](JSON%20Format)
+[JSON Format](../JSON%20Format)
+[JSON Sample](../JSON%20Sample)
 
 ## Author
 hyunsuk.lee@doinglab.com
