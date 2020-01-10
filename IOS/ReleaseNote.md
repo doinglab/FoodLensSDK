@@ -1,5 +1,13 @@
 # Ios FoodLensSDK Release Note
 
+## v2.0.24
+1. 수동입력 버튼 표시 여부를 결정하는 변수(isEnableManualInput) 추가  
+
+## v2.0.23
+1. iOS 13 UI 대응 
+
+## v2.0.22
+1. iOS 13 크래시 버그 수정
 
 ## v2.0.21
 1. iOS 13 에서 발생하는 크래시 문제 해결 

@@ -10,7 +10,7 @@
 * iOS Ver 11.0 이상
 * Swift Version 4.2 이상
 
-## FoodLens SDK V2 (Ver. 2.0.23)
+## FoodLens SDK V2 (Ver. 2.0.24)
 <img src="./Images/V201.PNG" width="150" height="300">      <img src="./Images/V202.PNG" width="150" height="300">
 
 ## FoodLens SDK V1 (Ver. 0.1.15)
@@ -42,7 +42,7 @@ source 'https://github.com/CocoaPods/Specs.git'
 Podfile 에 아래와 같은 구문을 추가하여 FoodLens 를 import 합니다.
 
 ```ruby
-pod 'FoodLens', '2.0.23'
+pod 'FoodLens', '2.0.24'
 ```
 ** [ReleaseNote](ReleaseNote.md)
 
@@ -100,6 +100,17 @@ FoodLens.uiServiceMode = .userSelectedWithCandidates
 uiService.startUIService(parent: self, completionHandler: CallbackObject())   
 ```
 
+## Using Only Network API
+
+FoodLens UI 가 필요없는 경우, 아래 함수만 호출하여 음식 인식 결과를 받을 수 있습니다.
+
+```swift
+let networkService = FoodLens.createNetworkService(nutritionRetrieveMode: .allNutirition, accessToken: "<Access Token Here>") //AccessToken is given to you
+networkService!.predictMultipleFood(image: pickedImage) { (result : PredictionResult?, status : ProcessStatus) in
+    
+}
+```
+
 ## Working with JSON 
 
 UserServiceResultHandler.onSuccess 함수의 파라미터로 전달되는 RecognitionResult 객체를 JSON 문자열로 변환할 수 있습니다. 
@@ -117,18 +128,20 @@ JSON 문자열을 PredictionResult 객체로 변환할 경우, 아래처럼 사�
 ```swift
     let predictResult = PredictionResult.create(json: jsonString)
 ```
+PredictionResult 은 RecognitionResult protocol 의 구현체 입니다.
 
-## Using Only Network API
-
-FoodLens UI 가 필요없는 경우, 아래 함수만 호출하여 음식 인식 결과를 받을 수 있습니다.
+## Eat amount info
 
 ```swift
-let networkService = FoodLens.createNetworkService(nutritionRetrieveMode: .allNutirition, accessToken: "<Access Token Here>") //AccessToken is given to you
-networkService!.predictMultipleFood(image: pickedImage) { (result : PredictionResult?, status : ProcessStatus) in
-    
-}
+    for index in 0 ..< result.foodPositionList.count {
+        let eatAmount = result.foodPositionList[index].eatAmount
+        let nutrition = result.foodPositionList[index].userSelectedFood?.nutrition
+        eatAmount * nutrition?.carbonhydrate // // 1회 섭취한 음식에 대한 탄수화물 섭취량
+        eatAmount * nutrition?.protein // // 1회 섭취한 음식에 대한 단백질 섭취량
+        eatAmount * nutrition?.fat // // 1회 섭취한 음식에 대한 지방 섭취량
+        ...
+    }
 ```
-PredictionResult 은 RecognitionResult protocol 의 구현체 입니다.
 
 ## Documents  
 [API Documents](https://doinglab.github.io/ios/index.html)
@@ -137,7 +150,9 @@ PredictionResult 은 RecognitionResult protocol 의 구현체 입니다.
 [Sample](SampleCode/)
 
 ## JSON Format
-[JSON Format](JSON%20Format)
+[JSON Format](../JSON%20Format)
+
+[JSON Sample](../JSON%20Sample)
 
 ## Author
 hyunsuk.lee@doinglab.com
