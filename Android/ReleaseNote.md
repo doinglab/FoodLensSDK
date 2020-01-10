@@ -1,6 +1,9 @@
 # Android FoodLensSDK Release Note
 
 
+## v2.0.22
+1. 카메라화면 이미지 처리관련 안정성 개선 
+
 ## v2.0.21
 1. 검색화면 키패드 엔터버튼 기능 수정
 
