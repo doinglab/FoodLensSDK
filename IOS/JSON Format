@@ -27,7 +27,7 @@
             "transfat":Float, //트랜스지방(단위 : g)
             "unit": String, // 제공단위(ex : 봉지, 그릇 등..)
             "vitamina": Float, //비타민 A(단위 : RE)
-            "vitaminb": Float, //비타민 B(단위 : mg)
+            "vitaminb": Float, //비타민 B1(단위 : mg)
             "vitaminc": Float, //비타민 C(단위 : mg)
             "vitamind": Float, //비타민 D(단위 : ug)
             "vitamine": Float //비타민 E(단위 : mg)
