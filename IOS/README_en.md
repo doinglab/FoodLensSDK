@@ -53,6 +53,7 @@ pod 'FoodLens'
 ## Using FoodLens UI
 
 You can use UI served by default
+(As of 2.0.27, the UI is displayed in light mode.)
 
 ```swift
 FoodLens.uiServiceMode = .userSelectedWithCandidates
