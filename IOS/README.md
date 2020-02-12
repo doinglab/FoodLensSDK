@@ -49,6 +49,8 @@ pod 'FoodLens', '2.0.27'
 ## Using FoodLens UI
 
 FoodLens 에서 제공하는 UI 를 아래와 같이 사용할 수 있습니다.
+(2.0.27 버전부터는 Light Mode 로만 UI 가 표시됩니다.)
+
 
 ```swift
 FoodLens.uiServiceMode = .userSelectedWithCandidates
