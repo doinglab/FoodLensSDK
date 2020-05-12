@@ -10,7 +10,7 @@
 * iOS Ver 11.0 이상
 * Swift Version 4.2 이상
 
-## FoodLens SDK V2 (Ver. 2.0.27)
+## FoodLens SDK V2 (Ver. 2.1.0)
 <img src="./Images/V201.PNG" width="150" height="300">      <img src="./Images/V202.PNG" width="150" height="300">
 
 ## FoodLens SDK V1 (Ver. 0.1.15)
@@ -42,7 +42,7 @@ source 'https://github.com/CocoaPods/Specs.git'
 Podfile 에 아래와 같은 구문을 추가하여 FoodLens 를 import 합니다.
 
 ```ruby
-pod 'FoodLens', '2.0.27'
+pod 'FoodLens', '2.1.0'
 ```
 ** [ReleaseNote](ReleaseNote.md)
 
@@ -111,6 +111,13 @@ let networkService = FoodLens.createNetworkService(nutritionRetrieveMode: .allNu
 networkService!.predictMultipleFood(image: pickedImage) { (result : PredictionResult?, status : ProcessStatus) in
     
 }
+```
+## FoodLens 독립 서버 주소 설정
+
+기본 FoodLens 서버가 아닌 독립 서버를 운용할 경우 서버 주소를 설정 할 수 있습니다.
+```swift
+//info.plist에 FoodLensServerAddr 항목을 추가하고 서버 주소를 추가
+//도메인 이름만 추가 http, https등 프로토콜은 추가하지 않음
 ```
 
 ## Working with JSON 
