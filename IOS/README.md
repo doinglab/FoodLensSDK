@@ -117,8 +117,9 @@ networkService!.predictMultipleFood(image: pickedImage) { (result : PredictionRe
 기본 FoodLens 서버가 아닌 독립 서버를 운용할 경우 서버 주소를 설정 할 수 있습니다.
 ```swift
 //info.plist에 FoodLensServerAddr 항목을 추가하고 서버 주소를 추가
-//도메인 이름만 추가 http, https등 프로토콜은 추가하지 않음
+//도메인 이름만 추가 http, https등 프로토콜은 추가하지 않음 e.g.) www.domain.com, 132.213.111.23 등
 ```
+<img src="./Images/infoplist.png">
 
 ## Working with JSON 
 
