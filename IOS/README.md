@@ -13,7 +13,7 @@
 ## FoodLens SDK V2 (Ver. 2.1.0)
 <img src="./Images/V201.PNG" width="150" height="300">      <img src="./Images/V202.PNG" width="150" height="300">
 
-## FoodLens SDK V1 (Ver. 0.1.15)
+## FoodLens SDK V1 (Ver. 0.1.15) - Decrecate V1버전은 더이상 기술 지원을 하지 않습니다.
 <img src="./Images/V101.PNG" width="150" height="300">      <img src="./Images/V102.PNG" width="150" height="300">
 
 
