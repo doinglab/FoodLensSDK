@@ -6,7 +6,7 @@ FoodLens SDK는 Network SDK와 UI SDK로 이루어 지며, 자체 UI를 작성�
 ## FoodLens SDK V2
 <img src="./image/image_v2_1.png" width="150" height="300">      <img src="./image/image_v2_2.png" width="150" height="300">
 
-## FoodLens SDK V1
+## FoodLens SDK V1 (Deprecate 더이상 V1 번전은 Support되지 않습니다.)
 <img src="./image/image_v1_1.png" width="150" height="300">      <img src="./image/image_v1_2.png" width="150" height="300">
 
 ## 문서 Annotation - 필독
@@ -72,7 +72,7 @@ compileOptions {
 ### FoodLens SDK V2 버전
  - 프로젝트에서 app > Gradle Scripts(그래들 스크립트) > build.gradle (Module: app)을 연 후 dependencies{} 섹션에 아래와 같은 문구를 추가해 주세요.
 ```java
-FOODLENS_SDK_VERSION = 2.0.24
+FOODLENS_SDK_VERSION = 2.1.0
 ```
 ```java
  implementation "com.doinglab.foodlens:FoodLens:$FOODLENS_SDK_VERSION"
@@ -157,10 +157,19 @@ dependencies {
        public protected *;
 }
 ```
-## 3. SDK 사용법 사용법
+## 3.독릭 FoodLens 서버 주소 설정
+ - Meta data추가 
+   아래와 같이 메타데이터를 Manifest.xml에 추가해 주세요
+```xml
+//프로토콜과 및 포트를 제외한 순수 도메인 주소 혹은 IP주소 e.g) www.foodlens.com, 123.222.100.10
+<meta-data android:name="com.doinglab.foodlens.sdk.serveraddr" android:value="[server_address]"/> 
+```  
 
-### 3.1 Network API 사용법
-#### 3.1.1 음식 인식 기능 사용
+
+## 4. SDK 사용법 사용법
+
+### 4.1 Network API 사용법
+#### 4.1.1 음식 인식 기능 사용
 1. NetworkService를 생성합니다.
 2. predictMultipleFood 메소드를 호출 합니다.  
    파라미터는 Jpeg image와 RecognizeResultHandler 입니다.  
@@ -191,7 +200,7 @@ ns.predictMultipleFood(byteData, new RecognizeResultHandler() {
 	}
 });		    
 ```
-#### 3.1.2 영양정보 획득
+#### 4.1.2 영양정보 획득
 1. NetworkService를 생성합니다.
 2. getNutritionInfo 메소드를 호출 합니다.  
    파라미터는 FoodID와 NutritionResultHandler 입니다.  
@@ -214,8 +223,8 @@ ns.getNutritionInfo([food_id], new NutritionResultHandler() {
 });
 ```
 
-### 3.2 UI API 사용법
-#### 3.2.1 UI Service의 카메라 모듈 및 인식 기능 사용
+### 4.2 UI API 사용법
+#### 4.2.1 UI Service의 카메라 모듈 및 인식 기능 사용
 1. UIService를 생성합니다.
 2. startFoodLensCamera 메소드를 호출 합니다.  
 - 코드 예제
@@ -259,7 +268,7 @@ protected void onActivityResult(int requestCode, int resultCode, @Nullable Inten
 }
 ```
 
-#### 3.2.2 UI Service의 Data 수정 기능
+#### 4.2.2 UI Service의 Data 수정 기능
 1. UIService를 생성합니다.
 2. 3.1.2과 3.2.1에서 획득한 영양정보를 recognitionResult에 저장합니다.
 3. startFoodLensDataEdit 메소드를 호출 합니다. 
@@ -307,7 +316,7 @@ protected void onActivityResult(int requestCode, int resultCode, @Nullable Inten
 
 ...
 
-#### 3.3 RecognitionResult의 저장과 생성
+#### 4.3 RecognitionResult의 저장과 생성
 - 코드예제
 ```java
 String json = recognitionResult.toJSONString();
@@ -316,7 +325,7 @@ RecognitionResult result = RecognitionResult.create(json);
 
 ...
 
-#### 3.4 섭취한 영양정보 산출 계산식
+#### 4.4 섭취한 영양정보 산출 계산식
 ```java
 for(int i = 0; i < recognitionResult.getFoodPositions().size(); i++) {
 	FoodPosition foodPosition = foodPositions.get(i);
@@ -331,19 +340,19 @@ for(int i = 0; i < recognitionResult.getFoodPositions().size(); i++) {
 
 ...
 
-## 4. SDK 상세 스펙  
+## 5. SDK 상세 스펙  
 [상세 API 명세](https://doinglab.github.io/android/index.html)  
 
-## 5. SDK 사용 예제  
+## 6. SDK 사용 예제  
 [Sample 예제](SampleCode/)
 
-## 6. JSON Format
+## 7. JSON Format
 [JSON Format](../JSON%20Format)
 
 [JSON Sample](../JSON%20Sample)
 
-## 7. Author
+## 8. Author
 hyunsuk.lee@doinglab.com
 
-## 8. License
+## 9. License
 FoodLens is available under the MIT license. See the LICENSE file for more info.
