@@ -1,4 +1,8 @@
 # Android FoodLensSDK Release Note
+## v2.1.1
+(2020.05.25)
+1. Android 10 관련 스토리지 문제 해결
+
 ## v2.1.0
 (2020.05.12)
 1. 사용자 음식 만들기 추가
