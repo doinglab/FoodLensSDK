@@ -51,6 +51,17 @@ allprojects {
     }
 ```
 
+- Android 10 지원
+Android 10 지원을 위해 Compile SDK Version을 29이상으로 설정해 주세요
+
+```java
+android {
+        ....
+        compileSdkVersion 29
+	....       
+    }
+```
+
 - minSdkVersion은 19 이상을 사용하시기 바랍니다.
 프로젝트에서 app > Gradle Scripts(그래들 스크립트) > build.gradle (Module: app)을 연 후 defaultConfig{} 섹션에 아래와 같은 문구를 추가해 주세요.
 ```java
