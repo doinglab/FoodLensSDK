@@ -168,7 +168,7 @@ dependencies {
        public protected *;
 }
 ```
-## 3.독릭 FoodLens 서버 주소 설정
+## 3.독립 FoodLens 서버 주소 설정
  - Meta data추가 
    아래와 같이 메타데이터를 Manifest.xml에 추가해 주세요
 ```xml
