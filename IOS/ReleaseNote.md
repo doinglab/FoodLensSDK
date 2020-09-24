@@ -1,4 +1,4 @@
-# Ios FoodLensSDK Release Note
+# iOS FoodLensSDK Release Note
 
 ## v2.1.6 (2020.09.24)
 1. 식사 타입 설정 버그 수정
