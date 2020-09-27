@@ -1,5 +1,8 @@
 # iOS FoodLensSDK Release Note
 
+## v2.1.7 (2020.09.27)
+1. FoodPosition관련 최대 widht, height를 얻을 수 있는 API 추가
+
 ## v2.1.6 (2020.09.24)
 1. 식사 타입 설정 버그 수정
 
