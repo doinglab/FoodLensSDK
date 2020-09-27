@@ -1,4 +1,13 @@
 # Android FoodLensSDK Release Note
+## v2.2.0
+(2020.09.27)
+1. Android SDK 29 지원되도록 수정 (Storage 및 Permission관련 수정) 
+2. FoodLensSDK compile version 29로 변경
+
+## v2.1.3
+(2020.09.27)
+1. FoodPosition관련 최대 widht, height를 얻을 수 있는 API 추가
+
 ## v2.1.1
 (2020.05.25)
 1. Android 10 관련 스토리지 문제 해결
