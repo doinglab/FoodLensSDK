@@ -1,4 +1,4 @@
-# Ios FoodLens SDK 메뉴얼
+# iOS FoodLens SDK 메뉴얼
 
 <!-- [![CI Status](https://img.shields.io/travis/hyunsuk.lee@doinglab.com/FoodLens.svg?style=flat)](https://travis-ci.org/hyunsuk.lee@doinglab.com/FoodLens)
 [![Version](https://img.shields.io/cocoapods/v/FoodLens.svg?style=flat)](https://cocoapods.org/pods/FoodLens)
@@ -10,7 +10,7 @@
 * iOS Ver 11.0 이상
 * Swift Version 4.2 이상
 
-## FoodLens SDK V2 (Ver. 2.1.6)
+## FoodLens SDK V2 (Ver. 2.1.7)
 <img src="./Images/V201.PNG" width="150" height="300">      <img src="./Images/V202.PNG" width="150" height="300">
 
 ## FoodLens SDK V1 (Ver. 0.1.15) - Decrecate V1버전은 더이상 기술 지원을 하지 않습니다.
@@ -42,7 +42,7 @@ source 'https://github.com/CocoaPods/Specs.git'
 Podfile 에 아래와 같은 구문을 추가하여 FoodLens 를 import 합니다.
 
 ```ruby
-pod 'FoodLens', '2.1.6'
+pod 'FoodLens', '2.1.7'
 ```
 ** [ReleaseNote](ReleaseNote.md)
 
