@@ -1,5 +1,8 @@
 # iOS FoodLensSDK Release Note
 
+## v2.1.8 (2020.10.06)
+1. FoodPosition 좌표값을 원본 이미지 크기 대비로 변경
+
 ## v2.1.7 (2020.09.27)
 1. FoodPosition관련 최대 widht, height를 얻을 수 있는 API 추가
 
