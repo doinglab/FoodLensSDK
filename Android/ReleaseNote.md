@@ -1,8 +1,16 @@
 # Android FoodLensSDK Release Note
+## v2.2.1
+(2020.10.06)
+1. 입력 이미지 크기 기반으로 예측된 음식위치 설정
+
 ## v2.2.0
 (2020.09.27)
 1. Android SDK 29 지원되도록 수정 (Storage 및 Permission관련 수정) 
 2. FoodLensSDK compile version 29로 변경
+
+## v2.1.4
+(2020.10.06)
+1. 입력 이미지 크기 기반으로 예측된 음식위치 설정
 
 ## v2.1.3
 (2020.09.27)
