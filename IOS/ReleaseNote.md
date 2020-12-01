@@ -1,5 +1,9 @@
 # iOS FoodLensSDK Release Note
 
+## v2.2.1 (2020.12.01)
+1. Network SDK사용시 Image Orientation Missmatch로 인한 크래쉬 문제 해결
+2. EditUIService시 캐쉬되어있는 이미지 로딩하는 문제 해결
+
 ## v2.1.9 (2020.11.06)
 1. 식사 입력 날짜 유지되는 문제 수정
 2. 식사 타입 반영안된는 문제 해결
