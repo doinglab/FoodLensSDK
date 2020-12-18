@@ -1,5 +1,8 @@
 # iOS FoodLensSDK Release Note
 
+## v2.2.2 (2020.12.18)
+1. 갤러리에서 이미지 불러올 때 사진 촬영 날짜를 이용해서 식사 시간을 설정 할 수 있는 기능 추가
+
 ## v2.2.1 (2020.12.01)
 1. Network SDK사용시 Image Orientation Missmatch로 인한 크래쉬 문제 해결
 2. EditUIService시 캐쉬되어있는 이미지 로딩하는 문제 해결
