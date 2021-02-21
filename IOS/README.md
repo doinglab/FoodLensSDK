@@ -5,6 +5,8 @@
 [![License](https://img.shields.io/cocoapods/l/FoodLens.svg?style=flat)](https://cocoapods.org/pods/FoodLens)
 [![Platform](https://img.shields.io/cocoapods/p/FoodLens.svg?style=flat)](https://cocoapods.org/pods/FoodLens) -->
 
+## [ReleaseNote 바로가기](ReleaseNote.md)
+
 ## Requirements
 
 * iOS Ver 11.0 이상
@@ -44,7 +46,6 @@ Podfile 에 아래와 같은 구문을 추가하여 FoodLens 를 import 합니�
 ```ruby
 pod 'FoodLens', '2.3.0'
 ```
-** [ReleaseNote](ReleaseNote.md)
 
 ## Using FoodLens UI
 
