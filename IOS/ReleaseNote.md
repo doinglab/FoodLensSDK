@@ -1,4 +1,7 @@
 # iOS FoodLensSDK Release Note
+## v2.3.1 (2021.06.09)
+1. 음식 수정시 갈헐적 죽는 현상 해결
+
 ## v2.3.0 (2021.02.21)
 1. Alamofire version 5 반영. Alamorefire 4버전대를 사용하는 경우 충돌 강능성 있음. 이런 경우 5버전으로 업그레이트 혹으 2.2.2버전 사용
 
