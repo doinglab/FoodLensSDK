@@ -1,4 +1,7 @@
 # iOS FoodLensSDK Release Note
+## v2.3.7 (2022.01.14)
+1. NetworkSDK 음식 검색 문제 해결
+
 ## v2.3.6 (2021.12.01)
 1. 카메라뷰 네비게이션바 색상문제 수정 (iOS 15이상에서 발생)
 
