@@ -43,9 +43,15 @@ source 'https://github.com/CocoaPods/Specs.git'
 
 Podfile 에 아래와 같은 구문을 추가하여 FoodLens 를 import 합니다.
 
+### AccessToken만 있는 경우
 ```ruby
 pod 'FoodLens', '2.3.7'
 ```
+### AppToken 및 CompanyToken이 있는 경우
+```ruby
+pod 'FoodLens', '2.4.0'
+```
+
 
 ## Using FoodLens UI
 
@@ -56,7 +62,12 @@ FoodLens 에서 제공하는 UI 를 아래와 같이 사용할 수 있습니다.
 ```swift
 FoodLens.uiServiceMode = .userSelectedWithCandidates
 
-let uiService = FoodLens.createUIService(accessToken: "<Access Token Here>") //AccessToken is given to you
+//NOTE AccessToken만 있는 경우
+let uiService = FoodLens.createUIService(accessToken: "<Access Token Here>")
+
+//NOTE AppToken, CompanyToken모두 있는 경우
+let uiService = FoodLens.createUIService(appToken: "<App Token Here>", companyToken: "<Company Token Here>")
+
 uiService?.startUIService(parent: self, completionHandler: self)
 ```
 completionHandler 는 callback 을 받을 swift protocol 이며, 아래와 같이 정의되어 있습니다.
