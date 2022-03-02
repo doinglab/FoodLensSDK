@@ -1,4 +1,7 @@
 # iOS FoodLensSDK Release Note
+## v2.4.0 (2022.03.02)
+1. AppToken, CompanyToken 지원
+
 ## v2.3.7 (2022.01.14)
 1. NetworkSDK 음식 검색 문제 해결
 
