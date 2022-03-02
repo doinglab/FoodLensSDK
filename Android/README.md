@@ -150,25 +150,49 @@ dependencies {
 ```
 
 ## 2. 리소스(Resources) 및 메니페스트(Manifests) 수정
- - Access Token 추가  
-   발급된 AccessToken을 /app/res/values/strings.xml에 추가 합니다.
+#### 2.1 2.3.0 미만 버전 (~2.2.12)
+* Access Token 추가
+발급된 AccessToken을 /app/res/values/strings.xml에 추가 합니다.
 ```xml
 <string name="foodlens_access_token">[AccessToken]</string>
 ```
 
- - Meta data추가 
-   아래와 같이 메타데이터를 Manifest.xml에 추가해 주세요
+* Meta data추가
+아래와 같이 메타데이터를 Manifest.xml에 추가해 주세요
 ```xml
 <meta-data android:name="com.doinglab.foodlens.sdk.accesstoken" android:value="@string/foodlens_access_token"/> 
-```  
+```
 
- - ProGuard 설정
-   FoodLens SDK는 ProGuard로 코드 난독화를 적용하면 안 됩니다. FoodLens를 사용하는 애플리케이션을 .apk 파일로 빌드할 때 ProGuard를 적용하려면 설정을 proguard-project.txt파일에 아래의 내용을 추가해 주세요.
+#### 2.2 2.3.0 이상 버전 (2.3.0~)
+* Access Token 추가
+발급된 AccessToken을 /app/res/values/strings.xml에 추가 합니다.
+```xml
+<string name="foodlens_app_token">[AppToken]</string>
+<string name="foodlens_company_token">[CompanyToken]</string>
+```
+
+* Meta data추가
+아래와 같이 메타데이터를 Manifest.xml에 추가해 주세요
+```xml
+<meta-data android:name="com.doinglab.foodlens.sdk.apptoken" android:value="@string/foodlens_app_token"/> 
+<meta-data android:name="com.doinglab.foodlens.sdk.companytoken" android:value="@string/foodlens_company_token"/> 
+```
+
+#### 2.3 공통
+* ProGuard 설정
+FoodLens SDK는 ProGuard로 코드 난독화를 적용하면 안 됩니다. FoodLens를 사용하는 애플리케이션을 .apk 파일로 빌드할 때 ProGuard를 적용하려면 설정을 proguard-project.txt파일에 아래의 내용을 추가해 주세요.
 ```xml
 -keep public class com.doinglab.foodlens.sdk.** {
        *;
 }
+```## 3.독립 FoodLens 서버 주소 설정
+* Meta data추가
+아래와 같이 메타데이터를 Manifest.xml에 추가해 주세요
+```xml
+//프로토콜과 및 포트를 제외한 순수 도메인 주소 혹은 IP주소 e.g) www.foodlens.com, 123.222.100.10
+<meta-data android:name="com.doinglab.foodlens.sdk.serveraddr" android:value="[server_address]"/> 
 ```
+
 ## 3.독립 FoodLens 서버 주소 설정
  - Meta data추가 
    아래와 같이 메타데이터를 Manifest.xml에 추가해 주세요
