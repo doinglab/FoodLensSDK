@@ -9,49 +9,33 @@
 
 ## Requirements
 
-* iOS Ver 11.0 이상
+* iOS Ver 12.0 이상
 * Swift Version 4.2 이상
+* 2.4.1 버전부터 private repository가 아닌 cocoapod public repository에 릴리즈 됩니다.
 
-## FoodLens SDK V2 (Ver. 2.3.7)
+## FoodLens SDK V2 (Ver. 2.4.1)
 <img src="./Images/V201.PNG" width="150" height="300">      <img src="./Images/V202.PNG" width="150" height="300">
 
-## FoodLens SDK V1 (Ver. 0.1.15) - Decrecate V1버전은 더이상 기술 지원을 하지 않습니다.
-<img src="./Images/V101.PNG" width="150" height="300">      <img src="./Images/V102.PNG" width="150" height="300">
 
 
 ## Installation
 
-`pod repo add` 명령어를 사용하여 리포지토리를 추가합니다. 
-
-```ruby
-pod repo add bitbucket-doing-lab-foodlenssdk-specs https://bitbucket.org/doing-lab/foodlenssdk-specs.git
-```
-Credential 정보를 입력하라는 화면이 나오면, 전달받은 인증 정보를 입력합니다.
-
-Podfile 에 아래와 같은 행을 추가합니다.
-
-```ruby
-source 'https://bitbucket.org/doing-lab/foodlenssdk-specs.git'
-```
-
-Alamofire나 Kingfisher 같은 CocoaPod 라이브러리를 사용할 경우, 아래와 같이 CocoaPod 의 Source 도 같이 추가해야 합니다. 
-
-```ruby
-source 'https://bitbucket.org/doing-lab/foodlenssdk-specs.git'
-source 'https://github.com/CocoaPods/Specs.git'
-```
-
 Podfile 에 아래와 같은 구문을 추가하여 FoodLens 를 import 합니다.
 
-### AccessToken만 있는 경우
 ```ruby
-pod 'FoodLens', '2.3.7'
-```
-### AppToken 및 CompanyToken이 있는 경우
-```ruby
-pod 'FoodLens', '2.4.0'
+platform :ios, '12.0'
+
+target 'FoodLensApp' do
+  # Comment the next line if you're not using Swift and don't want to use dynamic frameworks
+  use_frameworks!
+  pod 'FoodLens', '2.4.1'
+  ....
 ```
 
+pod install시 Foodlens 검색 안될시 repository 업데이트와 함께 설치
+```
+pod install --repo-update
+```
 
 ## Using FoodLens UI
 
