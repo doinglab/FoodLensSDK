@@ -1,4 +1,9 @@
 # iOS FoodLensSDK Release Note
+## v2.4.1 (2022.03.29)
+1. Deployment Tartget 변경 11.0 -> 12.0
+2. 라이브러리 업데이트 Kingfisher, Alamorfile
+3. Public Cocoapod으로 릴리즈
+
 ## v2.4.0 (2022.03.02)
 1. AppToken, CompanyToken 지원
 
