@@ -7,20 +7,15 @@ FoodLens SDK는 Network SDK와 UI SDK로 이루어 지며, 자체 UI를 작성�
 
 ## FoodLens SDK V2
 <img src="./image/image_v2_1.png" width="150" height="300">      <img src="./image/image_v2_2.png" width="150" height="300">
-
-## FoodLens SDK V1 (Deprecate 더이상 V1 번전은 Support되지 않습니다.)
-<img src="./image/image_v1_1.png" width="150" height="300">      <img src="./image/image_v1_2.png" width="150" height="300">
-
-## 문서 Annotation - 필독
-### - "[XXX]" 대괄호 내용은 실제 내용으로 변경되어야 합니다.
-### - 대괄호까지 삭제한 후 실제 내용이 들어가야 합니다.
-### - e.g. username "[UserName]" -> username "myid"
  
  
 ## 1. 안드로이드 프로젝트 설정
-- 프로젝트에서 app > Gradle Scripts(그래들 스크립트) > build.gradle (Project)를 연 후 allprojects { repositories {}}에 다음 아래 내용을 추가해 주세요.  
-   **※ 두잉랩에서 제공해드린 Repository용 UserName과 Password로 변경해주세요.**  
-   
+2.3.0 버전부터 FoodLens SDK가 Priavte에서 public으로 변경되었습니다.
+기존의 private maven setting을 하실 필요가 없으며,기존 고객은 삭제해주시기 바랍니다.
+- 프로젝트에서 app > Gradle Scripts(그래들 스크립트) > build.gradle (Project)를 연 후 allprojects { repositories {}}에 다음 아래 내용이 있다면 삭제.  
+
+### 아래 코드가 있다면 삭제 해당 코드 부분 삭제
+### 신규 프로젝트인 경우 설정 불필요
 ```java
 maven {
      credentials {
@@ -32,25 +27,6 @@ maven {
      }
      url "https://bitbucket.org/doing-lab/foodlenssdk-repo/raw/releases"
 }
-
-```
-예제)
-```java
-allprojects {
-    repositories {
-	    .....
-		
-        maven {
-            credentials {
-                username "[UserName]"
-                password "[Password]"
-            }
-            authentication{
-                basic(BasicAuthentication)
-            }
-            url "https://bitbucket.org/doing-lab/foodlenssdk-repo/raw/releases"
-        }
-    }
 ```
 
 - Android 10 지원
@@ -85,17 +61,7 @@ compileOptions {
 ### FoodLens SDK V2 버전
  - 프로젝트에서 app > Gradle Scripts(그래들 스크립트) > build.gradle (Module: app)을 연 후 dependencies{} 섹션에 아래와 같은 문구를 추가해 주세요.
 ```java
-FOODLENS_SDK_VERSION = 2.2.12
-```
-```java
- implementation "com.doinglab.foodlens:FoodLens:$FOODLENS_SDK_VERSION"
-```
-
-### FoodLens SDK V1 버전
- - 프로젝트에서 app > Gradle Scripts(그래들 스크립트) > build.gradle (Module: app)을 연 후 dependencies{} 섹션에 아래와 같은 문구를 추가해 주세요.
- 
-```java
-FOODLENS_SDK_VERSION = 1.0.11
+FOODLENS_SDK_VERSION = 2.3.0
 ```
 ```java
  implementation "com.doinglab.foodlens:FoodLens:$FOODLENS_SDK_VERSION"
@@ -151,7 +117,7 @@ dependencies {
 
 ## 2. 리소스(Resources) 및 메니페스트(Manifests) 수정
 #### 2.1 2.3.0 미만 버전 (~2.2.12)
-* Access Token 추가
+* Access Token만 있는경우
 발급된 AccessToken을 /app/res/values/strings.xml에 추가 합니다.
 ```xml
 <string name="foodlens_access_token">[AccessToken]</string>
@@ -164,8 +130,8 @@ dependencies {
 ```
 
 #### 2.2 2.3.0 이상 버전 (2.3.0~)
-* Access Token 추가
-발급된 AccessToken을 /app/res/values/strings.xml에 추가 합니다.
+* AppToken, CompanyToken이 있는 경우
+발급된 AppToken, CompanyToken을 /app/res/values/strings.xml에 추가 합니다.
 ```xml
 <string name="foodlens_app_token">[AppToken]</string>
 <string name="foodlens_company_token">[CompanyToken]</string>
