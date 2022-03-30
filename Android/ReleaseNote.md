@@ -1,4 +1,8 @@
 # Android FoodLensSDK Release Note
+## v2.3.0
+(2022.03.30)
+1. Private Maven repository에서 public Maven Central로 저장소 이동
+
 ## v2.2.12
 (2021.11.12)
 1. 권한 거부시 비정상동작 수정 (권한 세팅 페이지로 이동)
