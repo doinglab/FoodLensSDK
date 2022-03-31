@@ -61,7 +61,11 @@ compileOptions {
 ### FoodLens SDK V2 버전
  - 프로젝트에서 app > Gradle Scripts(그래들 스크립트) > build.gradle (Module: app)을 연 후 dependencies{} 섹션에 아래와 같은 문구를 추가해 주세요.
 ```java
+//CompanyToken, AppToken이 있는 경우
 FOODLENS_SDK_VERSION = 2.3.0
+
+//AccessToken만 있는 경우
+FOODLENS_SDK_VERSION = 2.2.12
 ```
 ```java
  implementation "com.doinglab.foodlens:FoodLens:$FOODLENS_SDK_VERSION"
@@ -116,7 +120,8 @@ dependencies {
 ```
 
 ## 2. 리소스(Resources) 및 메니페스트(Manifests) 수정
-#### Access Token만 있는경우
+### 버전 2.3.0 미만
+#### Access Token만 있는 경우
 발급된 AccessToken을 /app/res/values/strings.xml에 추가 합니다.
 ```xml
 <string name="foodlens_access_token">[AccessToken]</string>
@@ -127,7 +132,7 @@ dependencies {
 ```xml
 <meta-data android:name="com.doinglab.foodlens.sdk.accesstoken" android:value="@string/foodlens_access_token"/> 
 ```
-
+### 버전 2.3.0 이상
 #### AppToken, CompanyToken이 있는 경우
 발급된 AppToken, CompanyToken을 /app/res/values/strings.xml에 추가 합니다.
 ```xml
