@@ -116,8 +116,7 @@ dependencies {
 ```
 
 ## 2. 리소스(Resources) 및 메니페스트(Manifests) 수정
-#### 2.1 2.3.0 미만 버전 (~2.2.12)
-* Access Token만 있는경우
+#### Access Token만 있는경우
 발급된 AccessToken을 /app/res/values/strings.xml에 추가 합니다.
 ```xml
 <string name="foodlens_access_token">[AccessToken]</string>
@@ -129,8 +128,7 @@ dependencies {
 <meta-data android:name="com.doinglab.foodlens.sdk.accesstoken" android:value="@string/foodlens_access_token"/> 
 ```
 
-#### 2.2 2.3.0 이상 버전 (2.3.0~)
-* AppToken, CompanyToken이 있는 경우
+#### AppToken, CompanyToken이 있는 경우
 발급된 AppToken, CompanyToken을 /app/res/values/strings.xml에 추가 합니다.
 ```xml
 <string name="foodlens_app_token">[AppToken]</string>
