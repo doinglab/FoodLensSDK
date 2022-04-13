@@ -13,7 +13,7 @@
 * Swift Version 4.2 이상
 * 2.4.1 버전부터 private repository가 아닌 cocoapod public repository에 릴리즈 됩니다.
 
-## FoodLens SDK V2 (Ver. 2.4.2)
+## FoodLens SDK V2 (Ver. 2.4.3)
 <img src="./Images/V201.PNG" width="150" height="300">      <img src="./Images/V202.PNG" width="150" height="300">
 
 
@@ -28,7 +28,7 @@ platform :ios, '12.0'
 target 'FoodLensApp' do
   # Comment the next line if you're not using Swift and don't want to use dynamic frameworks
   use_frameworks!
-  pod 'FoodLens', '2.4.2'
+  pod 'FoodLens', '2.4.3'
   ....
 ```
 
