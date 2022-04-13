@@ -1,4 +1,7 @@
 # iOS FoodLensSDK Release Note
+## v2.4.3 (2022.04.12)
+1. 카메라 리소스 해제 문제 해결
+
 ## v2.4.2 (2022.03.30)
 1. Cocoapod Repository 변경
 
