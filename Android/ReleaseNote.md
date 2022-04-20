@@ -1,5 +1,5 @@
 # Android FoodLensSDK Release Note
-## v2.3.2
+## v2.3.1
 (2022.04.13)
 1. 검색 화면 배율 조정 (갤러시 폴드 지원)
 2. AccessToken 및 CompanyToken/AppToken 동시 지원 기능 추가
