@@ -2,11 +2,15 @@
 ## v2.3.2
 (2022.04.13)
 1. 검색 화면 배율 조정 (갤러시 폴드 지원)
-2. AccessToken동시 지원 기능 추가
+2. AccessToken 및 CompanyToken/AppToken 동시 지원 기능 추가
 
 ## v2.3.0
 (2022.03.30)
-1. Private Maven repository에서 public Maven Central로 저장소 이동
+1. Private Maven repository에서 public Maven Central로 저장소 이동 CompanyToken, AppToken지원용
+
+## v2.2.13
+(2022.03.30)
+1. Private Maven repository에서 public Maven Central로 저장소 이동 AccessToken 지원용
 
 ## v2.2.12
 (2021.11.12)
