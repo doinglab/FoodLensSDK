@@ -1,8 +1,8 @@
 {
   "eatDate": Date(yyyy-MM-dd HH:mm:ss),
+  //eatType is NOT USED, Android only
   "eatType": Int, //0 : Breakfast, 1 : Lunch, 2 : Dinner, 4 : Morning snack, 5 : Afternoon snack, 6 : Late night snack 
-  (Deprecated -> 3 : Snack)
-  "mealType": String, // Breakfast, Lunch, Dinner, Snack
+  "mealType": String, // Return value breakfast, lunch, dinner, snack, morning_snack, afternoon_snack, late_night_snack
   "foodImagepath": String, //Local path
   "foodPositionList": [
     {
