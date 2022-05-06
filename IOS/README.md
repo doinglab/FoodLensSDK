@@ -205,7 +205,7 @@ func onSuccess(_ result : RecognitionResult) {
 JSON 문자열을 PredictionResult 객체로 변환할 경우, 아래처럼 사용하실 수 있습니다.
 
 ```swift
-    let predictResult = PredictionResult.create(json: jsonString)
+let predictResult = PredictionResult.create(json: jsonString)
 ```
 PredictionResult 은 RecognitionResult protocol 의 구현체 입니다.
 
