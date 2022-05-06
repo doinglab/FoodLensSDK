@@ -231,6 +231,26 @@ ns.getNutritionInfo([food_id], new NutritionResultHandler() {
 	}
 });
 ```
+#### 4.1.4 음식항목 검색하기
+1. NetworkService를 생성합니다.
+2. searchFoodsByName 메소드를 호출 합니다.  
+   파라미터는 음식이름과 SearchResultHandler 입니다.  
+- 코드 예제  
+```java
+
+ns = FoodLens.createNetworkService(getApplicationContext());
+ns.searchFoodsByName("라면", new SearchResultHandler() {
+	@Override
+	public void onSuccess(FoodSearchResult result) {
+
+	}
+
+	@Override
+	public void onError(BaseError errorReason) {
+
+	}
+});
+```
 
 ### 4.2 UI API 사용법
 #### 4.2.1 UI Service의 카메라 모듈 및 인식 기능 사용
@@ -354,7 +374,7 @@ FoodLensBundle bundle = new FoodLensBundle();
 bundle.setEnableManualInput(true);  //검색입력 활성화 여부
 bundle.setEatType(1);               //식사 타입 수동 선택
 bundle.setSaveToGallery(true);      //갤러리 기능 활성화 여부
-bundle.setUseImageRecordDate(true); //촬영한 이미지 갤러지 저장 여부
+bundle.setUseImageRecordDate(true); //촬영한 이미지 갤러리 저장 여부
 bundle.setEnableCameraOrientation(true);  //카메라 회전 기능 지원 여부
 uiService.setDataBundle(bundle);
 
