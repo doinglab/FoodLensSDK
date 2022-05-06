@@ -346,7 +346,9 @@ protected void onActivityResult(int requestCode, int resultCode, @Nullable Inten
 #### 4.2.3 영양정보 추출 모드
 인식 결과를 리턴 받을 때 추천항목의 영양소까지 받을지 여부를 선택 할 수 있다.
 ```java
-uiService.setUiServiceMode(UIServiceMode.USER_SELECTED_WITH_CANDIDATES); //UIServiceMode.USER_SELECTED_ONLY 선택시 사용자가 선택항 항목의 영양소만 반환된다.
+//USER_SELECTED_WITH_CANDIDATES 사용자 선택외 추천된 항목의 모든 영양정보가 반환된다.
+//USER_SELECTED_ONLY 선택시 사용자가 선택항 항목의 영양소만 반환된다.
+uiService.setUiServiceMode(UIServiceMode.USER_SELECTED_WITH_CANDIDATES);
 ```
 
 #### 4.2.4 테마 및 옵션 변경
