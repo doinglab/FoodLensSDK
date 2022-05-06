@@ -1,11 +1,11 @@
 # iOS FoodLens SDK 메뉴얼
-
-<!-- [![CI Status](https://img.shields.io/travis/hyunsuk.lee@doinglab.com/FoodLens.svg?style=flat)](https://travis-ci.org/hyunsuk.lee@doinglab.com/FoodLens)
-[![Version](https://img.shields.io/cocoapods/v/FoodLens.svg?style=flat)](https://cocoapods.org/pods/FoodLens)
-[![License](https://img.shields.io/cocoapods/l/FoodLens.svg?style=flat)](https://cocoapods.org/pods/FoodLens)
-[![Platform](https://img.shields.io/cocoapods/p/FoodLens.svg?style=flat)](https://cocoapods.org/pods/FoodLens) -->
+iOS용 FoodLens SDK를 사용하여 FoodLens 기능을 이용할 수 있습니다.  
+FoodLens SDK는 Network SDK와 UI SDK로 이루어 지며, 자체 UI를 작성할 경우는 Network SDK를, Doinglab에서 제공하는 UI화면까지 사용할 경우는 UI SDK를 사용하셔서 FoodLens의 기능을 이용하실 수 있습니다. 
 
 ## [ReleaseNote 바로가기](ReleaseNote.md)
+
+## FoodLens SDK
+<img src="./Images/V201.PNG" width="150" height="300">      <img src="./Images/V202.PNG" width="150" height="300">
 
 ## Requirements
 
@@ -13,12 +13,10 @@
 * Swift Version 4.2 이상
 * 2.4.1 버전부터 private repository가 아닌 cocoapod public repository에 릴리즈 됩니다.
 
-## FoodLens SDK V2 (Ver. 2.4.3)
-<img src="./Images/V201.PNG" width="150" height="300">      <img src="./Images/V202.PNG" width="150" height="300">
 
 
 
-## Installation
+## 1. SDK 설치 및 설정
 
 Podfile 에 아래와 같은 구문을 추가하여 FoodLens 를 import 합니다.
 
@@ -37,17 +35,44 @@ pod install시 Foodlens 검색 안될시 repository 업데이트와 함께 설�
 pod install --repo-update
 ```
 
+### 기존 2.4.0 이전 사용자
 기존 private repository를 사용했던 사용자는 아래 커맨드를 활용하여 기존 foodlens private repo를 삭제 후 업데이트
 ```
 pod repo remove [repo name]
 ```
 
+## 2. 리소스(Resources) 및 info.plist 수정
+해당사항 없음
 
-## Using FoodLens UI
+## 3. FoodLens 독립 서버 주소 설정
+
+기본 FoodLens 서버가 아닌 독립 서버를 운용할 경우 서버 주소를 설정 할 수 있습니다.
+```swift
+//info.plist에 FoodLensServerAddr 항목을 추가하고 서버 주소를 추가
+//도메인 이름만 추가 http, https등 프로토콜은 추가하지 않음 e.g.) www.domain.com, 132.213.111.23 등
+```
+<img src="./Images/infoplist.png">
+
+## 4. SDK 사용법 사용법
+### 4.1 Network API 사용법
+
+FoodLens UI 가 필요없는 경우, 아래 함수만 호출하여 음식 인식 결과를 받을 수 있습니다.
+
+```swift
+let networkService = FoodLens.createNetworkService(nutritionRetrieveMode: .allNutirition, accessToken: "<Access Token Here>") //AccessToken is given to you
+networkService!.predictMultipleFood(image: pickedImage) { (result : PredictionResult?, status : ProcessStatus) in
+    
+}
+```
+
+### 4.2 UI API 
 
 FoodLens 에서 제공하는 UI 를 아래와 같이 사용할 수 있습니다.
 (2.0.27 버전부터는 Light Mode 로만 UI 가 표시됩니다.)
 
+### 4.2.1 UI Service의 카메라 모듈 및 인식 기능 사용
+UIService를 생성합니다.
+startFoodLensCamera 메소드를 호출 합니다.
 
 ```swift
 FoodLens.uiServiceMode = .userSelectedWithCandidates
@@ -70,20 +95,11 @@ public protocol UserServiceResultHandler {
 }
 ```
 
+### 4.2.2 UI Service의 Data 수정 기능
 음식 인식 결과를 수정해야 할 경우, 아래와 같이 사용하실 수 있습니다.  
 
 ```swift
-let mealData = PredictionResult()    // PredictionResult implements RecognitionResult protocol
-let foodPosition = FoodPosition()
-let food = Food()
-food.foodName = "FoodName"
-let nutrition = Nutrition()
-nutrition.calories = 5000
-food.nutrition = nutrition
-foodPosition.foodCandidates.append(food)
-foodPosition.userSelectedFood = foodPosition.foodCandidates[0]
-mealData.putFoodPosition(foodPosition)
-
+let mealData = PredictionResult.create(json: jsonString)
 FoodLens.uiServiceMode = .userSelectedWithCandidates
 
 let uiService = FoodLens.createUIService(accessToken: "<Access Token Here>") //AccessToken is given to you
@@ -91,6 +107,7 @@ uiService.startEditUIService(mealData, parent: self, completionHandler: Callback
 ```
 completionHandler 는 callback 을 받을 swift protocol 입니다.
 
+### 4.2.3 테마 및 옵션 변경
 FoodLens UI 의 여러 요소에 개별 색을 적용할 수 있습니다. 
 
 ```swift
@@ -104,26 +121,8 @@ FoodLens.uiServiceMode = .userSelectedWithCandidates
 uiService.startUIService(parent: self, completionHandler: CallbackObject())   
 ```
 
-## Using Only Network API
 
-FoodLens UI 가 필요없는 경우, 아래 함수만 호출하여 음식 인식 결과를 받을 수 있습니다.
-
-```swift
-let networkService = FoodLens.createNetworkService(nutritionRetrieveMode: .allNutirition, accessToken: "<Access Token Here>") //AccessToken is given to you
-networkService!.predictMultipleFood(image: pickedImage) { (result : PredictionResult?, status : ProcessStatus) in
-    
-}
-```
-## FoodLens 독립 서버 주소 설정
-
-기본 FoodLens 서버가 아닌 독립 서버를 운용할 경우 서버 주소를 설정 할 수 있습니다.
-```swift
-//info.plist에 FoodLensServerAddr 항목을 추가하고 서버 주소를 추가
-//도메인 이름만 추가 http, https등 프로토콜은 추가하지 않음 e.g.) www.domain.com, 132.213.111.23 등
-```
-<img src="./Images/infoplist.png">
-
-## Working with JSON 
+### 4.2.4 JSON 변환
 
 UserServiceResultHandler.onSuccess 함수의 파라미터로 전달되는 RecognitionResult 객체를 JSON 문자열로 변환할 수 있습니다. 
 
@@ -142,7 +141,7 @@ JSON 문자열을 PredictionResult 객체로 변환할 경우, 아래처럼 사�
 ```
 PredictionResult 은 RecognitionResult protocol 의 구현체 입니다.
 
-## Eat amount info
+### 4.2.5 영양성분 계산
 
 ```swift
     for index in 0 ..< result.foodPositionList.count {
@@ -155,10 +154,10 @@ PredictionResult 은 RecognitionResult protocol 의 구현체 입니다.
     }
 ```
 
-## Documents  
+## 5.SDK 상세 스펙  
 [API Documents](https://doinglab.github.io/ios/index.html)
 
-## Example  
+## SDK 사용 예제 
 [Sample](SampleCode/)
 
 ## JSON Format
