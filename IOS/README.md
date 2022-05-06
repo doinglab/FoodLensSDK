@@ -55,8 +55,12 @@ pod repo remove [repo name]
 
 ## 4. SDK 사용법 사용법
 ### 4.1 Network API 사용법
-
-FoodLens UI 가 필요없는 경우, 아래 함수만 호출하여 음식 인식 결과를 받을 수 있습니다.
+#### 4.1.1 음식 인식기능 사용
+1. NetworkService를 생성합니다.
+2. predictMultipleFood 메소드를 호출 합니다.
+파라미터로 UIImage로 로드왼 이미지를 전달합니다.
+※ 이미지가 작은경우 인식율이 낮아질 수 있습니다.
+3. 코드 예제
 
 ```swift
 let networkService = FoodLens.createNetworkService(nutritionRetrieveMode: .allNutirition, accessToken: "<Access Token Here>") //AccessToken is given to you
@@ -64,8 +68,47 @@ networkService!.predictMultipleFood(image: pickedImage) { (result : PredictionRe
     
 }
 ```
+#### 4.1.2 음식 인식기능 사용
+옵션에 따라 인식결과의 영양정보를 다르게 얻을 수 있다.
+createNetworkService의 nutritionRetrieveMode 값을 설정하여 변경
+```swift
+let networkService = FoodLens.createNetworkService(nutritionRetrieveMode: .allNutirition, accessToken: "<Access Token Here>") 
+```
 
-### 4.2 UI API 
+#### 4.1.3 음식 영양정보 얻기
+1. NetworkService를 생성합니다.
+2. getNutritionInfo 메소드를 호출 합니다.
+   파라미터로 FoodID를 넘겨 줍니다.
+※ FoodID의 경우 Prediction결과 및 getFoodsByName 결과에서 획득 할 수 있습니다.
+
+```swift
+let networkService = FoodLens.createNetworkService(nutritionRetrieveMode: .allNutirition, accessToken: "<Access Token Here>") 
+networkService.getNutritionInfo(foodId: 100) { nutrition, state in
+    if state.state == .success {
+      print(nutrition?.calories)
+    } else {
+      print("Nutrition retreveal error")
+    }
+}
+```
+
+#### 4.1.4 음식항목 검색하기
+1. NetworkService를 생성합니다.
+2. getFoodsByName 메소드를 호출 합니다.
+   파라미터로 음식명을 넘겨 줍니다.
+3. 음식명이 포함된 모든 항목을 리턴해 줍니다.
+
+```swift
+let networkService = FoodLens.createNetworkService(nutritionRetrieveMode: .allNutirition, accessToken: "<Access Token Here>") 
+networkService.getFoodsByName(foodName: "라면") { foodlist in
+  for item in foodlist {
+    print(item.foodname)
+  }
+}
+```
+
+
+### 4.2 UI API 사용법
 
 FoodLens 에서 제공하는 UI 를 아래와 같이 사용할 수 있습니다.
 (2.0.27 버전부터는 Light Mode 로만 UI 가 표시됩니다.)
@@ -107,7 +150,19 @@ uiService.startEditUIService(mealData, parent: self, completionHandler: Callback
 ```
 completionHandler 는 callback 을 받을 swift protocol 입니다.
 
-### 4.2.3 테마 및 옵션 변경
+### 4.2.3 영양정보 추출 모드
+인식 결과를 리턴 받을 때 추천항목의 영양소까지 받을지 여부를 선택 할 수 있다.
+```swift
+//userSelectedWithCandidates 사용자 선택외 추천된 항목의 모든 영양정보가 반환된다.
+//userSelectedOnly 선택시 사용자가 선택항 항목의 영양소만 반환된다.
+FoodLens.uiServiceMode = .userSelectedWithCandidates 
+let uiService = FoodLens.createUIService(accessToken: "<Access Token Here>") //AccessToken is given to you
+uiService.startEditUIService(mealData, parent: self, completionHandler: CallbackObject())    
+
+```
+
+### 4.2.4 테마 및 옵션 변경
+#### 4.2.4.1 UI테마 변경
 FoodLens UI 의 여러 요소에 개별 색을 적용할 수 있습니다. 
 
 ```swift
@@ -122,6 +177,19 @@ uiService.startUIService(parent: self, completionHandler: CallbackObject())
 ```
 
 
+#### 4.2.4.2 FoodLens 옵션 변경
+FoodLens의 사용 옵션을 변경 할 수 있습니다.
+```swift
+FoodLens.isEnableCameraOrientation = false                  //카메라 회전 기능 지원 여부
+FoodLens.isEnableManualInput = true                         //검색입력 활성화 여부
+let calendar = Calendar.autoupdatingCurrent
+FoodLens.eatDate = calendar.date(from: dateComponents)!     //현재 시간 설정 기능
+FoodLens.isSaveToGallery = false                            //촬영한 이미지 갤러리 저장 여부 
+FoodLens.eatType = MealType.init(rawValue: 1)               //식사 타입 수정 선택
+
+uiService.startUIService(parent: self, completionHandler: CallbackObject())
+ 
+```
 ### 4.2.4 JSON 변환
 
 UserServiceResultHandler.onSuccess 함수의 파라미터로 전달되는 RecognitionResult 객체를 JSON 문자열로 변환할 수 있습니다. 
