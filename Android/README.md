@@ -5,17 +5,19 @@ FoodLens SDK는 Network SDK와 UI SDK로 이루어 지며, 자체 UI를 작성�
 
 ## [ReleaseNote 바로가기](ReleaseNote.md)
 
-## FoodLens SDK V2
+## FoodLens SDK
 <img src="./image/image_v2_1.png" width="150" height="300">      <img src="./image/image_v2_2.png" width="150" height="300">
  
  
 ## 1. 안드로이드 프로젝트 설정
 2.3.0 버전부터 FoodLens SDK가 Priavte에서 public으로 변경되었습니다.
+
+### * 중요 2.3.0 이전 사용자 *
 기존의 private maven setting을 하실 필요가 없으며,기존 고객은 삭제해주시기 바랍니다.
 - 프로젝트에서 app > Gradle Scripts(그래들 스크립트) > build.gradle (Project)를 연 후 allprojects { repositories {}}에 다음 아래 내용이 있다면 삭제.  
 
-### 아래 코드가 있다면 해당 코드 부분 삭제
-### 신규 프로젝트인 경우 설정 불필요
+#### 아래 코드가 있다면 해당 코드 부분 삭제
+#### 신규 프로젝트인 경우 설정 불필요
 ```java
 maven {
      credentials {
@@ -29,7 +31,7 @@ maven {
 }
 ```
 
-- Android 10 지원
+### 1.1 Android 10 지원
 Android 10 지원을 위해 Compile SDK Version을 29이상으로 설정해 주세요. 프로젝트에서 app > Gradle Scripts(그래들 스크립트) > build.gradle (Module: app)을 연 후 android{} 섹션에 아래와 같은 문구를 추가해 주세요.
 
 ```java
@@ -40,6 +42,7 @@ android {
     }
 ```
 
+### 1.2 gradle 설정
 - minSdkVersion은 19 이상을 사용하시기 바랍니다.
 프로젝트에서 app > Gradle Scripts(그래들 스크립트) > build.gradle (Module: app)을 연 후 defaultConfig{} 섹션에 아래와 같은 문구를 추가해 주세요.
 ```java
@@ -58,7 +61,7 @@ compileOptions {
     }
 ```
 
-### FoodLens SDK V2 버전
+#### 1.2.1 FoodLens SDK 버전 설정
  - 프로젝트에서 app > Gradle Scripts(그래들 스크립트) > build.gradle (Module: app)을 연 후 dependencies{} 섹션에 아래와 같은 문구를 추가해 주세요.
 ```java
 FOODLENS_SDK_VERSION = 2.3.2
@@ -116,8 +119,10 @@ dependencies {
 }
 ```
 
-## 2. 리소스(Resources) 및 메니페스트(Manifests) 수정
-#### Access Token만 있는 경우
+## 2. 리소스(Resources) 및 메니페스트(Manifests) 
+AccessToken과 Company, AppToken을 중 한가지만 세팅 합니다.
+
+### 2.1 Access Token만 있는 경우
 발급된 AccessToken을 /app/res/values/strings.xml에 추가 합니다.
 ```xml
 <string name="foodlens_access_token">[AccessToken]</string>
@@ -128,7 +133,7 @@ dependencies {
 ```xml
 <meta-data android:name="com.doinglab.foodlens.sdk.accesstoken" android:value="@string/foodlens_access_token"/> 
 ```
-#### AppToken, CompanyToken이 있는 경우
+### 2.2 AppToken, CompanyToken이 있는 경우
 발급된 AppToken, CompanyToken을 /app/res/values/strings.xml에 추가 합니다.
 ```xml
 <string name="foodlens_app_token">[AppToken]</string>
@@ -142,19 +147,13 @@ dependencies {
 <meta-data android:name="com.doinglab.foodlens.sdk.companytoken" android:value="@string/foodlens_company_token"/> 
 ```
 
-#### 2.3 공통
+### 2.3 공통
 * ProGuard 설정
 FoodLens SDK는 ProGuard로 코드 난독화를 적용하면 안 됩니다. FoodLens를 사용하는 애플리케이션을 .apk 파일로 빌드할 때 ProGuard를 적용하려면 설정을 proguard-project.txt파일에 아래의 내용을 추가해 주세요.
 ```xml
 -keep public class com.doinglab.foodlens.sdk.** {
        *;
 }
-```## 3.독립 FoodLens 서버 주소 설정
-* Meta data추가
-아래와 같이 메타데이터를 Manifest.xml에 추가해 주세요
-```xml
-//프로토콜과 및 포트를 제외한 순수 도메인 주소 혹은 IP주소 e.g) www.foodlens.com, 123.222.100.10
-<meta-data android:name="com.doinglab.foodlens.sdk.serveraddr" android:value="[server_address]"/> 
 ```
 
 ## 3.독립 FoodLens 서버 주소 설정
@@ -200,7 +199,17 @@ ns.predictMultipleFood(byteData, new RecognizeResultHandler() {
 	}
 });		    
 ```
-#### 4.1.2 영양정보 획득
+#### 4.1.2 음식 결과 영양정보 얻기 모드
+옵션에 따라 인식결과의 영양정보를 다르게 얻을 수 있다.
+```java
+//Create Network Service
+final NetworkService ns = FoodLens.createNetworkService(context);
+ns.setNutritionRetrieveMode(NutritionRetrieveMode.TOP1_NUTRITION_ONLY); //예측 값중 예측 우선순위가 가장 높은 1개의 영양 정보만 리턴한다.
+ns.predictMultipleFood(byteData, new RecognizeResultHandler() {
+...
+```
+
+#### 4.1.3 음식 영양정보 얻기
 1. NetworkService를 생성합니다.
 2. getNutritionInfo 메소드를 호출 합니다.  
    파라미터는 FoodID와 NutritionResultHandler 입니다.  
@@ -230,13 +239,13 @@ ns.getNutritionInfo([food_id], new NutritionResultHandler() {
 - 코드 예제
 ```java
 //Define UI Service
-private UIService uis;
+private UIService uiService;
 
 ...
 
 //Create UI Service
-uis = FoodLens.createUIService(context);
-uis.startFoodLensCamera(MainActivity.this, new UIServiceResultHandler() {
+uiService = FoodLens.createUIService(context);
+uiService.startFoodLensCamera(MainActivity.this, new UIServiceResultHandler() {
                     @Override
                     public void onSuccess(UserSelectedResult result) {     
 		    	//implement code
@@ -263,7 +272,7 @@ uis.startFoodLensCamera(MainActivity.this, new UIServiceResultHandler() {
 @Override
 protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
 	....
-	uis.onActivityResult(requestCode, resultCode, data);
+	uiService.onActivityResult(requestCode, resultCode, data);
 	....
 }
 ```
@@ -275,14 +284,14 @@ protected void onActivityResult(int requestCode, int resultCode, @Nullable Inten
 - 코드 예제
 ```java
 //Define UI Service
-private UIService uis;
+private UIService uiService;
 RecognitionResult recognitionResult = null;
 
 ...
 
 //Create UI Service
-uis = FoodLens.createUIService(context);
-uis.startFoodLensDataEdit(MainActivity.this, recognitionResult, new UIServiceResultHandler() {
+uiService = FoodLens.createUIService(context);
+uiService.startFoodLensDataEdit(MainActivity.this, recognitionResult, new UIServiceResultHandler() {
                     @Override
                     public void onSuccess(UserSelectedResult result) {     
 		    	//implement code
@@ -309,21 +318,60 @@ uis.startFoodLensDataEdit(MainActivity.this, recognitionResult, new UIServiceRes
 @Override
 protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
 	....
-	uis.onActivityResult(requestCode, resultCode, data);
+	uiService.onActivityResult(requestCode, resultCode, data);
 	....
 }
 ```
 
-...
-
-#### 4.3 RecognitionResult의 저장과 생성
-- 코드예제
+#### 4.2.3 영양정보 추출 모드
+인식 결과를 리턴 받을 때 추천항목의 영양소까지 받을지 여부를 선택 할 수 있다.
 ```java
-String json = recognitionResult.toJSONString();
-RecognitionResult result = RecognitionResult.create(json);
+uiService.setUiServiceMode(UIServiceMode.USER_SELECTED_WITH_CANDIDATES); //UIServiceMode.USER_SELECTED_ONLY 선택시 사용자가 선택항 항목의 영양소만 반환된다.
 ```
 
-...
+#### 4.2.4 테마 및 옵션 변경
+##### 4.2.4.1 UI 테마 변경
+FoodLens UI 의 여러 요소에 개별 색을 적용할 수 있습니다.
+```java
+BottomWidgetTheme bottomWidgetTheme =  new BottomWidgetTheme(this);
+bottomWidgetTheme.setButtonTextColor(0xffffff);
+bottomWidgetTheme.setWidgetRadius(30);
+
+DefaultWidgetTheme defaultWidgetTheme = new DefaultWidgetTheme(this);
+defaultWidgetTheme.setWidgetColor(0xffffff);
+
+ToolbarTheme toolbarTheme = new ToolbarTheme(this);
+toolbarTheme.setBackgroundColor(0xffffff);
+
+uiService.setBottomWidgetTheme(bottomWidgetTheme);
+uiService.setDefaultWidgetTheme(defaultWidgetTheme);
+uiService.setToolbarTheme(toolbarTheme);
+```
+##### 4.2.4.2 FoodLens 옵션 변경
+FoodLens의 사용 옵션을 변경 할 수 있습니다.
+```
+FoodLensBundle bundle = new FoodLensBundle();
+bundle.setEnableManualInput(true);  //검색입력 활성화 여부
+bundle.setEatType(1);               //식사 타입 수동 선택
+bundle.setSaveToGallery(true);      //갤러리 기능 활성화 여부
+bundle.setUseImageRecordDate(true); //촬영한 이미지 갤러지 저장 여부
+bundle.setEnableCameraOrientation(true);  //카메라 회전 기능 지원 여부
+uiService.setDataBundle(bundle);
+
+```
+
+
+#### 4.3 RecognitionResult의 JSON변환
+RecognitionResult 객체를 JSON 문자열로 변환할 수 있습니다.
+```java
+String json = recognitionResult.toJSONString();  //json생성
+```
+
+JSON 문자열을 PredictionResult 객체로 변환할 경우, 아래처럼 사용하실 수 있습니다.
+```java
+RecognitionResult result = RecognitionResult.create(json); 
+```
+
 
 #### 4.4 섭취한 영양정보 산출 계산식
 ```java
