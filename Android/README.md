@@ -164,6 +164,9 @@ FoodLens SDK는 ProGuard로 코드 난독화를 적용하면 안 됩니다. Food
 ## 4. SDK 사용법 사용법
 
 ### 4.1 Network API 사용법
+Network API는 FoodLens기능을 이미지 파일기반으로 동작하게 하는 기능입니다.
+결과를 이용하여 각자에 맞는 UI를 직접 개발 할 수 있습니다.
+
 #### 4.1.1 음식 인식 기능 사용
 1. NetworkService를 생성합니다.
 2. predictMultipleFood 메소드를 호출 합니다.  
@@ -249,6 +252,9 @@ ns.searchFoodsByName("라면", new SearchResultHandler() {
 ```
 
 ### 4.2 UI API 사용법
+UI API는 FoodLens 에서 제공하는 기본 UI를 활용하여 서비스를 개발 할 수 있는 기능입니다.
+UI API는 간단한 화면 Customize기능을 포함하고 있습니다.
+
 #### 4.2.1 UI Service의 카메라 모듈 및 인식 기능 사용
 1. UIService를 생성합니다.
 2. startFoodLensCamera 메소드를 호출 합니다.  
