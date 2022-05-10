@@ -26,7 +26,7 @@ platform :ios, '12.0'
 target 'FoodLensApp' do
   # Comment the next line if you're not using Swift and don't want to use dynamic frameworks
   use_frameworks!
-  pod 'FoodLens', '2.4.3'
+  pod 'FoodLens', '2.4.4'
   ....
 ```
 
@@ -55,7 +55,10 @@ pod repo remove [repo name]
 
 ## 4. SDK 사용법 사용법
 ### 4.1 Network API 사용법
-#### 4.1.1 음식 인식기능 사용
+Network API는 FoodLens기능을 이미지 파일기반으로 동작하게 하는 기능입니다.
+결과를 이용하여 각자에 맞는 UI를 직접 개발 할 수 있습니다.
+
+#### 4.1.1 음ㅅ 인식기능 사용
 1. NetworkService를 생성합니다.
 2. predictMultipleFood 메소드를 호출 합니다.
 파라미터로 UIImage로 로드왼 이미지를 전달합니다.
@@ -109,8 +112,8 @@ networkService.getFoodsByName(foodName: "라면") { foodlist in
 
 
 ### 4.2 UI API 사용법
-
-FoodLens 에서 제공하는 UI 를 아래와 같이 사용할 수 있습니다.
+UI API는 FoodLens 에서 제공하는 기본 UI를 활용하여 서비스를 개발 할 수 있는 기능입니다.
+UI API는 간단한 화면 Customize기능을 포함하고 있습니다.
 (2.0.27 버전부터는 Light Mode 로만 UI 가 표시됩니다.)
 
 ### 4.2.1 UI Service의 카메라 모듈 및 인식 기능 사용
