@@ -1,4 +1,7 @@
 # iOS FoodLensSDK Release Note
+## v2.4.4 (2022.05.10)
+1. NetworkService 생성자 통일 
+
 ## v2.4.3 (2022.04.12)
 1. 카메라 리소스 해제 문제 해결
 
