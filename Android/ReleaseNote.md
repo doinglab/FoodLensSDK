@@ -1,4 +1,8 @@
 # Android FoodLensSDK Release Note
+## v2.3.3
+(2022.05.13)
+1. 간헐적 카메라 화면 백그란드 진입 후 포그란드로 진입할때 발생하는 크래쉬 문제 해결
+
 ## v2.3.2
 (2022.04.27)
 1. NetworkService AccessToken 및 CompanyToken/AppToken 동시 지원 기능 추가
