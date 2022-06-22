@@ -8,9 +8,8 @@ import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.provider.MediaStore;
-import android.support.annotation.Nullable;
-import android.support.v4.content.ContextCompat;
-import android.support.v7.app.AppCompatActivity;
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -20,6 +19,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.doinglab.foodlens.sdk.FoodLens;
+import com.doinglab.foodlens.sdk.FoodLensBundle;
 import com.doinglab.foodlens.sdk.NetworkService;
 
 import com.doinglab.foodlens.sdk.network.model.RecognitionResult;
@@ -62,8 +62,20 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        uiService = FoodLens.createUIService(getApplicationContext());
+
+        uiService = FoodLens.createUIService(this);
         uiService.setUiServiceMode(UIServiceMode.USER_SELECTED_WITH_CANDIDATES);
+
+
+        try {
+            FoodLensBundle bundle = new FoodLensBundle();
+            bundle.setEnableManualInput(true);
+            bundle.setSaveToGallery(true);
+            uiService.setDataBundle(bundle);
+        } catch (Exception e) {
+
+        }
+
 
         tv_title = (TextView)findViewById(R.id.tv_title);
         adapter = new ListViewAdapter() ;
