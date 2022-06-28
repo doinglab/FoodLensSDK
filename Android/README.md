@@ -61,7 +61,7 @@ compileOptions {
     }
 ```
 #### 1.2.2 maven repository설정
-최신 버전 프로젝트로 mavenCentral만 기본 설정일 경우 jcenter 리포지토리가 프로젝트 그래들에 추가
+최신 버전 프로젝트로 mavenCentral만 기본 설정일 경우 jcenter 리포지토리를 프로젝트 그래들에 추가
 ```java
 buildscript {
     
