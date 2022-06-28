@@ -191,7 +191,19 @@ FoodLens.isSaveToGallery = false                            //촬영한 이미�
 FoodLens.eatType = MealType.init(rawValue: 1)               //식사 타입 수정 선택
 
 uiService.startUIService(parent: self, completionHandler: CallbackObject())
- 
+  
+```
+
+#### 4.2.4.3 식사 타입 자동 설정
+사용자가 eatType 이용하여 식사타입 설정을 직접 하지 않은 경우, 음식 식사 타입은 기준 시간을 기준으로 자동설정됨
+설정되는 시간 값
+```
+아침 : 5시 ~ 10시
+아침간신 : 10 ~ 11시
+점심 : 11시 ~ 13시
+점심간신 : 13시 ~ 17시
+저녁 : 17시 ~ 20시
+야식 : 20시 ~ 5시
 ```
 ### 4.2.4 JSON 변환
 
