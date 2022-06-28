@@ -12,7 +12,7 @@ FoodLens SDK는 Network SDK와 UI SDK로 이루어 지며, 자체 UI를 작성�
 ## 1. 안드로이드 프로젝트 설정
 2.3.0 버전부터 FoodLens SDK가 Priavte에서 public으로 변경되었습니다.
 
-### * 중요 2.3.0 이전 사용자 *
+### * <중요> 2.3.0 이전 사용자 *
 기존의 private maven setting을 하실 필요가 없으며,기존 고객은 삭제해주시기 바랍니다.
 - 프로젝트에서 app > Gradle Scripts(그래들 스크립트) > build.gradle (Project)를 연 후 allprojects { repositories {}}에 다음 아래 내용이 있다면 삭제.  
 
@@ -60,7 +60,29 @@ compileOptions {
         targetCompatibility JavaVersion.VERSION_1_8
     }
 ```
+#### 1.2.2 maven repository설정
+최신 버전 프로젝트로 mavenCentral만 기본 설정일 경우 jcenter 리포지토리가 프로젝트 그래들에 추가
+```java
+buildscript {
+    
+    repositories {
+        google()
+        mavenCentral()
+        jcenter()
+    }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:7.2.1'
+    }
+}
 
+allprojects {
+    repositories {
+        google()
+        mavenCentral()
+        jcenter()
+    }
+}
+```
 #### 1.2.1 FoodLens SDK 버전 설정
  - 프로젝트에서 app > Gradle Scripts(그래들 스크립트) > build.gradle (Module: app)을 연 후 dependencies{} 섹션에 아래와 같은 문구를 추가해 주세요.
 ```java
@@ -373,7 +395,7 @@ uiService.setToolbarTheme(toolbarTheme);
 ```
 ##### 4.2.4.2 FoodLens 옵션 변경
 FoodLens의 사용 옵션을 변경 할 수 있습니다.
-```
+```java
 FoodLensBundle bundle = new FoodLensBundle();
 bundle.setEnableManualInput(true);  //검색입력 활성화 여부
 bundle.setEatType(1);               //식사 타입 수동 선택
@@ -384,6 +406,17 @@ uiService.setDataBundle(bundle);
 
 ```
 
+##### 4.2.4.3 식사 타입 자동 설정
+사용자가 setEatType을 이용하여 식사타입 설정을 직접 하지 않은 경우, 음식 식사 타입은 기준 시간을 기준으로 자동설정됨
+설정되는 시간 값
+```
+아침 : 5시 ~ 10시
+아침간신 : 10 ~ 11시
+점심 : 11시 ~ 13시
+점심간신 : 13시 ~ 17시
+저녁 : 17시 ~ 20시
+야식 : 20시 ~ 5시
+```
 
 #### 4.3 RecognitionResult의 JSON변환
 RecognitionResult 객체를 JSON 문자열로 변환할 수 있습니다.
