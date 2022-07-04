@@ -167,7 +167,7 @@ AccessToken과 Company, AppToken을 중 한가지만 세팅 합니다.
 
 ### 2.3 공통
 * ProGuard 설정
-FoodLens SDK는 ProGuard로 코드 난독화를 적용하면 안 됩니다. FoodLens를 사용하는 애플리케이션을 .apk 파일로 빌드할 때 ProGuard를 적용하려면 설정을 proguard-project.txt파일에 아래의 내용을 추가해 주세요.
+앱에서 proguard를 통한 난독화를 설젇할 경우 아래와 깉이 proguard 설정을 설정 파일에 추가해 주세요
 ```xml
 -keep public class com.doinglab.foodlens.sdk.** {
        *;
