@@ -172,6 +172,8 @@ FoodLens SDK는 ProGuard로 코드 난독화를 적용하면 안 됩니다. Food
 -keep public class com.doinglab.foodlens.sdk.** {
        *;
 }
+-keep,allowobfuscation,allowshrinking class com.google.gson.reflect.TypeToken
+-keep,allowobfuscation,allowshrinking class * extends com.google.gson.reflect.TypeToken
 ```
 
 ## 3.독립 FoodLens 서버 주소 설정
