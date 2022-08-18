@@ -402,7 +402,7 @@ FoodLensBundle bundle = new FoodLensBundle();
 bundle.setEnableManualInput(true);  //검색입력 활성화 여부
 bundle.setEatType(1);               //식사 타입 수동 선택
 bundle.setSaveToGallery(true);      //갤러리 기능 활성화 여부
-bundle.setUseImageRecordDate(true); //사진촬영시간을 입력시간으로 사용할지 여부
+bundle.setUseImageRecordDate(true); //갤러리에 저장된 사진의 사진촬영시간을 입력시간으로 사용할지 여부
 bundle.setEnableCameraOrientation(true);  //카메라 회전 기능 지원 여부
 uiService.setDataBundle(bundle);
 
