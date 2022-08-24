@@ -1,4 +1,8 @@
 # Android FoodLensSDK Release Note
+## v2.3.5
+(2022.08.24)
+1. NetworkService를 활용할 때 AppToken이 없으면 exception이 발생하는 문제 수정
+
 ## v2.3.4
 (2022.07.29)
 1. Network 서비스 사용시, 네트워크가 연결되어있지 않을 경우 크래쉬가 발생하는 문제 수정
