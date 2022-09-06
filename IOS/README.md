@@ -26,7 +26,7 @@ platform :ios, '12.0'
 target 'FoodLensApp' do
   # Comment the next line if you're not using Swift and don't want to use dynamic frameworks
   use_frameworks!
-  pod 'FoodLens', '2.4.7'
+  pod 'FoodLens', '2.4.8'
   ....
 ```
 
@@ -188,6 +188,7 @@ FoodLens.isEnableManualInput = true                         //검색입력 활�
 let calendar = Calendar.autoupdatingCurrent
 FoodLens.eatDate = calendar.date(from: dateComponents)!     //현재 시간 설정 기능
 FoodLens.isSaveToGallery = false                            //촬영한 이미지 갤러리 저장 여부 
+FoodLens.isUseImageRecordDate =  false                      //갤러리에서 이미지 불러올 때 촬영 일자 사용여부 (ture일경우 선택 팝업표시)
 FoodLens.eatType = MealType.init(rawValue: 1)               //식사 타입 수정 선택
 
 uiService.startUIService(parent: self, completionHandler: CallbackObject())
