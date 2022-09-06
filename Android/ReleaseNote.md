@@ -1,4 +1,8 @@
 # Android FoodLensSDK Release Note
+## v2.3.6
+(2022.09.06)
+1. 갤러리에서 이미지 로딩시 촬영일자 사용에 대한 기본 옵션을 off에서 on으로 변경
+
 ## v2.3.5
 (2022.08.24)
 1. NetworkService를 활용할 때 AppToken이 없으면 exception이 발생하는 문제 수정
