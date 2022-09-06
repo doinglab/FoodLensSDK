@@ -1,4 +1,7 @@
 # iOS FoodLensSDK Release Note
+## v2.4.8 (2022.08.29)
+1. 갤러리에서 이미지 불러올 때 촬영 일자 얻어오는 팝업 옵션처리. isUseImageRecordDate 옵션 추가
+
 ## v2.4.7 (2022.08.29)
 1. 폰의 위치 정보를 특정국가로 할경우 DateFormat이 잘못나오는 현상 수정
 
