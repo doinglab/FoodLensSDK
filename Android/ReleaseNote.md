@@ -1,4 +1,12 @@
 # Android FoodLensSDK Release Note
+## v2.3.8
+(2022.10.21)
+1. NetworkService를 활용할때 AccessToken을 사용할 경우 exception이 발생하는 문제 수정
+
+## v2.3.7
+(2022.10.20)
+1. 검색 화면 간헐적으로 크래쉬 발생하는 문제 수정
+
 ## v2.3.6
 (2022.09.06)
 1. 갤러리에서 이미지 로딩시 촬영일자 사용에 대한 기본 옵션을 off에서 on으로 변경
