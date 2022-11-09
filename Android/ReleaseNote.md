@@ -1,4 +1,16 @@
 # Android FoodLensSDK Release Note
+## v2.4.1
+(2022.11.03)
+1. 카메라 화면 포토갤러리 활성화 옵션 추가
+
+## v2.4.0
+(2022.11.03)
+1. Network Service로 받아온 데이터 Editmode 에서 접근하게 수정
+
+## v2.3.9
+(2022.11.01)
+1. Android 13 버전 권한 이슈로 카메라 실행시 종료되는 문제 수정
+
 ## v2.3.8
 (2022.10.21)
 1. NetworkService를 활용할때 AccessToken을 사용할 경우 exception이 발생하는 문제 수정
