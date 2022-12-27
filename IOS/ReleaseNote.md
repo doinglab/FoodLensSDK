@@ -1,4 +1,7 @@
 # iOS FoodLensSDK Release Note
+## v2.4.9 (2022.11.03)
+1. 갤러리에아이콘 활성화 여부 설정기능 추가
+
 ## v2.4.8 (2022.09.06)
 1. 갤러리에서 이미지 불러올 때 촬영 일자 얻어오는 팝업 옵션처리. isUseImageRecordDate 옵션 추가
 
