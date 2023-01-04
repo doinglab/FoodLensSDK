@@ -39,7 +39,7 @@
         "foodName": String, //음식 이름
         "nutrition": Nutrition
       }
-      "imagePosition": {
+      "imagePosition": {  //음식이 위치하는 좌표
         "xmax": Int,
         "xmin": Int,
         "ymax": Int,
