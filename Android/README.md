@@ -434,6 +434,7 @@ RecognitionResult result = RecognitionResult.create(json);
 
 
 #### 4.4 섭취한 영양정보 산출 계산식
+영양성분은 1회 기준량으로 제공되며, 같이 제공되는 섭취량을 곱하여 실제 영양성분을 계산할 수 있습니다.
 ```java
 for(int i = 0; i < recognitionResult.getFoodPositions().size(); i++) {
 	FoodPosition foodPosition = foodPositions.get(i);
