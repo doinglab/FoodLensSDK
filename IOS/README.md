@@ -190,7 +190,7 @@ FoodLens.eatDate = calendar.date(from: dateComponents)!     //현재 시간 설�
 FoodLens.isSaveToGallery = false                            //촬영한 이미지 갤러리 저장 여부 
 FoodLens.isUseImageRecordDate =  false                      //갤러리에서 이미지 불러올 때 촬영 일자 사용여부 (ture일경우 선택 팝업표시)
 FoodLens.eatType = MealType.init(rawValue: 1)               //식사 타입 수정 선택
-
+FoodLens.isEnablePhtoGallery  = true                        //카메라 화면에서 갤러리 버튼 활성화 여부
 uiService.startUIService(parent: self, completionHandler: CallbackObject())
   
 ```
@@ -226,7 +226,7 @@ let predictResult = PredictionResult.create(json: jsonString)
 PredictionResult 은 RecognitionResult protocol 의 구현체 입니다.
 
 ### 4.2.5 영양성분 계산
-
+영양성분은 1회 기준량으로 제공되며, 같이 제공되는 섭취량을 곱하여 실제 영양성분을 계산할 수 있습니다.
 ```swift
     for index in 0 ..< result.foodPositionList.count {
         let eatAmount = result.foodPositionList[index].eatAmount
