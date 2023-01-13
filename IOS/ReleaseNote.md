@@ -1,4 +1,8 @@
 # iOS FoodLensSDK Release Note
+## v2.5.0 (2023.01.12)
+1. Library 최신화
+2. SPM 지원
+
 ## v2.4.9 (2022.11.03)
 1. 갤러리에아이콘 활성화 여부 설정기능 추가
 
