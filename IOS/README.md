@@ -17,7 +17,7 @@ FoodLens SDK는 Network SDK와 UI SDK로 이루어 지며, 자체 UI를 작성�
 
 
 ## 1. SDK 설치 및 설정
-
+### 1.1 Cocodpod
 Podfile 에 아래와 같은 구문을 추가하여 FoodLens 를 import 합니다.
 
 ```ruby
@@ -26,7 +26,7 @@ platform :ios, '12.0'
 target 'FoodLensApp' do
   # Comment the next line if you're not using Swift and don't want to use dynamic frameworks
   use_frameworks!
-  pod 'FoodLens', '2.4.9'
+  pod 'FoodLens', '2.5.0'
   ....
 ```
 
@@ -40,9 +40,20 @@ pod install --repo-update
 ```
 pod repo remove [repo name]
 ```
+### 1.2 SPM
+File -> AddPackage 혹은 ProjectSetting -> AddPackage 선택
+
+Search or Enter Package URL에 "https://bitbucket.org/doing-lab/ios_foodlenssdk.git" 입력 후 FoodLens 추가
+
+<img src="./Images/spm1.png">
+<img src="./Images/spm2.png">
 
 ## 2. 리소스(Resources) 및 info.plist 수정
-해당사항 없음
+아래 항목 Info.plist에 추가
+- Privacy - Camera Usage Description
+- Privacy - Photo Library Additions Usage Description
+- Privacy - Photo Library Usage Description
+
 
 ## 3. FoodLens 독립 서버 주소 설정
 
@@ -58,7 +69,7 @@ pod repo remove [repo name]
 Network API는 FoodLens기능을 이미지 파일기반으로 동작하게 하는 기능입니다.
 결과를 이용하여 각자에 맞는 UI를 직접 개발 할 수 있습니다.
 
-#### 4.1.1 음ㅅ 인식기능 사용
+#### 4.1.1 음 인식기능 사용
 1. NetworkService를 생성합니다.
 2. predictMultipleFood 메소드를 호출 합니다.
 파라미터로 UIImage로 로드왼 이미지를 전달합니다.
