@@ -50,7 +50,7 @@ compileOptions {
         targetCompatibility JavaVersion.VERSION_1_8
     }
 ```
-#### 1.2.2 maven repository설정
+#### 1.1.1 maven repository설정
 최신 버전 프로젝트로 mavenCentral만 기본 설정일 경우 jcenter 리포지토리를 프로젝트 그래들에 추가
 ```java
 buildscript {
@@ -73,7 +73,7 @@ allprojects {
     }
 }
 ```
-#### 1.2.1 FoodLens SDK 버전 설정
+#### 1.1.2 FoodLens SDK 버전 설정
  - 프로젝트에서 app > Gradle Scripts(그래들 스크립트) > build.gradle (Module: app)을 연 후 dependencies{} 섹션에 아래와 같은 문구를 추가해 주세요.
 ```java
  implementation "com.doinglab.foodlens:FoodLens:2.4.3"
