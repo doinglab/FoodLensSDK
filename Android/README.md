@@ -31,24 +31,14 @@ maven {
 }
 ```
 
-### 1.1 Android 10 지원
-Android 10 지원을 위해 Compile SDK Version을 29이상으로 설정해 주세요. 프로젝트에서 app > Gradle Scripts(그래들 스크립트) > build.gradle (Module: app)을 연 후 android{} 섹션에 아래와 같은 문구를 추가해 주세요.
 
-```java
-android {
-        ....
-        compileSdkVersion 29
-	....       
-    }
-```
-
-### 1.2 gradle 설정
-- minSdkVersion은 19 이상을 사용하시기 바랍니다.
+### 1.1 gradle 설정
+- minSdkVersion은 21 이상을 사용하시기 바랍니다.
 프로젝트에서 app > Gradle Scripts(그래들 스크립트) > build.gradle (Module: app)을 연 후 defaultConfig{} 섹션에 아래와 같은 문구를 추가해 주세요.
 ```java
    defaultConfig {
         ....
-        minSdkVersion 19
+        minSdkVersion 21
 	....       
     }
 ```
@@ -96,7 +86,7 @@ android {
     compileSdkVersion 29
     defaultConfig {
         applicationId "com.doinglab.sdk.sample"
-        minSdkVersion 19
+        minSdkVersion 21
         targetSdkVersion 29
         versionCode 1
         versionName "1.0"
