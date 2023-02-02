@@ -1,4 +1,7 @@
 # iOS FoodLensSDK Release Note
+## v2.5.1 (2023.02.01)
+1. 검색 성능 최적화
+
 ## v2.5.0 (2023.01.12)
 1. Library 최신화
 2. SPM 지원
