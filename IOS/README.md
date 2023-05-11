@@ -45,8 +45,8 @@ File -> AddPackage 혹은 ProjectSetting -> AddPackage 선택
 
 Search or Enter Package URL에 "https://bitbucket.org/doing-lab/ios_foodlenssdk.git" 입력 후 FoodLens 추가
 
-<img src="./Images/spm1.png">
-<img src="./Images/spm2.png">
+<center><img src="./Images/spm1.png" width="70%" height="70%"></center>
+<center><img src="./Images/spm2.png" width="70%" height="70%"></center>
 
 ## 2. 리소스(Resources) 및 info.plist 수정
 아래 항목 Info.plist에 추가
@@ -64,7 +64,7 @@ Search or Enter Package URL에 "https://bitbucket.org/doing-lab/ios_foodlenssdk.
 ```
 <img src="./Images/infoplist.png">
 
-## 4. SDK 사용법 사용법
+## 4. SDK 사용법
 ### 4.1 Network API 사용법
 Network API는 FoodLens기능을 이미지 파일기반으로 동작하게 하는 기능입니다.
 결과를 이용하여 각자에 맞는 UI를 직접 개발 할 수 있습니다.
@@ -127,9 +127,11 @@ UI API는 FoodLens 에서 제공하는 기본 UI를 활용하여 서비스를 �
 UI API는 간단한 화면 Customize기능을 포함하고 있습니다.
 (2.0.27 버전부터는 Light Mode 로만 UI 가 표시됩니다.)
 
-### 4.2.1 UI Service의 카메라 모듈 및 인식 기능 사용
+#### 4.2.1 UI Service의 모듈 및 인식 기능 사용
+카메라 모듈, 검색 모듈, 갤러리 모듈 3가지 방식을 사용하여  UI Service의 인식 기능을 사용할 수 있습니다.
+
+#### 4.2.1.1 UI Service 생성
 UIService를 생성합니다.
-startFoodLensCamera 메소드를 호출 합니다.
 
 ```swift
 FoodLens.uiServiceMode = .userSelectedWithCandidates
@@ -139,9 +141,35 @@ let uiService = FoodLens.createUIService(accessToken: "<Access Token Here>")
 
 //NOTE AppToken, CompanyToken모두 있는 경우
 let uiService = FoodLens.createUIService(appToken: "<App Token Here>", companyToken: "<Company Token Here>")
-
-uiService?.startUIService(parent: self, completionHandler: self)
 ```
+
+#### 4.2.1.2 모듈 사용
+1. 카메라 모듈 사용
+
+startCameraUIService 메소드를 호출 합니다.
+
+```swift
+uiService?.startCameraUIService(parent: self, completionHandler: self)
+```
+
+
+2. 검색 모듈 사용
+
+startSearchUIService 메소드를 호출 합니다.
+
+```swift
+uiService?.startSearchUIService(parent: self, completionHandler: self)
+```
+
+3. 갤러리 모듈 사용
+
+startGalleryUIService 메소드를 호출 합니다.
+
+```swift
+uiService?.startSearchUIService(parent: self, completionHandler: self)
+```
+
+#### 4.2.1.3 completionHandler 설정
 completionHandler 는 callback 을 받을 swift protocol 이며, 아래와 같이 정의되어 있습니다.
 
 ```swift
@@ -163,6 +191,7 @@ let uiService = FoodLens.createUIService(accessToken: "<Access Token Here>") //A
 uiService.startEditUIService(mealData, parent: self, completionHandler: CallbackObject())    
 ```
 completionHandler 는 callback 을 받을 swift protocol 입니다.
+
 
 ### 4.2.3 영양정보 추출 모드
 인식 결과를 리턴 받을 때 추천항목의 영양소까지 받을지 여부를 선택 할 수 있다.
@@ -202,6 +231,7 @@ FoodLens.isSaveToGallery = false                            //촬영한 이미�
 FoodLens.isUseImageRecordDate =  false                      //갤러리에서 이미지 불러올 때 촬영 일자 사용여부 (ture일경우 선택 팝업표시)
 FoodLens.eatType = MealType.init(rawValue: 1)               //식사 타입 수정 선택
 FoodLens.isEnablePhtoGallery  = true                        //카메라 화면에서 갤러리 버튼 활성화 여부
+FoodLens.language = .en					                       //제동되는 음식 정보 언어 설정 (음식정보 외에 UI에 표시되는 텍스트의 언어는 기기에 설정된 언어로 표시)
 uiService.startUIService(parent: self, completionHandler: CallbackObject())
   
 ```
@@ -217,7 +247,7 @@ uiService.startUIService(parent: self, completionHandler: CallbackObject())
 저녁 : 17시 ~ 20시
 야식 : 20시 ~ 5시
 ```
-### 4.2.4 JSON 변환
+### 4.2.5 JSON 변환
 
 UserServiceResultHandler.onSuccess 함수의 파라미터로 전달되는 RecognitionResult 객체를 JSON 문자열로 변환할 수 있습니다. 
 
@@ -236,7 +266,7 @@ let predictResult = PredictionResult.create(json: jsonString)
 ```
 PredictionResult 은 RecognitionResult protocol 의 구현체 입니다.
 
-### 4.2.5 영양성분 계산
+### 4.2.6 영양성분 계산
 영양성분은 1회 기준량으로 제공되며, 같이 제공되는 섭취량을 곱하여 실제 영양성분을 계산할 수 있습니다.
 ```swift
     for index in 0 ..< result.foodPositionList.count {
