@@ -88,12 +88,30 @@ class ViewController: UIViewController, UserServiceResultHandler, UIImagePickerC
         FoodLens.uiServiceMode = .userSelectedWithCandidates
         uiService = FoodLens.createUIService(accessToken: "<access Token here>")
         networkService = FoodLens.createNetworkService(nutritionRetrieveMode: .allNutirition, accessToken: "<access Token here>")
+        
+        print(Locale.current)
+
+        func getPreferredLocale() -> Locale {
+            guard let preferredIdentifier = Locale.preferredLanguages.first else {
+                return Locale.current
+            }
+            return Locale(identifier: preferredIdentifier)
+        }
+        print(getPreferredLocale().languageCode)
     }
     
-    @IBAction func startUIService(_ sender: Any) {
+    @IBAction func startCameraUIService(_ sender: Any) {
         statusLabel.text = ""
         Util.deleteDirectory(path : "foodlensStore")
-        uiService?.startUIService(parent: self, completionHandler: self)
+        uiService?.startCameraUIService(parent: self, completionHandler: self)
+    }
+    
+    @IBAction func startSearchUIService(_ sender: Any) {
+        uiService?.startSearchUIService(parent: self, completionHandler: self)
+    }
+    
+    @IBAction func startGalleryUIService(_ sender: Any) {
+        uiService?.startGalleryUIService(parent: self, completionHandler: self)
     }
     
     func saveImage() -> String? {
