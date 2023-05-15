@@ -222,7 +222,20 @@ ns.predictMultipleFood(byteData, new RecognizeResultHandler() {
 ...
 ```
 
-#### 4.1.3 음식 영양정보 얻기
+#### 4.1.3 음식 결과 언어 설정
+옵션에 따라 음식 결과의 언어를 설정 할 수 있습니다.
+```java
+//Create Network Service
+final NetworkService ns = FoodLens.createNetworkService(context);
+//LanguageConfig.EN  음식결과의 리턴값 언어를 영어로 설정
+//LanguageConfig.KO  음식결과의 리턴값 언어를 한국어로 설정
+//LanguageConfig.DEVICE  default로 디바이스 언어 설정을 따라가며 한국어가 아닌경우 영어로 설정, 생략가능
+ns.setLanguageConfig(LanguageConfig.EN);  
+ns.predictMultipleFood(byteData, new RecognizeResultHandler() {
+...
+```
+
+#### 4.1.4 음식 영양정보 얻기
 1. NetworkService를 생성합니다.
 2. getNutritionInfo 메소드를 호출 합니다.  
    파라미터는 FoodID와 NutritionResultHandler 입니다.  
@@ -244,7 +257,7 @@ ns.getNutritionInfo([food_id], new NutritionResultHandler() {
 	}
 });
 ```
-#### 4.1.4 음식항목 검색하기
+#### 4.1.5 음식항목 검색하기
 1. NetworkService를 생성합니다.
 2. searchFoodsByName 메소드를 호출 합니다.  
    파라미터는 음식이름과 SearchResultHandler 입니다.  
@@ -313,9 +326,97 @@ protected void onActivityResult(int requestCode, int resultCode, @Nullable Inten
 }
 ```
 
-#### 4.2.2 UI Service의 Data 수정 기능
+#### 4.2.2 UI Service의 갤러리 기능 사용
 1. UIService를 생성합니다.
-2. 3.1.2과 3.2.1에서 획득한 영양정보를 recognitionResult에 저장합니다.
+2. startFoodLensGallery 메소드를 호출 합니다.  
+- 코드 예제
+```java
+//Define UI Service
+private UIService uiService;
+
+...
+
+//Create UI Service
+uiService = FoodLens.createUIService(context);
+uiService.startFoodLensGallery(MainActivity.this, new UIServiceResultHandler() {
+                    @Override
+                    public void onSuccess(UserSelectedResult result) {     
+		    	//implement code
+                    }
+
+                    @Override
+                    public void onCancel() {
+                        Log.d("MSG_LOG", "Recognition Cancel");
+                    }
+
+                    @Override
+                    public void onError(BaseError error) {
+                        Log.d("MSG_LOG", error.getMessage());
+                    }
+                });
+		
+```
+
+3. UIService의 startFoodLensGallery 호출한 Activity의 onActivityResult(Override)에 
+   UIService의 onActivityResult 메소드를 호출합니다. 
+- 코드예제
+```java
+@Override
+protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+	....
+	uiService.onActivityResult(requestCode, resultCode, data);
+	....
+}
+```
+
+#### 4.2.3 UI Service의 검색 기능 사용
+1. UIService를 생성합니다.
+2. startFoodLensSearch 메소드를 호출 합니다.  
+- 코드 예제
+```java
+//Define UI Service
+private UIService uiService;
+
+...
+
+//Create UI Service
+uiService = FoodLens.createUIService(context);
+uiService.startFoodLensSearch(MainActivity.this, new UIServiceResultHandler() {
+                    @Override
+                    public void onSuccess(UserSelectedResult result) {     
+		    	//implement code
+                    }
+
+                    @Override
+                    public void onCancel() {
+                        Log.d("MSG_LOG", "Recognition Cancel");
+                    }
+
+                    @Override
+                    public void onError(BaseError error) {
+                        Log.d("MSG_LOG", error.getMessage());
+                    }
+                });
+		
+```
+
+3. UIService의 startFoodLensSearch 호출한 Activity의 onActivityResult(Override)에 
+   UIService의 onActivityResult 메소드를 호출합니다. 
+- 코드예제
+```java
+
+@Override
+protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+	....
+	uiService.onActivityResult(requestCode, resultCode, data);
+	....
+}
+```
+
+
+#### 4.2.4 UI Service의 Data 수정 기능
+1. UIService를 생성합니다.
+2. 4.1.2과 4.2.1에서 획득한 영양정보를 recognitionResult에 저장합니다.
 3. startFoodLensDataEdit 메소드를 호출 합니다. 
 - 코드 예제
 ```java
@@ -359,7 +460,7 @@ protected void onActivityResult(int requestCode, int resultCode, @Nullable Inten
 }
 ```
 
-#### 4.2.3 영양정보 추출 모드
+#### 4.2.5 영양정보 추출 모드
 인식 결과를 리턴 받을 때 추천항목의 영양소까지 받을지 여부를 선택 할 수 있다.
 ```java
 //USER_SELECTED_WITH_CANDIDATES 사용자 선택외 추천된 항목의 모든 영양정보가 반환된다.
@@ -367,8 +468,8 @@ protected void onActivityResult(int requestCode, int resultCode, @Nullable Inten
 uiService.setUiServiceMode(UIServiceMode.USER_SELECTED_WITH_CANDIDATES);
 ```
 
-#### 4.2.4 테마 및 옵션 변경
-##### 4.2.4.1 UI 테마 변경
+#### 4.2.6 테마 및 옵션 변경
+##### 4.2.6.1 UI 테마 변경
 FoodLens UI 의 여러 요소에 개별 색을 적용할 수 있습니다.
 ```java
 BottomWidgetTheme bottomWidgetTheme =  new BottomWidgetTheme(this);
@@ -385,7 +486,7 @@ uiService.setBottomWidgetTheme(bottomWidgetTheme);
 uiService.setDefaultWidgetTheme(defaultWidgetTheme);
 uiService.setToolbarTheme(toolbarTheme);
 ```
-##### 4.2.4.2 FoodLens 옵션 변경
+##### 4.2.6.2 FoodLens 옵션 변경
 FoodLens의 사용 옵션을 변경 할 수 있습니다.
 ```java
 FoodLensBundle bundle = new FoodLensBundle();
@@ -395,11 +496,12 @@ bundle.setSaveToGallery(true);      //갤러리 기능 활성화 여부
 bundle.setUseImageRecordDate(true); //갤러리에 저장된 사진의 사진촬영시간을 입력시간으로 사용할지 여부
 bundle.setEnableCameraOrientation(true);  //카메라 회전 기능 지원 여부
 bundle.setEnablePhotoGallery(true);  //카메라 화면 갤러리 버튼 활성화 여부
+bundle.setLanguageConfig(LanguageConfig.KO); //음식 결과의 언어 설정, DEVICE(default),EN,KO 선택가능 
 uiService.setDataBundle(bundle);
 
 ```
 
-##### 4.2.4.3 식사 타입 자동 설정
+##### 4.2.6.3 식사 타입 자동 설정
 사용자가 setEatType을 이용하여 식사타입 설정을 직접 하지 않은 경우, 음식 식사 타입은 기준 시간을 기준으로 자동설정됨
 설정되는 시간 값
 ```
