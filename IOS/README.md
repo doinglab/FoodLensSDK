@@ -166,7 +166,7 @@ uiService?.startSearchUIService(parent: self, completionHandler: self)
 startGalleryUIService 메소드를 호출 합니다.
 
 ```swift
-uiService?.startSearchUIService(parent: self, completionHandler: self)
+uiService?.startGalleryUIService(parent: self, completionHandler: self)
 ```
 
 #### 4.2.1.3 completionHandler 설정
