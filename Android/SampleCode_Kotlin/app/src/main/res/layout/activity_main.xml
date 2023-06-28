@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    tools:context=".MainActivity">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:id="@+id/btn_view"
+            android:layout_marginBottom="12dp">
+
+            <Button
+                android:id="@+id/btn_run_camera"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Run FoodLens Network Service"/>
+
+            <Button
+                android:id="@+id/btn_run_foodlens"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Run FoodLens UI Service"/>
+
+            <Button
+                android:id="@+id/btn_run_editmode"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Run FoodLens EditMode"/>
+
+            <TextView
+                android:layout_marginTop="12dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/tv_title"
+                android:textColor="@android:color/darker_gray"
+                android:textSize="22dp"/>
+
+        </LinearLayout>
+
+        <ListView
+            android:id="@+id/listview"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/btn_view"
+            android:layout_margin="12dp"
+            />
+
+    </RelativeLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

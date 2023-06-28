@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">FoodLensTestApp</string>
+    <string name="foodlens_access_token">FILL_KEY</string>
+</resources>
