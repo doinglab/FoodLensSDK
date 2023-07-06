@@ -1,4 +1,8 @@
 # Android FoodLensSDK Release Note
+## v2.5.3
+(2023.07.05)
+1. 안전하지 않은 SSL 예외처리 코드 삭제
+
 ## v2.5.1
 (2023.05.08)
 1. uiService 검색, 갤러리 바로가기 기능 추가
