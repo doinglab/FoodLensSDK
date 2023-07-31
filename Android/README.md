@@ -167,8 +167,8 @@ AccessToken과 Company, AppToken을 중 한가지만 세팅 합니다.
 ```
 
 ## 3.독립 FoodLens 서버 주소 설정
- - Meta data추가 
-   아래와 같이 메타데이터를 Manifest.xml에 추가해 주세요
+ - 기본 FoodLens 서버가 아닌 독립 서버를 운용할 경우 서버 주소를 설정 할 수 있습니다.(별도 협의)
+ - Meta data추가 아래와 같이 메타데이터를 Manifest.xml에 추가해 주세요
 ```xml
 //프로토콜과 및 포트를 제외한 순수 도메인 주소 혹은 IP주소 e.g) www.foodlens.com, 123.222.100.10
 <meta-data android:name="com.doinglab.foodlens.sdk.serveraddr" android:value="[server_address]"/> 
