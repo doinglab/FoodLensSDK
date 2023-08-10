@@ -27,7 +27,7 @@
             "totalgram": Float, // 1회 제공량에 따른 섭취량 (단위 : g)
             "transfat":Float, //트랜스지방(단위 : g)
             "unit": String, // 제공단위(ex : 봉지, 그릇 등..)
-            "vitamina": Float, //비타민 A(단위 : RE)
+            "vitamina": Float, //비타민 A(단위 :  ㎍ RAE)
             "vitaminb": Float, //비타민 B1(단위 : mg)
             "vitaminc": Float, //비타민 C(단위 : mg)
             "vitamind": Float, //비타민 D(단위 : ug)
