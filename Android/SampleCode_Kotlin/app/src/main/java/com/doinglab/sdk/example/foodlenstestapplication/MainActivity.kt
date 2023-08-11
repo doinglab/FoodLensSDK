@@ -1,21 +1,30 @@
 package com.doinglab.sdk.example.foodlenstestapplication
 
+import android.content.Context
 import android.content.Intent
+import android.graphics.Bitmap
 import android.graphics.BitmapFactory
+import android.graphics.ImageDecoder
 import android.graphics.drawable.BitmapDrawable
 import android.graphics.drawable.Drawable
-import androidx.appcompat.app.AppCompatActivity
+import android.net.Uri
+import android.os.Build
 import android.os.Bundle
 import android.provider.MediaStore
 import android.util.Log
 import android.view.View
 import android.widget.*
+import androidx.activity.result.contract.ActivityResultContracts
+import androidx.appcompat.app.AppCompatActivity
 import com.doinglab.foodlens.sdk.*
 import com.doinglab.foodlens.sdk.errors.BaseError
 import com.doinglab.foodlens.sdk.network.model.NutritionResult
 import com.doinglab.foodlens.sdk.network.model.RecognitionResult
 import com.doinglab.foodlens.sdk.network.model.UserSelectedResult
+import com.doinglab.foodlens.sdk.ui.util.BitmapPredictUtil
+import com.doinglab.foodlens.sdk.ui.util.BitmapUtil
 import com.doinglab.sdk.example.foodlenstestapplication.listview.ListViewAdapter
+import java.io.ByteArrayOutputStream
 import java.io.File
 import java.io.FileInputStream
 
@@ -42,8 +51,6 @@ class MainActivity : AppCompatActivity() {
         ListViewAdapter()
     }
 
-    val REQ_PICTURE = 0x02
-
     var recognitionResult: RecognitionResult? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -51,6 +58,8 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         uiService.setUiServiceMode(UIServiceMode.USER_SELECTED_WITH_CANDIDATES)
+        //uiService onActivityResult 호출 필요 여부. default는 true
+        uiService.setUseActivityResult(false)
 
         try {
             val bundle = FoodLensBundle()
@@ -119,8 +128,35 @@ class MainActivity : AppCompatActivity() {
             Intent.ACTION_PICK,
             MediaStore.Images.Media.EXTERNAL_CONTENT_URI
         )
-        startActivityForResult(intent, REQ_PICTURE)
+        pictureResultLauncher.launch(intent)
     }
+
+    private var pictureResultLauncher =
+        registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
+            if (result.resultCode == RESULT_OK) {
+                result.data?.data?.let { uri ->
+                    var bitmap = uri.parseBitmap(this@MainActivity)
+
+                    val baos = ByteArrayOutputStream()
+                    bitmap.compress(Bitmap.CompressFormat.JPEG, 90, baos)
+
+                    ns.setNutritionRetrieveMode(NutritionRetrieveMode.TOP1_NUTRITION_ONLY)
+                    ns.setLanguageConfig(LanguageConfig.KO)
+                    ns.predictMultipleFood(baos.toByteArray(), object : RecognizeResultHandler {
+                        override fun onSuccess(result: RecognitionResult?) {
+                            result?.let {
+                                recognitionResult = result
+                                tv_title!!.text = "Result from Network Service"
+                                setRecognitionResultData(result)
+                            }
+                        }
+                        override fun onError(errorReason: BaseError?) {
+                            errorReason?.message?.let { Log.e("FOODLENS_LOG", it) }
+                        }
+                    })
+                }
+            }
+        }
 
     private fun setRecognitionResultData(recognitionResultData: RecognitionResult) {
         listview!!.adapter = null
@@ -142,7 +178,8 @@ class MainActivity : AppCompatActivity() {
                 val carbon = "탄수화물: " + nutrition.carbonHydrate
                 val protein = "단백질: " + nutrition.protein
                 val fat = "지방: " + nutrition.fat
-                foodNutritionInfo += "$carbon $protein $fat"
+                val foodType = "타입: " + nutrition.foodType
+                foodNutritionInfo += "$carbon $protein $fat $foodType"
             }
             val bitmap = BitmapFactory.decodeFile(foodPosition.foodImagePath)
             val drawable: Drawable = BitmapDrawable(resources, bitmap)
@@ -159,54 +196,15 @@ class MainActivity : AppCompatActivity() {
     }
 
 
-    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        super.onActivityResult(requestCode, resultCode, data)
-        if (requestCode == REQ_PICTURE && resultCode == RESULT_OK && null != data) {
-            val selectedImage = data.data
-            val filePathColumn = arrayOf(MediaStore.Images.Media.DATA)
-            val cursor = contentResolver.query(
-                selectedImage!!,
-                filePathColumn, null, null, null
-            )
-            cursor!!.moveToFirst()
-            val columnIndex = cursor.getColumnIndex(filePathColumn[0])
-            val picturePath = cursor.getString(columnIndex)
-            cursor.close()
-            val byteData = readContentIntoByteArray(File(picturePath))
-
-            ns.setNutritionRetrieveMode(NutritionRetrieveMode.TOP1_NUTRITION_ONLY)
-            ns.setLanguageConfig(LanguageConfig.KO)
-            ns.predictMultipleFood(byteData, object : RecognizeResultHandler {
-                override fun onSuccess(result: RecognitionResult) {
-                    recognitionResult = result
-                    tv_title!!.text = "Result from Network Service"
-
-                    setRecognitionResultData(result)
-                }
-
-                override fun onError(errorReason: BaseError) {
-                    Log.e("FOODLENS_LOG", errorReason.message)
-                }
-            })
-            ns.getNutritionInfo(20, object : NutritionResultHandler {
-                override fun onSuccess(result: NutritionResult) {}
-                override fun onError(errorReason: BaseError) {}
-            })
+    private fun Uri.parseBitmap(context: Context): Bitmap {
+        return when (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) {
+            true -> {
+                val source = ImageDecoder.createSource(context.contentResolver, this)
+                ImageDecoder.decodeBitmap(source)
+            }
+            else -> {
+                MediaStore.Images.Media.getBitmap(context.contentResolver, this)
+            }
         }
-        uiService!!.onActivityResult(requestCode, resultCode, data)
-    }
-
-    private fun readContentIntoByteArray(file: File): ByteArray {
-        var fileInputStream: FileInputStream? = null
-        val bFile = ByteArray(file.length().toInt())
-        try {
-            //convert file into array of bytes
-            fileInputStream = FileInputStream(file)
-            fileInputStream.read(bFile)
-            fileInputStream.close()
-        } catch (e: Exception) {
-            e.printStackTrace()
-        }
-        return bFile
     }
 }
