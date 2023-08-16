@@ -314,7 +314,8 @@ uiService.startFoodLensCamera(MainActivity.this, new UIServiceResultHandler() {
 ```
 
 3. UIService의 startFoodLensCamera를 호출한 Activity의 onActivityResult(Override)에 
-   UIService의 onActivityResult 메소드를 호출합니다. 
+   UIService의 onActivityResult 메소드를 호출합니다.
+- UIService setUseActivityResult(false) 설정시 생략 가능합니다.   
 - 코드예제
 ```java
 
@@ -358,7 +359,8 @@ uiService.startFoodLensGallery(MainActivity.this, new UIServiceResultHandler() {
 ```
 
 3. UIService의 startFoodLensGallery 호출한 Activity의 onActivityResult(Override)에 
-   UIService의 onActivityResult 메소드를 호출합니다. 
+   UIService의 onActivityResult 메소드를 호출합니다.
+- UIService setUseActivityResult(false) 설정시 생략 가능합니다.     
 - 코드예제
 ```java
 @Override
@@ -401,7 +403,8 @@ uiService.startFoodLensSearch(MainActivity.this, new UIServiceResultHandler() {
 ```
 
 3. UIService의 startFoodLensSearch 호출한 Activity의 onActivityResult(Override)에 
-   UIService의 onActivityResult 메소드를 호출합니다. 
+   UIService의 onActivityResult 메소드를 호출합니다.
+- UIService setUseActivityResult(false) 설정시 생략 가능합니다.   
 - 코드예제
 ```java
 
@@ -448,7 +451,8 @@ uiService.startFoodLensDataEdit(MainActivity.this, recognitionResult, new UIServ
 ```
 
 4. UIService의 startFoodLensDataEdit 호출한 Activity의 onActivityResult(Override)에 
-   UIService의 onActivityResult 메소드를 호출합니다. 
+   UIService의 onActivityResult 메소드를 호출합니다.
+- UIService setUseActivityResult(false) 설정시 생략 가능합니다.  
 - 코드예제
 ```java
 
@@ -460,7 +464,15 @@ protected void onActivityResult(int requestCode, int resultCode, @Nullable Inten
 }
 ```
 
-#### 4.2.5 영양정보 추출 모드
+#### 4.2.5 onActivityResult 호출 여부 선택
+onActivityResult에서 uiService.onActivityResult 호출 여부를 선택 할 수 있다.
+```java
+//false 설정시 onActivityResult 에서 uiService.onActivityResult 호출할 필요 없습니다. 
+//Default 는 true로 onActivityResult 에서 uiService.onActivityResult 호출 해야합니다.
+uiService.setUseActivityResult(false)
+```
+
+#### 4.2.6 영양정보 추출 모드
 인식 결과를 리턴 받을 때 추천항목의 영양소까지 받을지 여부를 선택 할 수 있다.
 ```java
 //USER_SELECTED_WITH_CANDIDATES 사용자 선택외 추천된 항목의 모든 영양정보가 반환된다.
@@ -468,8 +480,8 @@ protected void onActivityResult(int requestCode, int resultCode, @Nullable Inten
 uiService.setUiServiceMode(UIServiceMode.USER_SELECTED_WITH_CANDIDATES);
 ```
 
-#### 4.2.6 테마 및 옵션 변경
-##### 4.2.6.1 UI 테마 변경
+#### 4.2.7 테마 및 옵션 변경
+##### 4.2.7.1 UI 테마 변경
 FoodLens UI 의 여러 요소에 개별 색을 적용할 수 있습니다.
 ```java
 BottomWidgetTheme bottomWidgetTheme =  new BottomWidgetTheme(this);
@@ -486,7 +498,7 @@ uiService.setBottomWidgetTheme(bottomWidgetTheme);
 uiService.setDefaultWidgetTheme(defaultWidgetTheme);
 uiService.setToolbarTheme(toolbarTheme);
 ```
-##### 4.2.6.2 FoodLens 옵션 변경
+##### 4.2.7.2 FoodLens 옵션 변경
 FoodLens의 사용 옵션을 변경 할 수 있습니다.
 ```java
 FoodLensBundle bundle = new FoodLensBundle();
@@ -501,7 +513,7 @@ uiService.setDataBundle(bundle);
 
 ```
 
-##### 4.2.6.3 식사 타입 자동 설정
+##### 4.2.7.3 식사 타입 자동 설정
 사용자가 setEatType을 이용하여 식사타입 설정을 직접 하지 않은 경우, 음식 식사 타입은 기준 시간을 기준으로 자동설정됨
 설정되는 시간 값
 ```
