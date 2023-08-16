@@ -1,4 +1,10 @@
 # Android FoodLensSDK Release Note
+
+## v2.5.4
+(2023.08.11)
+1. uiService setUseActivityResult 기능 추가
+2. 음식 결과 리턴값 foodtype 데이터 추가 
+
 ## v2.5.3
 (2023.07.05)
 1. 안전하지 않은 SSL 예외처리 코드 삭제
