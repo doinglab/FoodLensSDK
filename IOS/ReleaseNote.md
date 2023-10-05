@@ -1,6 +1,6 @@
 # iOS FoodLensSDK Release Note
 ## v2.6.3 (2023.10.04)
-1. XCode 15, iOS 17 대응
+1. Xcode 15, iOS 17 대응
 
 ## v2.6.2 (2023.08.16)
 1. 음식 결과 리턴값 foodtype 데이터 추가
