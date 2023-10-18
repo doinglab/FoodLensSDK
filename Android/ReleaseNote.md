@@ -1,5 +1,9 @@
 # Android FoodLensSDK Release Note
 
+## v2.5.5
+(2023.10.17)
+1. 음식조회 결과화면 입력완료 버튼 중복 클릭 방지 기능 추가
+   
 ## v2.5.4
 (2023.08.11)
 1. uiService setUseActivityResult 기능 추가
