@@ -10,7 +10,6 @@ FoodLens SDK는 Network SDK와 UI SDK로 이루어 지며, 자체 UI를 작성�
  
  
 ## 1. 안드로이드 프로젝트 설정
-2.3.0 버전부터 FoodLens SDK가 Priavte에서 public으로 변경되었습니다.
 
 ### 1.1 gradle 설정
 - minSdkVersion은 21 이상을 사용하시기 바랍니다.
