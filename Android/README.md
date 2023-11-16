@@ -12,26 +12,6 @@ FoodLens SDK는 Network SDK와 UI SDK로 이루어 지며, 자체 UI를 작성�
 ## 1. 안드로이드 프로젝트 설정
 2.3.0 버전부터 FoodLens SDK가 Priavte에서 public으로 변경되었습니다.
 
-### * <중요> 2.3.0 이전 사용자 *
-기존의 private maven setting을 하실 필요가 없으며,기존 고객은 삭제해주시기 바랍니다.
-- 프로젝트에서 app > Gradle Scripts(그래들 스크립트) > build.gradle (Project)를 연 후 allprojects { repositories {}}에 다음 아래 내용이 있다면 삭제.  
-
-#### 아래 코드가 있다면 해당 코드 부분 삭제
-#### 신규 프로젝트인 경우 설정 불필요
-```java
-maven {
-     credentials {
-         username "[UserName]"
-         password "[Password]"
-     }
-     authentication{
-	 basic(BasicAuthentication)
-     }
-     url "https://bitbucket.org/doing-lab/foodlenssdk-repo/raw/releases"
-}
-```
-
-
 ### 1.1 gradle 설정
 - minSdkVersion은 21 이상을 사용하시기 바랍니다.
 프로젝트에서 app > Gradle Scripts(그래들 스크립트) > build.gradle (Module: app)을 연 후 defaultConfig{} 섹션에 아래와 같은 문구를 추가해 주세요.
