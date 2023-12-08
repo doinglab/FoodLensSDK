@@ -11,13 +11,13 @@ FoodLens SDK는 Network SDK와 UI SDK로 이루어 지며, 자체 UI를 작성�
 
 * iOS Ver 12.0 이상
 * Swift Version 4.2 이상
-* 2.4.1 버전부터 private repository가 아닌 cocoapod public repository에 릴리즈 됩니다.
+* 2.4.1 버전부터 private repository가 아닌 CocoaPods public repository에 릴리즈 됩니다.
 
 
 
 
 ## 1. SDK 설치 및 설정
-### 1.1 Cocodpod
+### 1.1 CocoaPods
 Podfile 에 아래와 같은 구문을 추가하여 FoodLens 를 import 합니다.
 
 ```ruby
@@ -71,8 +71,8 @@ Network API는 FoodLens기능을 이미지 파일기반으로 동작하게 하�
 
 #### 4.1.1 음 인식기능 사용
 1. NetworkService를 생성합니다.
-2. predictMultipleFood 메소드를 호출 합니다.
-파라미터로 UIImage로 로드왼 이미지를 전달합니다.
+2. predictMultipleFood 메소드를 호출합니다.
+파라미터로 UIImage로 로드된 이미지를 전달합니다.   
 ※ 이미지가 작은경우 인식율이 낮아질 수 있습니다.
 3. 코드 예제
 
@@ -83,7 +83,7 @@ networkService!.predictMultipleFood(image: pickedImage) { (result : PredictionRe
 }
 ```
 #### 4.1.2 음식 인식기능 사용
-옵션에 따라 인식결과의 영양정보를 다르게 얻을 수 있다.
+옵션에 따라 인식결과의 영양정보를 다르게 얻을 수 있습니다.
 createNetworkService의 nutritionRetrieveMode 값을 설정하여 변경
 ```swift
 let networkService = FoodLens.createNetworkService(nutritionRetrieveMode: .allNutirition, accessToken: "<Access Token Here>") 
@@ -92,7 +92,7 @@ let networkService = FoodLens.createNetworkService(nutritionRetrieveMode: .allNu
 #### 4.1.3 음식 영양정보 얻기
 1. NetworkService를 생성합니다.
 2. getNutritionInfo 메소드를 호출 합니다.
-   파라미터로 FoodID를 넘겨 줍니다.
+   파라미터로 FoodID를 넘겨 줍니다.   
 ※ FoodID의 경우 Prediction결과 및 getFoodsByName 결과에서 획득 할 수 있습니다.
 
 ```swift
@@ -170,7 +170,7 @@ uiService?.startGalleryUIService(parent: self, completionHandler: self)
 ```
 
 #### 4.2.1.3 completionHandler 설정
-completionHandler 는 callback 을 받을 swift protocol 이며, 아래와 같이 정의되어 있습니다.
+completionHandler 는 callback 을 받을 Swift protocol 이며, 아래와 같이 정의되어 있습니다.
 
 ```swift
 public protocol UserServiceResultHandler {
@@ -190,14 +190,14 @@ FoodLens.uiServiceMode = .userSelectedWithCandidates
 let uiService = FoodLens.createUIService(accessToken: "<Access Token Here>") //AccessToken is given to you
 uiService.startEditUIService(mealData, parent: self, completionHandler: CallbackObject())    
 ```
-completionHandler 는 callback 을 받을 swift protocol 입니다.
+completionHandler 는 callback 을 받을 Swift protocol 입니다.
 
 
 ### 4.2.3 영양정보 추출 모드
-인식 결과를 리턴 받을 때 추천항목의 영양소까지 받을지 여부를 선택 할 수 있다.
+인식 결과를 리턴 받을 때 추천항목의 영양소까지 받을지 여부를 선택 할 수 있습니다.
 ```swift
-//userSelectedWithCandidates 사용자 선택외 추천된 항목의 모든 영양정보가 반환된다.
-//userSelectedOnly 선택시 사용자가 선택항 항목의 영양소만 반환된다.
+//userSelectedWithCandidates 사용자 선택 외 추천된 항목의 모든 영양정보가 반환됩니다.
+//userSelectedOnly 선택시 사용자가 선택항 항목의 영양소만 반환됩니다.
 FoodLens.uiServiceMode = .userSelectedWithCandidates 
 let uiService = FoodLens.createUIService(accessToken: "<Access Token Here>") //AccessToken is given to you
 uiService.startEditUIService(mealData, parent: self, completionHandler: CallbackObject())    
