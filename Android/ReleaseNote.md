@@ -1,5 +1,10 @@
 # Android FoodLensSDK Release Note
 
+## v2.6.0
+(2024.02.13)
+1. NetworkService 특정 이미지에서 전체 이미지 recycle 되는 현상 수정
+2. NetworkService 큰 사이즈 이미지 요청시 리사이징 하도록 수정(짧은 축 최대 3500) 
+
 ## v2.5.8
 (2023.11.24)
 1. 갤럭시 폴드 음식추천/음식검색/내음식 텍스트 붙어보이는 현상 수정
