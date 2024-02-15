@@ -1,5 +1,9 @@
 # Android FoodLensSDK Release Note
 
+## v2.6.1
+(2024.02.15)
+1. Android 14 선택적 권한에서 권한 없는 사진 선택시 응답없는 문제 수정
+   
 ## v2.6.0
 (2024.02.13)
 1. NetworkService 특정 이미지에서 전체 이미지 recycle 되는 현상 수정
