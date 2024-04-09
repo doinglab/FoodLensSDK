@@ -136,7 +136,7 @@ AccessToken과 Company, AppToken을 중 한가지만 세팅 합니다.
 
 ### 2.3 공통
 * ProGuard 설정
-앱에서 proguard를 통한 난독화를 설젇할 경우 아래와 깉이 proguard 설정을 설정 파일에 추가해 주세요
+앱에서 proguard를 통한 난독화를 설정할 경우 아래와 깉이 proguard 설정을 설정 파일에 추가해 주세요
 ```xml
 -keep public class com.doinglab.foodlens.sdk.** {
        *;
