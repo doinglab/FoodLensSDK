@@ -1,5 +1,8 @@
 # iOS FoodLensSDK Release Note
 
+## v2.6.9 (2024.05.17)
+1. PrivacyInfo.xcprivacy 파일 추가 (SPM, CocoaPods)
+
 ## v2.6.8 (2024.02.01)
 1. 큰 사이즈 이미지 크롭시 이미지 리사이징 후 크롭하도록 수정 (짧은 축 최대 3500)
 
