@@ -26,7 +26,7 @@ platform :ios, '12.0'
 target 'FoodLensApp' do
   # Comment the next line if you're not using Swift and don't want to use dynamic frameworks
   use_frameworks!
-  pod 'FoodLens', '2.6.7'
+  pod 'FoodLens', '2.6.9'  #최신 버전은 릴리즈 노트 확인
   ....
 ```
 
