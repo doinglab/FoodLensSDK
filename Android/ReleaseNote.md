@@ -1,5 +1,9 @@
 # Android FoodLensSDK Release Note
 
+## v2.6.5
+(2024.08.29)
+1. JCenter 의존성을 Maven Central로 마이그레이션
+
 ## v2.6.4
 (2024.04.30)
 1. 식사기록 수정 화면 진입시 인분으로 단위가 변경되는 현상 수정
