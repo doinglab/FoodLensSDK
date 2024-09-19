@@ -1,5 +1,9 @@
 # Android FoodLensSDK Release Note
 
+## v2.6.6
+(2024.09.12)
+1. Android 14 앱에서 선택적 권한 추가시 반복적으로 권한 요청 발생하는 현상 수정
+
 ## v2.6.5
 (2024.08.29)
 1. JCenter 의존성을 Maven Central로 마이그레이션
