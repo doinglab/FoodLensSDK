@@ -1,4 +1,4 @@
-# FoodLens2.0 SDK는 기술 지원 중단 예정입니다. 
+# FoodLens SDK 2.x버전은 기술 지원 중단 예정입니다. 
 # 신규 SDK를 사용하시기 바랍니다. [신규SDK가기](https://github.com/doinglab/FoodLensSDK-V3)
 # FoodLens를 사용하기 위한 SDK입니다.
 
