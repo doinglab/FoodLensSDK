@@ -1,5 +1,10 @@
 # Android FoodLensSDK Release Note
 
+## v2.6.8
+(2025.07.14)
+1. 타겟 버전 35
+2. edge to edge 대응
+
 ## v2.6.6
 (2024.09.12)
 1. Android 14 앱에서 선택적 권한 추가시 반복적으로 권한 요청 발생하는 현상 수정
