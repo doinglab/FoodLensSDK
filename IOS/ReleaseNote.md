@@ -1,5 +1,10 @@
 # iOS FoodLensSDK Release Note
 
+## v2.8.0 (2025.10.20)
+1. FoodLens 클래스 명 수정 (FoodLens -> FoodLensManager)
+2. 음식 상세 입력 화면 키보드 내려갈 시 강제동료되는 현상 방지 코드 추가
+3. 사진 리사이징 방식 수정
+
 ## v2.6.9 (2024.05.17)
 1. PrivacyInfo.xcprivacy 파일 추가 (SPM, CocoaPods)
 
