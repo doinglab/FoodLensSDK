@@ -241,9 +241,9 @@ uiService.startUIService(parent: self, completionHandler: CallbackObject())
 설정되는 시간 값
 ```
 아침 : 5시 ~ 10시
-아침간신 : 10 ~ 11시
+아침간식 : 10 ~ 11시
 점심 : 11시 ~ 13시
-점심간신 : 13시 ~ 17시
+점심간식 : 13시 ~ 17시
 저녁 : 17시 ~ 20시
 야식 : 20시 ~ 5시
 ```
